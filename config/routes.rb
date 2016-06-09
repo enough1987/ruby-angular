@@ -71,10 +71,8 @@ mount Spree::Core::Engine, at: '/'
   #     resources :products
   #   end
 
-match '/sign_in', to: 'auth#sign_in', via: 'post'
-match '/sign_up', to: 'auth#sign_up', via: 'post'
-
-get '/test', to: 'routang#test'
+match '/ruby/signin', to: 'auth#sign_in', via: 'post'
+match '/ruby/signup', to: 'auth#sign_up', via: 'post'
 
 get '*path', to: 'routang#any'
 

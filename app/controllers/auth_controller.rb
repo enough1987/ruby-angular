@@ -6,6 +6,12 @@ class AuthController < ApplicationController
 
 
 	def sign_up 
+		puts '+++++++++++++++++++++++++++++++++'
+		puts params
+		puts '+++++++++++++++++++++++++++++++++'
+		params[:user]
+		puts '""""""""""""""""""""""""""""""""""'
+
 	 	@user = Spree::User.find_by_email(params[:user][:email])
 					#!!! точка входа капчи
 					

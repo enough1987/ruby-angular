@@ -12,8 +12,12 @@ var watchApp = angular.module("watchApp",
       when('/', {
         templateUrl: '../views/landing-page.html',
         controller: 'LandingCtrl'
-      }).      
-       when('/test/:test', {
+      }). 
+      when('/signinup', {
+        templateUrl: '../views/signinup.html',
+        controller: 'SigninupCtrl'        
+      }).   
+       when('/test', {
         templateUrl: '../views/test.html',
         controller: 'TestCtrl'        
       }).         
