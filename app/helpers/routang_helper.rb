@@ -1,0 +1,2 @@
+module RoutangHelper
+end
