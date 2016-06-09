@@ -45,7 +45,7 @@ group :development do
   gem 'spring'
 end
 
+
 gem 'spree', '~> 3.0.9'
 gem 'spree_gateway', '~> 3.0.0'
 gem 'spree_auth_devise', '~> 3.0.0'
-gem 'simple_token_authentication', '~> 1.0' # see semver.org
