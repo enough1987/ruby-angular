@@ -2,58 +2,52 @@
 
 class AuthController < ApplicationController
 	skip_before_action :verify_authenticity_token
-	
 
 
-	def sign_up 
-		puts '+++++++++++++++++++++++++++++++++'
-		puts params
-		puts '+++++++++++++++++++++++++++++++++'
-		params[:user]
-		puts '""""""""""""""""""""""""""""""""""'
+	def sign_up
 
-	 	@user = Spree::User.find_by_email(params[:user][:email])
+	 	@user = Spree::User.find_by( email: params[:user][:email] )
 					#!!! точка входа капчи
+
 					
 					#пользователь существует        	
-					if @user.present?
-        	  render :json => {:status => "user exist"}.to_json		  			
-						return
+			if @user.present?
+        	  		render :json => {:status => 1, :text => "user exist"}.to_json		  			
+					return
         	end
 	
         	@user = Spree::User.new(user_params)
         	
+
 					#Исключение ошибки сохранения
 					if !@user.save
-						render :json => {:status => "not save"}.to_json
+						render :json => {:status => 2, :text => "not save"}.to_json
 						#Возможно дыра  в безопастности         	  
 						#unauthorized		
 		  			return
-       	 	end
-					
-					
+       	 	end					
 
 					#генератор токена
         	@user.generate_spree_api_key!
-					render :json => {:status => "Token created",:token => 										    					@user.spree_api_key}.to_json
+			render :json => {:status => 4, :text => "Token created", 
+			:token => @user.spree_api_key }.to_json 
         	return
 	end
 	
-	def sign_in
-		      	
-		@user = Spree::User.find_by_email(params[:user][:email])
+	def sign_in     	
+		@user = Spree::User.find_by( email: params[:user][:email] )
 		
-		
+
 		#Если несовпадение
 		if !@user.present? || !@user.valid_password?(params[:user][:password])
      	#unauthorized
-			render :json => {:status => "user is not exist"}.to_json		  
+			render :json => {:status => 3, :text => "user is not exist"}.to_json		  
  			return
-    end
+    	end
     
 		@user.generate_spree_api_key! if @user.spree_api_key.blank?
-		render :json => {:status => "Token created",
-    :token => @user.spree_api_key}.to_json
+		render :json => {:status => 4, :text => "Token created", 
+		:token => @user.spree_api_key }.to_json
 
   end
 

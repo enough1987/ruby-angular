@@ -4,5 +4,6 @@ class RoutangController < ApplicationController
         	render :file => "/public/index.html"
   	end
 
+
 end
 
