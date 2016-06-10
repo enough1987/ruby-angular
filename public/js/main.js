@@ -117,8 +117,20 @@ $(document).ready(function(){
 
 $('.collapse').collapse()
 
-if($(".faq-h")) {
-	$(".faq-h").click(function(){
-		console.log(this);
-});
-};
+
+// FILTER MOBILE MENU 
+
+  $(document).ready(function(){
+    if($(".search-sidebar_mobile-header_btn")){
+      $(".search-sidebar_mobile-header_btn").click(function() {
+        console.log('1');
+        if (!($(".search-sidebar_mobile-header_btn").hasClass("active"))) {
+        $(".search-sidebar_mobile-header_btn").addClass("active");
+        $(".filter-tabs").removeClass("filter-tabs_hidden-m");
+        } else {
+        $(".search-sidebar_mobile-header_btn").removeClass("active");
+        $(".filter-tabs").addClass("filter-tabs_hidden-m");
+         }
+      });
+    }
+  });

@@ -67,8 +67,19 @@ safeApply ) {
                return false; 
          }
       }
-
       return true;
+   };
+
+   $scope.auth = function(result, user){
+       console.log( result );
+       if ( result && result.status == 4 ) {
+            window.localStorage.setItem("token", JSON.stringify(result.token) );
+            document.getElementById("form-error").innerHTML = 'it is done';
+            document.getElementsByTagName('input');           
+
+       } else {
+            document.getElementById("form-error").innerHTML = result.text;
+       }
    };
 
    $scope.downcase = function (user) {
@@ -79,16 +90,6 @@ safeApply ) {
          }
       }
       return user;
-   }
-
-   $scope.auth = function(result){
-       console.log( result );
-       if ( result && result.status == 4 ) {
-            window.localStorage.setItem("token", JSON.stringify(result.token) );
-            document.getElementById("form-error").innerHTML = '';
-       } else {
-            document.getElementById("form-error").innerHTML = result.text;
-       }
    };
 
 });

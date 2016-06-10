@@ -1,26 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Watches cart</title>
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/jquery.formstyler.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
+  <div class="watchr-body">
     <header class="main-header shopping-cart-header container-fluid">
       <div class="top-header-part container">
         <div class="logo hidden-on-mobile">Watches</div>
@@ -29,8 +8,8 @@
             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
           </button>
           <div class="active-cart-list-container">
-            <ul class="product-list">
-              <li>
+            <ul class="product-list standart-list">
+              <li class="product-list_item">
                 <div class="product-photo-container">
                   <img class="product-small-img" src="img/productSmall.jpg" alt="">
                 </div>
@@ -42,7 +21,7 @@
                   <span class="product-price">$399,99</span>
                 </div>
               </li>
-              <li>
+              <li class="product-list_item">
                 <div class="product-photo-container">
                   <img class="product-small-img" src="img/productSmall.jpg" alt="">
                 </div>
@@ -64,29 +43,38 @@
           </div>
         </div>
         <div class="mobile-header hidden-on-desktop">
-          <a href="" class="text-logo">Watch<i>R</i></a>
+          <a href="" class="text-logo">Watch<i class="text-logo_r">R</i></a>
           <div class="mobile-menu-btn">
             <i class="fa fa-bars" aria-hidden="true"></i>
           </div>
         </div>
-        <div class="contact-info">
+        <div class="contact-info hidden-on-mobile">
           <span>contact@watches.com</span>
           <br>
           <span>0000-000-000</span>
         </div>
+        <div class="mobile-menu-content mobile-menu-content_hidden hidden-on-desktop">
+            <div class="contact-info">
+              <span>contact@watches.com</span>
+              <br>
+              <span>0000-000-000</span>
+            </div>
+            <button class="secondary-btn secondary-btn_transparent ">Buy</button>
+            <button class="secondary-btn secondary-btn_transparent ">Sell</button>
+        </div>
         <div class="mobile-cart-btn-container hidden-on-desktop clearfix">
-          <button class="secondary-btn secondary-btn_transparent ">Buy</button>
-          <button class="secondary-btn secondary-btn_transparent ">Sell</button>
+          <button class="secondary-btn secondary-btn_transparent hidden-on-mobile">Buy</button>
+          <button class="secondary-btn secondary-btn_transparent hidden-on-mobile">Sell</button>
         </div>
       </div>
       <div class="bottom-header-part container">
-        <h2>Shopping Cart</h2>
-        <h3 class="hidden-on-desktop">Order Summary</h3>
-         <ul class="breadcrumbs-container hidden-on-mobile">
-           <li><a href="" class="watch-breadcrumb">Home</a></li>
-           <li><a href="" class="watch-breadcrumb">Search Results</a></li>
-           <li><a href="" class="watch-breadcrumb">Rolex Explorer Stainless Steel</a><li>
-           <li><a href="" class="watch-breadcrumb">Shoping Cart</a></li>
+        <h2 class="bottom-header-part_h">Shopping Cart</h2>
+        <h3 class="bottom-header-part_h3 hidden-on-desktop">Order Summary</h3>
+         <ul class="breadcrumbs-container hidden-on-mobile standart-list">
+           <li class="breadcrumb-li"><a href="" class="watch-breadcrumb">Home</a></li>
+           <li class="breadcrumb-li"><a href="" class="watch-breadcrumb">Search Results</a></li>
+           <li class="breadcrumb-li"><a href="" class="watch-breadcrumb">Rolex Explorer Stainless Steel</a></li>
+           <li class="breadcrumb-li"><a href="" class="watch-breadcrumb">Shoping Cart</a></li>
          </ul>
       </div>
     </header>
@@ -96,16 +84,16 @@
         <div class="step-container container clearfix">
           <span class="mobile-v-step-count hidden-on-desktop">Step 1</span>
           <div class="done active-step step-name">
-            <h3 class="hidden-on-mobile">Order Summary</h3>
-            <div class="circle"><i class="fa fa-check" aria-hidden="true"></i></div>
+            <h3 class="step-name_h hidden-on-mobile">Order Summary</h3>
+            <div class="circle"><i class="circle_icon fa fa-check" aria-hidden="true"></i></div>
           </div>
           <div class="done active-step step-name step-name_central">
-            <h3 class="hidden-on-mobile">Shipping Info</h3>
-            <div class="circle circle_with-line"><i class="fa fa-check" aria-hidden="true"  ></i></div>
+            <h3 class="step-name_h hidden-on-mobile">Shipping Info</h3>
+            <div class="circle circle_with-line"><i class="circle_icon fa fa-check" aria-hidden="true"  ></i></div>
           </div>
           <div class="active-step step-name">
-            <h3 class="hidden-on-mobile">Payment</h3>
-            <div class="circle circle_with-line"><i class="fa fa-check" aria-hidden="true"  ></i></div>
+            <h3 class="step-name_h hidden-on-mobile">Payment</h3>
+            <div class="circle circle_with-line"><i class="circle_icon fa fa-check" aria-hidden="true"  ></i></div>
           </div>
         </div>
       </div>
@@ -159,7 +147,7 @@
           <!-- CARD FORM END -->
         <div class="summary-container">
           <h3>Summary</h3>
-          <ul class="summary-product-list small-list">
+          <ul class="summary-product-list small-list standart-list">
             <li class="clearfix">
               <span class="product-name">Oyster Perpetual - Boxed with Papers from 2009</span>
               <a href="" class="delete-from-cart-link">
@@ -175,11 +163,11 @@
               <span class="product-price">$399,99</span>
             </li>
           </ul>
-          <ul class="additional-list small-list">
+          <ul class="additional-list small-list standart-list">
             <li class="clearfix">
               <span class="product-name">Subtotal:</span>
               <span class="product-price">$399,99</span>
-            </li class="clearfix">
+            </li>
             <li class="clearfix">
               <span class="product-name">Shipping Cost:</span>
               <span class="product-price">$399,99</span>
@@ -200,26 +188,26 @@
 
     <footer class="main-footer">
       <div class="footer-top-part  container">
-        <a href="" class="text-logo">Watch<i>R</i></a>
+        <a href="" class="text-logo text-logo_with-right-line">Watch<i class="text-logo_r">R</i></a>
         <span class="copyright">© All rights reserved</span>
-        <ul class="footer-menu">
-          <li><a class="footer-menu-link" href="">Contacts</a></li>
-          <li><a class="footer-menu-link" href="">About Us</a></li>
-          <li><a class="footer-menu-link" href="">FAQ</a></li>
-          <li><a class="footer-menu-link" href="">Privacy Policy</a></li>
+        <ul class="footer-menu standart-list">
+          <li class="footer-menu_item"><a class="footer-menu-link" href="">Contacts</a></li>
+          <li class="footer-menu_item"><a class="footer-menu-link" href="">About Us</a></li>
+          <li class="footer-menu_item"><a class="footer-menu-link" href="">FAQ</a></li>
+          <li class="footer-menu_item"><a class="footer-menu-link" href="">Privacy Policy</a></li>
         </ul>
       </div>
-      <ul class="social-links-list container">
-        <li>
+      <ul class="social-links-list container standart-list">
+        <li class="social-links-list_item">
           <a class="social-link" href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
         </li>
-        <li>
+        <li class="social-links-list_item">
           <a class="social-link" href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
         </li>
-        <li>
+        <li class="social-links-list_item">
           <a class="social-link" href=""><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
         </li>
-        <li>
+        <li class="social-links-list_item">
           <a class="social-link" href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a>
         </li>
       </ul>
@@ -236,11 +224,10 @@
     </div>
     <!-- MODAL END -->
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.formstyler.min.js"></script>
-    <script src="js/main.js"></script>
-  </body>
-</html>
+    <script src="/js/lib/bootstrap.min.js"></script>
+    <script src="/js/lib/jquery.formstyler.min.js"></script>
+    <script src="/js/lib/owl.carousel.min.js"></script>
+    <script src="/js/main.js"></script>
+  </div>
