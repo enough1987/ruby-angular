@@ -46,6 +46,8 @@ group :development do
 end
 
 
-gem 'spree', '~> 3.0.9'
+
+gem 'spree', github: 'Akuraga/spree', branch: '3-0-stable'
 gem 'spree_gateway', '~> 3.0.0'
 gem 'spree_auth_devise', '~> 3.0.0'
+gem 'spree_static_content', github: 'spree-contrib/spree_static_content', branch: '3-0-stable'

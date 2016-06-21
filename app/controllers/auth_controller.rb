@@ -21,9 +21,7 @@ class AuthController < ApplicationController
 
 					#Исключение ошибки сохранения
 					if !@user.save
-
-						render :json => {:status => 2, 
-						:text => @user.errors.full_messages[0] }.to_json
+						render :json => {:status => 2, :text => "not save"}.to_json
 						#Возможно дыра  в безопастности         	  
 						#unauthorized		
 		  			return

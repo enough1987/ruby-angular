@@ -44,7 +44,22 @@ customDirectives.directive('jsLazyLoad', function () {
     
     head.appendChild(script);        
 
+                });
+        }
+    }
+});
 
+
+customDirectives.directive('checkedDir', function () {
+    return {
+        restrict: 'A', 
+        scope : false,       
+        link: function (scope, element, attr) {
+                element.ready(function () {  
+    var tax = attr['tax'];              
+    var sid = attr['sid']; 
+    var check = (tax.split(sid).length - 1) > 0 ? true : false;
+    element.attr('checked' , check );
                 });
         }
     }

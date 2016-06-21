@@ -1,0 +1,7 @@
+<div>
+  <%= f.field_container :display_value do %>
+    <%= f.label :display_value, t(:display_value) %>
+    <br>
+    <%= f.text_field :display_value, :size => 30, :value => @product.display_value %>
+  <% end %>
+<div>

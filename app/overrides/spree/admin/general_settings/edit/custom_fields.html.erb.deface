@@ -1,0 +1,56 @@
+<!-- insert_after '.panel.currency' -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1 class="panel-title"><%= Spree.t(:filed_options) %></h1>
+  </div>
+
+  <div class="panel-body">
+    <div class="form-group">
+      <label><%= Spree.t('front_head_line.short') %></label>
+      <input type="text" class="form-control" value="<%= Spree::Config.front_head_line %>" name="front_head_line"/>
+      <p class="help-block"><%= Spree.t('front_head_line.long') %></p>
+  </div>
+  </div>
+  <div class="panel-body">
+    <div class="form-group">
+      <label>Subtitle</label>
+      <input type="text" class="form-control" value="<%= Spree::Config.front_sub_head_line %>" name="front_sub_head_line"/>
+      <p class="help-block"><%= Spree.t('front_sub_head_line.long') %></p>
+  </div>
+  </div>
+  <div class="panel-body">
+    <div class="form-group">
+      <label><%= Spree.t('seller_head_line.short') %></label>
+      <input type="text" class="form-control" value="<%= Spree::Config.seller_head_line %>" name="seller_head_line"/>
+      <p class="help-block"><%= Spree.t('seller_head_line.long') %></p>
+  </div>   
+  </div>  
+  <div class="panel-body">
+    <div class="form-group">
+      <label><%= Spree.t('seller_sub_head_line.short') %></label>
+      <input type="text" class="form-control" value="<%= Spree::Config.seller_sub_head_line %>" name="seller_sub_head_line"/>
+      <p class="help-block"><%= Spree.t('seller_sub_head_line.long') %></p>
+  </div>   
+  </div>
+  <div class="panel-body">
+    <div class="form-group">
+      <label><%= Spree.t('global_contact_email.short') %></label>
+      <input type="text" class="form-control" value="<%= Spree::Config.global_contact_email %>" name="global_contact_email"/>
+      <p class="help-block"><%= Spree.t('global_contact_email.long') %></p>
+  </div> 
+  </div>
+  <div class="panel-body">
+    <div class="form-group">
+      <label><%= Spree.t('global_phone.short') %></label>
+      <input type="text" class="form-control" value="<%= Spree::Config.global_phone %>" name="global_phone"/>
+      <p class="help-block"><%= Spree.t('global_phone.long') %></p>
+  </div> 
+  </div>
+  <div class="panel-body">
+    <div class="form-group">
+      <label><%= Spree.t('global_copyright.short') %></label>
+      <input type="text" class="form-control" value="<%= Spree::Config.global_copyright %>" name="global_copyright"/>
+      <p class="help-block"><%= Spree.t('global_copyright.long') %></p>
+  </div> 
+</div>  
+</div>

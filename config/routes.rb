@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   
 
 
+
+
 mount Spree::Core::Engine, at: '/'
 
   #get 'routang/any'
@@ -70,10 +72,54 @@ mount Spree::Core::Engine, at: '/'
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+Spree::Core::Engine.add_routes do
+namespace :api, defaults: { format: 'json' } do
+	
+	resources :buy do
+      resources :images
+      resources :variants
+      resources :product_properties
+    end
+	
+	resources :search_page do
+      resources :images
+      resources :variants
+      resources :product_properties
+    end
 
-match '/ruby/signin', to: 'auth#sign_in', via: 'post'
-match '/ruby/signup', to: 'auth#sign_up', via: 'post'
+	resources :search do
+      resources :images
+      resources :variants
+      resources :product_properties
+    end
 
+
+	resources :single_page do
+      resources :images
+      resources :variants
+      resources :product_properties
+    end
+
+	resources :global do
+
+    end
+
+
+end
+end
+
+match '/api/sign_in', to: 'auth#sign_in', via: 'post'
+match '/api/sign_up', to: 'auth#sign_up', via: 'post'
+
+
+#get '/go2json/buy', to: 'expath#buy' 
+#get '/go2json/sell', to: 'expath#sell'
+#get '/go2json/search', to: 'expath#search'
+#get '/go2json/page', to: 'expath#page'
+#get '/go2json/global', to: 'expath#global'
+#get '/go2json/cart', to: 'expath#cart'
+#get '/go2json/shipping', to: 'expath#shipping'
+#get '/go2json/checkout', to: 'expath#checkout'
 
 get '*path', to: 'routang#any'
 

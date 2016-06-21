@@ -1,4 +1,4 @@
-  <div class="watchr-body">
+
     <div class="container-fluid landing-page-header landing-page-header_triangle">
       <div class="container">
         <div class="header-elements">
@@ -76,48 +76,26 @@
       <div class="container">
         <h3 class="secondary-h">Best Sellers</h3>
         <div class="watches-slides-container" id="watches-slider">
+
+
+<data-repeat ng-if="page['buy']"
+ng-repeat="item in page['buy']" >
           <div class="watch-slide">
-            <span class="watch-brend">ROLEX</span>
-            <img src="img/productMiddle.jpg" alt="" class="watch-image">
-            <span class="watch-name">Oyster Perpetual - Boxed with Papers from 2009</span>
-            <span class="watch-price">£399,99</span>
+            <span class="watch-brend">
+            ROLEX</span>
+            <img 
+src="{{item['master']['images'][0]['product_url']}}" 
+            alt="" class="watch-image">
+            <span class="watch-name">
+    {{ item['name'] }}
+    </span>
+            <span class="watch-price">
+    {{ item['price'] | appcurrency }}
+            </span>
             <button class="standart-btn">Buy Now</button>
           </div>
-          <div class="watch-slide">
-            <span class="watch-brend">ROLEX</span>
-            <img src="img/productMiddle.jpg" alt="" class="watch-image">
-            <span class="watch-name">Oyster Perpetual - Boxed with Papers from 2009</span>
-            <span class="watch-price">£399,99</span>
-            <button class="standart-btn">Buy Now</button>
-          </div>
-          <div class="watch-slide">
-            <span class="watch-brend">ROLEX</span>
-            <img src="img/productMiddle.jpg" alt="" class="watch-image">
-            <span class="watch-name">Oyster Perpetual - Boxed with Papers from 2009</span>
-            <span class="watch-price">£399,99</span>
-            <button class="standart-btn">Buy Now</button>
-          </div>
-          <div class="watch-slide">
-            <span class="watch-brend">ROLEX</span>
-            <img src="img/productMiddle.jpg" alt="" class="watch-image">
-            <span class="watch-name">Oyster Perpetual - Boxed with Papers from 2009</span>
-            <span class="watch-price">£399,99</span>
-            <button class="standart-btn">Buy Now</button>
-          </div>
-          <div class="watch-slide">
-            <span class="watch-brend">ROLEX</span>
-            <img src="img/productMiddle.jpg" alt="" class="watch-image">
-            <span class="watch-name">Oyster Perpetual - Boxed with Papers from 2009</span>
-            <span class="watch-price">£399,99</span>
-            <button class="standart-btn">Buy Now</button>
-          </div>
-          <div class="watch-slide">
-            <span class="watch-brend">ROLEX</span>
-            <img src="img/productMiddle.jpg" alt="" class="watch-image">
-            <span class="watch-name">Oyster Perpetual - Boxed with Papers from 2009</span>
-            <span class="watch-price">£399,99</span>
-            <button class="standart-btn">Buy Now</button>
-          </div>
+</data-repeat>
+
         </div>
       </div>
     </div>
@@ -214,11 +192,11 @@
         </li>
       </ul>
     </footer>
-    
 
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/js/lib/bootstrap.min.js"></script>
-    <script src="/js/lib/jquery.formstyler.min.js"></script>
-    <script src="/js/lib/owl.carousel.min.js"></script>
-    <script src="/js/main.js"></script>
-  </div>
+
+<data-show ng-if="page['buy']">
+    <data-script 
+    js-lazy-load
+    src="/js/main.js">     
+    </data-script>
+</data-show>

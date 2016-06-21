@@ -1,3 +1,8 @@
+
+
+setTimeout(function(){
+console.log("main.js is running");
+
 // TEXT FIELD PLACEHOLDER
 
 $('.text-field').focus(function() {
@@ -99,23 +104,24 @@ $(document).ready(function() {
 });
 
 
+ 
 
 // MENU BTN 
 
 $(document).ready(function(){
-	$(".mobile-menu-btn").click(function() {
-		if($(".mobile-menu-btn").hasClass("mobile-menu-btn_active")) {
-			$(".mobile-menu-btn").removeClass("mobile-menu-btn_active");
-			$(".mobile-menu-content").addClass("mobile-menu-content_hidden");
-		} else {
-			$(".mobile-menu-btn").addClass("mobile-menu-btn_active");
-			$(".mobile-menu-content").removeClass("mobile-menu-content_hidden");
-		}
-	})
+  $(".mobile-menu-btn").click(function() {
+    if($(".mobile-menu-btn").hasClass("mobile-menu-btn_active")) {
+      $(".mobile-menu-btn").removeClass("mobile-menu-btn_active");
+      $(".mobile-menu-content").addClass("mobile-menu-content_hidden");
+    } else {
+      $(".mobile-menu-btn").addClass("mobile-menu-btn_active");
+      $(".mobile-menu-content").removeClass("mobile-menu-content_hidden");
+    }
+  })
 });
 
 
-$('.collapse').collapse()
+$('.collapse').collapse();
 
 
 // FILTER MOBILE MENU 
@@ -134,3 +140,5 @@ $('.collapse').collapse()
       });
     }
   });
+
+}, 1000);
