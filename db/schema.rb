@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615125537) do
+ActiveRecord::Schema.define(version: 20160625180541) do
 
   create_table "fields", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -32,6 +32,33 @@ ActiveRecord::Schema.define(version: 20160615125537) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
+  create_table "seller_images", force: :cascade do |t|
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+  end
+
+  create_table "sellers", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone"
+    t.string   "brand"
+    t.string   "adres"
+    t.string   "model"
+    t.string   "reference"
+    t.string   "condition"
+    t.integer  "year"
+    t.string   "content"
+    t.string   "images"
+    t.text     "comment"
+    t.string   "period"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "spree_addresses", force: :cascade do |t|
     t.string   "firstname"
@@ -146,6 +173,16 @@ ActiveRecord::Schema.define(version: 20160615125537) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
+
+  create_table "spree_favorites", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "spree_favorites", ["user_id", "product_id"], name: "index_spree_favorites_on_user_id_and_product_id", unique: true
+  add_index "spree_favorites", ["user_id"], name: "index_spree_favorites_on_user_id"
 
   create_table "spree_gateways", force: :cascade do |t|
     t.string   "type"
@@ -976,6 +1013,9 @@ ActiveRecord::Schema.define(version: 20160615125537) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "name"
+    t.string   "last_name"
+    t.string   "adress"
   end
 
   add_index "spree_users", ["deleted_at"], name: "index_spree_users_on_deleted_at"

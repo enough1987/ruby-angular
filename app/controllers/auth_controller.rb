@@ -21,7 +21,7 @@ class AuthController < ApplicationController
 
 					#Исключение ошибки сохранения
 					if !@user.save
-						render :json => {:status => 2, :text => "not save"}.to_json
+						render :json => {:status => 2, :error => @user.errors.messages}.to_json
 						#Возможно дыра  в безопастности         	  
 						#unauthorized		
 		  			return
@@ -30,7 +30,7 @@ class AuthController < ApplicationController
 					#генератор токена
         	@user.generate_spree_api_key!
 			render :json => {:status => 4, :text => "Token created", 
-			:token => @user.spree_api_key }.to_json 
+			:user => @user}.to_json 
         	return
 	end
 	
@@ -47,12 +47,29 @@ class AuthController < ApplicationController
     
 		@user.generate_spree_api_key! if @user.spree_api_key.blank?
 		render :json => {:status => 4, :text => "Token created", 
-		:token => @user.spree_api_key }.to_json
+		:user => @user }.to_json
+
+  end
+
+def forgot_password     	
+		@user = Spree::User.find_by( email: params[:user][:email] )
+		
+
+		#Если несовпадение
+		if !@user.present?
+     	#unauthorized
+			render :json => {:status => 3, :text => "user is not exist"}.to_json		  
+ 			return
+    	end
+    	
+
+
+		render :json => {:status => 5, :text => "send email" }.to_json
 
   end
 
   private def user_params
-        params.require(:user).permit(:email, :password, :password_confirmation)
+        params.require(:user).permit(:email, :password, :password_confirmation, :adress, :name, :last_name)
   end
 
 

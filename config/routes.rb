@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
 
 
+  
+
 mount Spree::Core::Engine, at: '/'
 
   #get 'routang/any'
@@ -74,7 +76,7 @@ mount Spree::Core::Engine, at: '/'
   #   end
 Spree::Core::Engine.add_routes do
 namespace :api, defaults: { format: 'json' } do
-	
+
 	resources :buy do
       resources :images
       resources :variants
@@ -104,13 +106,20 @@ namespace :api, defaults: { format: 'json' } do
 
     end
 
+ match 'favorite/create', to: 'favorite#create', via: [:get, :post]
+    match 'favorite/destroy', to: 'favorite#destroy', via: [:get, :post]
+    match 'favorite/list', to: 'favorite#list', via: [:get, :post]
+    match 'favorite/load', to: 'favorite#load', via: [:get, :post]
+end
+end
 
-end
-end
+
+
 
 match '/api/sign_in', to: 'auth#sign_in', via: 'post'
 match '/api/sign_up', to: 'auth#sign_up', via: 'post'
-
+match '/api/seller/upload', to: 'seller#upload', via: [:get, :post]
+match '/api/seller/add', to: 'seller#seller_add', via: [:get, :post]
 
 #get '/go2json/buy', to: 'expath#buy' 
 #get '/go2json/sell', to: 'expath#sell'
@@ -122,5 +131,5 @@ match '/api/sign_up', to: 'auth#sign_up', via: 'post'
 #get '/go2json/checkout', to: 'expath#checkout'
 
 get '*path', to: 'routang#any'
-
+post '*path', to: 'routang#any'
 end

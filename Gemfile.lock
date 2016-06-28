@@ -65,6 +65,14 @@ GIT
     spree_static_content (3.0.1)
       spree_core (~> 3.0.0)
 
+GIT
+  remote: git://github.com/vinsol/spree_favorite_products.git
+  revision: 34bb39dbc50f79c25e509c2c9cfcf86b822f17c7
+  branch: 3-0-stable
+  specs:
+    spree_favorite_products (3.0.0)
+      spree_core (~> 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -343,6 +351,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   spree!
   spree_auth_devise (~> 3.0.0)
+  spree_favorite_products!
   spree_gateway (~> 3.0.0)
   spree_static_content!
   spring

@@ -22,6 +22,18 @@ watchApp.config(function($routeProvider, $locationProvider) {
         templateUrl: 'views/single-product/init.html',
         controller: 'SingleProductCtrl'        
       }). 
+       when('/seller-landing', {
+        templateUrl: 'views/seller-landing/init.html',
+        controller: 'TestCtrl'        
+      }).
+       when('/seller-step/:step', {
+        templateUrl: 'views/seller-steps/init.html',
+        controller: 'SellerStepCtrl'        
+      }). 
+      when('/add', {
+        templateUrl: 'views/add.html',
+        controller: 'SellerStepCtrl'        
+      }).  
       when('/signinup', {
         templateUrl: 'views/signinup.html',
         controller: 'SigninupCtrl'        
@@ -37,23 +49,7 @@ watchApp.config(function($routeProvider, $locationProvider) {
        when('/buyer-step3', {
         templateUrl: 'views/buyer-steps/init3.html',
         controller: 'TestCtrl'        
-      }).  
-       when('/seller-landing', {
-        templateUrl: 'views/seller-landing/init.html',
-        controller: 'TestCtrl'        
-      }).
-       when('/seller-step1', {
-        templateUrl: 'views/seller-steps/init1.html',
-        controller: 'TestCtrl'        
-      }). 
-       when('/seller-step2', {
-        templateUrl: 'views/seller-steps/init2.html',
-        controller: 'TestCtrl'        
-      }). 
-       when('/seller-step3', {
-        templateUrl: 'views/seller-steps/init3.html',
-        controller: 'TestCtrl'        
-      }).              
+      }).                
        when('/UIKit', {
         templateUrl: 'views/UIKit.html',
         controller: 'TestCtrl'        

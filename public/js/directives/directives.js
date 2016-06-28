@@ -54,14 +54,39 @@ customDirectives.directive('checkedDir', function () {
     return {
         restrict: 'A', 
         scope : false,       
-        link: function (scope, element, attr) {
+        link: function (scope, element, attr) {       
                 element.ready(function () {  
     var tax = attr['tax'];              
-    var sid = attr['sid']; 
+    var sid = attr['sid'];
+    var all = attr['all'];  
     var check = (tax.split(sid).length - 1) > 0 ? true : false;
+
+    if ( all == 'all' && !tax ) { check = true };
+
     element.attr('checked' , check );
                 });
         }
     }
 });
+
+
+customDirectives.directive('fileDir', function () {
+    return {
+        restrict: 'A', 
+        scope : false,       
+        link: function (scope, element, attr) {       
+                element.ready(function () {  
+
+            
+            element.bind( 'change' , function( e ) {
+                var myDropzone = new Dropzone("#myId", { url: "/api/seller/upload"});
+            }); 
+
+
+
+                });
+        }
+    }
+});
+
 

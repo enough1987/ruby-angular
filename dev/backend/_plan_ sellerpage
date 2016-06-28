@@ -1,0 +1,48 @@
+
+1) Принять файлы - выдать ссылку		
+2) Сохранить данные в базе	
+	
+		first_name:string	
+last_name:string 
+phone:phone 
+adres:string	
+brand:string 
+model:string 
+condition:string	
+referenc:string 
+year:integer 
+content:string 
+images:string 
+comment:text 
+period:string 
+
+3) Оnправить email
+
+#######################################################################
+
+Идеальный вариант, привести к этому!!!!
+
+1) Расширить базу пользователя добавить 
+
+		First_name
+		last_name
+		phone
+		Адресс
+
+2) Создать новый тип пользователя seller
+3) Зарегестрировать пользователя
+4) Проверить EMAIL
+5) 
+
+6) принять файлы - выдать ссылку
+7) Создать новую модель сохранить данные
+		Brand
+		Model
+		condition
+		reference
+		year
+		Content
+		Images
+		Comment
+		period
+8) Отправить данные на почту человеку проверяющему заявки

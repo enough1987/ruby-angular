@@ -1,0 +1,46 @@
+
+1) Принять файлы - выдать ссылку		
+
+Отправляется постом файл
+
+2) Сохранить данные в базе		
+		First_name 	-  varchar
+		last_name 	-  varchar
+		phone 		-  phone
+		Адресс      -  varchar
+		Brand       -  varchar
+		Model       -  varchar
+		condition   -  varchar
+		reference   -  varchar
+		year        - year
+		Content  -  varchar
+		Images - ; separator
+		Comment - varchar
+		period - ; separator
+
+3) Оnправить email
+
+#######################################################################
+!!!!!привести к этому!!!!
+1) Расширить базу пользователя добавить 
+		First_name
+		last_name
+		phone
+		Адресс
+2) Создать новый тип пользователя seller
+3) Зарегестрировать пользователя
+4) Проверить EMAIL
+5) 
+
+6) принять файлы - выдать ссылку
+7) Создать новую модель сохранить данные
+		Brand
+		Model
+		condition
+		reference
+		year
+		Content
+		Images
+		Comment
+		period
+8) Отправить данные на почту человеку проверяющему заявки
