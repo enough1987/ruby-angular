@@ -63,6 +63,7 @@ safeApply ) {
    };
 
    $scope.validate = function(user, cp){
+      console.log( user );
       if ( !user.password || user.password.length < 6 ) {
          document.getElementById("form-error").innerHTML = 'password is less than 6 letters';
          return false;         
@@ -89,6 +90,9 @@ safeApply ) {
       if ( !user ) var user  = {};
       for (var prs in user) {
          if(user.hasOwnProperty(prs)) {
+            if ( typeof user[prs] != "string" ) { 
+               continue;
+            };
             user[prs] = user[prs].toLowerCase();            
          }
       }
@@ -98,14 +102,21 @@ safeApply ) {
    $scope.auth = function(result){
        console.log( result );
        if ( result && result.status == 4 ) {
-            window.localStorage.setItem("token", JSON.stringify(result.token) );
-            settings._token = result.token;
+            window.localStorage.setItem("token", JSON.stringify(result.user.spree_api_key) );
+            settings._token = result.user.spree_api_key;
+            window.localStorage._token = settings._token;
             document.getElementById("form-error").innerHTML = '';
             if ( $scope.$parent.nextStep ) {
                $scope.$parent.nextStep();
             }
        } else {
-            document.getElementById("form-error").innerHTML = result.text;
+            document.getElementById("form-error").innerHTML = '';
+            for (var prs in result['error']) {
+               if(result['error'].hasOwnProperty(prs)) {
+            document.getElementById("form-error").innerHTML += 'field ' + prs + 
+            ' ' + result['error'][prs] + '</br>';
+               }
+            }
        }
    };
 
@@ -420,6 +431,7 @@ safeApply, scrollServ ) {
             "model" : "",
             "condition" : "",
             "reference" : "",
+            "year" : "",
             "content" : "",
             "comment" : ""
          };
@@ -431,7 +443,7 @@ safeApply, scrollServ ) {
 
       switch($scope.step) {
          case '3':  
-            
+            $scope.endstep();
             break;
          case '2':  
             $scope.secondStep();
@@ -491,14 +503,16 @@ safeApply, scrollServ ) {
 
    $scope.validate = function (newgoods) {
       var ret = {'status' : true, 'error': ''};
-      Array.prototype.forEach.call(newgoods, function(item){
-         console.log( item );
-         if( item == '' ) {
-            ret.status = false;
-            ret.error = 'field ' + item + ' is not valid';          
+      for(var prop in newgoods){        
+         if( newgoods.hasOwnProperty( prop ) ) {
+         console.log( prop + ' = ' + newgoods[prop] );
+            if( newgoods[prop] == '' || newgoods[prop] == undefined ) {
+ret.status = false;
+ret.error = 'field '+prop+' is not valid';
+            }            
          }
-      });
-      return false ; ret;
+      };
+      return ret;
    };
 
 
@@ -521,8 +535,14 @@ safeApply, scrollServ ) {
 
    $scope.endstep = function () {
 
+      if ( /*window.localStorage.getItem("sellerinfo") || */
+         settings._token == settings.old_token ) {
+         alert(' we can not go next');
+         return false;
+      }
+
       var xhr = new XMLHttpRequest();
-      xhr.open( "POST", "/api/seller/add" ); 
+      xhr.open( "POST", "/api/seller/add?token="+settings._token ); 
       xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
       xhr.onreadystatechange = function () {
          if (xhr.readyState == 4 && xhr.status == 200) {
@@ -532,9 +552,9 @@ safeApply, scrollServ ) {
       }
 
       var obj = {};
-      obj['seller_add'] = store;
-      $log.debug( obj );
-      console.log( JSON.stringify(obj) );      
+      obj['seller_add'] =   JSON.parse(window.localStorage.getItem("sellerinfo"));
+      obj['seller_add']['period'] = 'test test';
+      $log.debug( obj );    
 
       xhr.send( JSON.stringify(obj) );
 
