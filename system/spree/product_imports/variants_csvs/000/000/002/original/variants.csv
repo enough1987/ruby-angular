@@ -1,0 +1,2 @@
+sku,slug,cost_price,cost_currency,tax_category,stock_items_count,option_values
+sam,prod-slug,10.74,usd,tax_cat,10,"opt1->val1"

@@ -1,0 +1,106 @@
+<!-- SLIDER BLOCK START -->
+<div class="container-fluid watches-slider-block">
+  <div class="container">
+    <h3 class="secondary-h">Best Sellers</h3>
+    <div 
+ng-if="page['buy']"
+    class="watches-slides-container" id="watches-slider">
+        
+          <div           
+ng-if="page['buy']"
+ng-repeat="item in page['buy']"
+          class="watch-slide watch-slide_hover-btn">
+            <span class="watch-brend">
+{{ item['brand'][0] }}            
+            </span>
+            <img 
+src="{{item['master']['images'][0]['product_url']}}" 
+            alt="" class="watch-image">
+            <span class="watch-name">
+    {{ item['name'] }}
+    </span>
+            <span class="watch-price">
+    {{ item['price'] | appcurrency }}
+            </span>
+            <a href="{{'/single-product/'+item['id']}}"
+            <button class="standart-btn">Buy Now</button></a>
+          </div>
+          
+    </div>
+  </div>
+</div>
+<!-- SLIDER BLOCK END -->
+
+<!-- FACTS BLOCK START -->
+<div class="container-fluid facts-container">
+  <div class="container">
+    <span class="facts-bg-text">We Care</span>
+    <div class="fact-item fact-item_1">
+      <i class="fact-icon fa fa-check" aria-hidden="true"></i>
+      <span class="fact-h">Inspected</span>
+      <p class="fact-text">All our watch watches have been inspected and authenticated by our certified watch-masters.</p>
+    </div>
+    <div class="fact-item fact-item_2">
+      <i class="fact-icon fa fa-truck" aria-hidden="true"></i>
+      <span class="fact-h">Inspected</span>
+      <p class="fact-text">All our watch watches have been inspected and authenticated by our certified watch-masters.</p>
+    </div>
+    <div class="fact-item fact-item_3">
+      <i class="fact-icon fa fa-thumbs-up" aria-hidden="true"></i>
+      <span class="fact-h">Inspected</span>
+      <p class="fact-text">All our watch watches have been inspected and authenticated by our certified watch-masters.</p>
+    </div>
+  </div>
+</div>
+<!-- FACTS BLOCK END -->
+
+<!-- PARTNERS BLOCK START -->
+<div class="container-fluid partners-main-container">
+  <div class="container">
+    <div class="partners-block">
+      <a href="" class="partner-link"><img src="../../img/partner-1.png" alt=""></a>
+      <a href="" class="partner-link"><img src="../../img/partner-2.png" alt=""></a>
+      <a href="" class="partner-link"><img src="../../img/partner-3.png" alt=""></a>
+    </div>
+  </div>
+</div>
+<!-- PARTNERS BLOCK END -->
+
+<!-- CUSTOMERS REVIEW BLOCK START -->
+<div class="container-fluid cust-rev-container">
+  <div class="container relative-for-counter">
+    <h3 class="secondary-h">Our Reviews</h3>
+    <div class="cust-rev-slider slider-little-nav" id="cust-rev-slider">
+      <div class="cust-rev-item">
+        <p class="cust-rev-text">Sold my watch through watchr; easy process the valuation was in line with my expectations and my outcome was maximised. The process took around 10 days very quick. Can't wait to buy my next watch!
+        <span class="cust-rev-name">Vincenzo</span></p>
+        <div class="cust-rev-img hidden-on-mobile"><img src="../../img/cust-rev-img.jpg" alt="Customer Photo"></div>
+      </div>
+      <div class="cust-rev-item">
+        <p class="cust-rev-text">I have never trusted online shopping websites, especially if they sell expensive watches. But WatchR is different. I trusted them as they check and inspect every item they put online and I was happy to receive a 100% authentic Rolex Submariner. Great service.
+        <span class="cust-rev-name">Eleonor</span></p>
+        <div class="cust-rev-img hidden-on-mobile"><img src="../../img/cust-rev-img.jpg" alt="Customer Photo"></div>
+      </div>
+      <div class="cust-rev-item">
+        <p class="cust-rev-text">I am totally impressed by the quality of their service! I had been trying to sell my Rolex Speedmaster for months before reaching out to WatchR. The main problem I had was 1) bad offers from dealers and 2) complicated selling process on classifieds ads website (mostly because no-one trusts a private seller online). The entire process on WatchR has been incredibly smooth. They asked me for some basic information about the watch on their website and then they sent an inspector to my office to check the authenticity of my piece and take a few pictures. The inspection took only 20 minutes. I really liked the fact that I could keep the watch with me till its sold. I am very skeptical about leaving my items to strangers and therefore I think this is a big value added. Last but not least, they managed to sell the watch in just a couple of weeks and I earned more money than the best dealers' offer I had received.
+		<br>
+		Thanks so much WatchR, I had a blast!
+        <span class="cust-rev-name">Ranya</span></p>
+        <div class="cust-rev-img hidden-on-mobile"><img src="../../img/cust-rev-img.jpg" alt="Customer Photo"></div>
+      </div>
+    </div>
+    <div class="slider-counter">
+      <span class="current-rev currentItem"></span>
+      /
+      <span class="revs-count owlItems"></span></span>
+    </div>
+  </div>
+</div>
+<!-- CUSTOMERS REVIEW BLOCK END -->
+
+<button
+ redirect-to-dir="/search-page/all"
+ class="mobile-landing-btn mobile-landing-btn_buy">Buy</button>
+<button
+ redirect-to-dir="/seller-landing"
+ class="mobile-landing-btn mobile-landing-btn_sell">Sell</button>

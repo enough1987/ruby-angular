@@ -1,0 +1,319 @@
+
+   
+   
+ 
+      <div 
+      
+ng-controller="SigninupCtrl"  
+   
+      class="tabs-container">
+          <div class="tabs-btn-container clearfix">
+              <div 
+  ng-class="$root.step2form == '1' ? 'tab-btn_active' : ''"
+              ng-click="changestep2form(1)"
+              class="tab-btn ">Register</div>
+              <div 
+  ng-class="$root.step2form == '2' ? 'tab-btn_active' : ''" 
+              ng-click="changestep2form(2)"
+              class="tab-btn">Login</div>
+              <div 
+  ng-class="$root.step2form == '3' ? 'tab-btn_active' : 'g-d-none'" 
+              ng-click="changestep2form(3)"
+              class="tab-btn">Forgot </div>
+          </div>
+
+<data-switch >
+            
+<form novalidate id="form-with-angular-classes" 
+  ng-class="$root.step2form == 3 ? 'g-d-block' : 'g-d-none'" >
+          <div class="forgot_password-fields-container">
+        <div class="default-text-field-container">
+           <input 
+  ng-model="userfogot.email"
+  required="required" 
+  ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i" 
+           class="text-field" type="email" id="forgot-login-email">
+           <label 
+           class="text-field-placeholder"
+           for="forgot-login-email">Email <span class="red">*</span></label>
+           <i class="success-icon fa fa-check" aria-hidden="true"></i>
+           <i class="error-icon fa fa-times" aria-hidden="true"></i>
+        </div>
+        <button class="standart-btn">Send Password</button>
+          </div>
+
+</form>
+
+<form novalidate id="form-with-angular-classes"  
+  ng-class="$root.step2form == 2 ? 'g-d-block' : 'g-d-none'" >
+          <div class="login-fields-container">
+            <div class="default-text-field-container">
+               <input 
+  ng-model="userin.email"
+  required="required" 
+  ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i" 
+  if-has-val-dirty-dir
+               class="text-field" type="email" id="login-email" />
+               <label 
+               class="text-field-placeholder"
+               for="login-email">Email <span class="red">*</span></label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div class="default-text-field-container">
+               <input 
+  ng-model="userin.password"
+  required="required" 
+  ng-pattern="/^[a-zA-Z0-9]\w{5,20}$/" 
+               class="text-field" type="text" id="login-password" />
+               <label class="text-field-placeholder" for="login-password">Password <span class="red">*</span></label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>
+            <button 
+  ng-click="$root.formSubmit( userin, '/api/sign_in' )"
+            class="standart-btn">Login</button>
+
+
+
+            <span
+redirect-to-dir="/password/recover"    
+            class="little-right-link forgot-password-link">Forgot Password?</span>
+
+
+<!--
+ 
+
+<script src="//ulogin.ru/js/ulogin.js"></script>
+
+<div class="social-login-container clearfix">
+            <span class="social-login-h">or login with</span>
+             <div class="social-items clearfix">
+<div id="uLoginf22119d8" data-ulogin="display=panel;fields=first_name,last_name,email;optional=phone;lang=en;providers=google,linkedin,instagram,facebook;redirect_uri=http%3A%2F%2Fwatchr.42team.ru%2Fapi%2Foauth%3Fsession_oauth%3Drandom;callback=watchr_callback"></div>
+ </div> 
+</div>  
+  
+-->
+
+
+          </div>
+</form>
+
+<form novalidate id="form-with-angular-classes"  
+  ng-class="$root.step2form == 1 ? 'g-d-block' : 'g-d-none'" >
+          <div class="register-fields-container little-underline">
+
+            <div class="default-text-field-container">
+               <input 
+  ng-model="userup.name" 
+  required="required" 
+  if-has-val-dirty-dir
+               class="text-field" type="text" id="reg-name" />
+               <label class="text-field-placeholder" for="reg-name">Name <span class="red">*</span></label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>
+
+            <div class="default-text-field-container">
+               <input 
+  ng-model="userup.last_name"
+  required="required"
+  if-has-val-dirty-dir  
+               class="text-field" type="text" id="reg-last-name" />
+               <label class="text-field-placeholder" for="reg-last-name">Last Name <span class="red">*</span></label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div class="default-text-field-container">
+               <input 
+  ng-model="userup.phone"
+  ng-pattern="/^[0-9]{5,20}$/"
+  required="required"
+               class="text-field" type="text" id="reg-phone" />
+               <label 
+               class="text-field-placeholder"
+               for="reg-phone">Phone<span class="red">*</span></label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div class="default-text-field-container">
+               <input 
+  ng-model="userup.email"
+  required="required"
+  if-has-val-dirty-dir 
+  ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i" 
+               class="text-field" type="email" id="reg-email" />
+               <label 
+               class="text-field-placeholder"
+               for="reg-email">Email <span class="red">*</span></label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div class="default-text-field-container">
+               <input 
+  ng-model="userup.password"
+  required="required"
+  ng-pattern="/^[a-zA-Z0-9]\w{5,20}$/" 
+  type="password"
+               class="text-field" id="reg-password" />
+               <label 
+               class="text-field-placeholder" for="reg-password">Password <span class="red">*</span></label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div class="default-text-field-container">
+               <input 
+  ng-model="userup.password_confirmation"
+  required="required" 
+  ng-pattern="/^[a-zA-Z0-9]\w{5,20}$/" 
+  ng-class="userup.password != userup.password_confirmation ? 'not-confirm' : '' "
+  type="password"
+               class="text-field" id="reg-re_password" />
+               <label 
+               class="text-field-placeholder" for="reg-re_password">Retype Password <span class="red">*</span></label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div> 
+<!--
+            <div class="default-text-field-container">
+               <input 
+  ng-model="userup.adres"
+  placeholder="" 
+               class="text-field" id="reg-re_adress" />
+               <label 
+               class="text-field-placeholder" for="reg-re_adress">Adress <span class="red">*</span></label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div> 
+-->
+            <button 
+  ng-click="$root.formSubmit( userup, '/api/sign_up', true )"
+            class="standart-btn standart-btn_register">Register</button>
+          </div>
+</form>
+          
+</data-switch>
+
+<p class="form-error form-error_seller-step-2-fields" id="form-error"> </p>
+
+
+
+
+<div 
+ng-hide="$root.social_block_hide"  
+ng-class="$root.step2form == 1 || $root.step2form == 2 ? 'g-d-block' : 'g-d-none'"
+class="social-login-container clearfix">
+            <span class="social-login-h">or 
+              {{ $root.step2form == 1 ? 'register' : '' }} 
+              {{ $root.step2form == 2 ? 'login' : '' }}               
+              with</span>
+<!--
+<form novalidate id="form-with-angular-classes" >
+            <div 
+            ng-class="step2form == 1 ? 'g-d-block' : 'g-d-none'"
+            class="default-text-field-container">
+               <input 
+  ng-model="ulogin.phone"
+  id="uloginphone"
+  ng-pattern="/^[0-9]{5,20}$/"
+  required="required"
+               class="text-field" type="text" id="ulogin-phone" />
+               <label 
+               class="text-field-placeholder"
+               for="ulogin-phone">Phone<span class="red">*</span></label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>
+</form>
+            <span 
+            ng-class="step2form == 1 ? 'g-d-block' : 'g-d-none'"
+            class="social-login-h">
+              Please, enter your phone number and continue               
+              </span>
+
+          <p style="text-align: left;"
+          class="form-error form-error_seller-step-2-fields" id="ulogin-form-error"> </p>
+             <div          
+             class="social-items clearfix">
+
+
+<div id="uLoginf22119d8" 
+data-ulogin="display=panel;fields=first_name,last_name,email;optional=phone;lang=en;providers=google,linkedin,facebook;redirect_uri=http%3A%2F%2Fwatchr.co.uk%2Fapi%2Foauth%3Fsession_oauth%3Drandom;callback=watchr_callback"></div>
+-->
+
+
+  <!-- Social Login will be embedded into the following element -->
+<div id="social_login_demo"></div>
+ 
+<data-js-lazy-load 
+    js-lazy-load  
+    src="js/oneall.js" >    
+</data-js-lazy-load>  
+
+
+
+<div class="cart-modal-container " id="block-after-ulogin-phone">
+  <form class="cart-modal" novalidate id="form-with-angular-classes" >
+    <h2 class="modal-h">Please type your Phone</h2>
+	<div class="default-text-field-container default-text-field-container_sell-fix">
+ <input 
+  ng-model="ulogin.phone"
+  id="after-ulogin-phone"
+  ng-pattern="/^[0-9]{5,20}$/"
+  required="required"
+               class="text-field" type="text" />
+               <label 
+               class="text-field-placeholder"
+               for="after-ulogin-phone">Phone<span class="red">*</span></label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+     </div>
+     <button 
+     id="plassphoneulogin"
+     class="standart-btn  default-text-field-container_sell-fix">Next</button>
+   <p class="form-error" id="after-ulogin-phone-form-error"></p> 
+  </form>
+</div>
+
+
+
+ </div> 
+</div>  
+
+<!-- END -->
+
+
+<div class="cart-modal-container " 
+ng-class="block_oneall_phone ? 'g-d-block' : 'g-d-none' ">
+  <form class="cart-modal" novalidate id="form-with-angular-classes" >
+    <h2 class="modal-h">Please type your Phone</h2>
+	<div class="default-text-field-container default-text-field-container_sell-fix">
+ <input 
+  ng-model="oneall.phone"
+  id="after-oneall-phone"
+  ng-pattern="/^[0-9]{5,20}$/"
+  required="required"
+               class="text-field" type="text" />
+               <label 
+               class="text-field-placeholder"
+               for="after-oneall-phone">Phone<span class="red">*</span></label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+     </div>
+     <button 
+ng-click="oneall_need_phone()"     
+     id="plassphoneulogin"
+     class="standart-btn  default-text-field-container_sell-fix">Next</button>
+   <p class="form-error" id="after-oneall-phone-form-error"></p> 
+  </form>
+</div>
+
+         </div>
+
+
+<!--
+    <data-js-lazy-load 
+        js-lazy-load  
+        src="//ulogin.ru/js/ulogin.js" >    
+    </data-js-lazy-load>        
+-->

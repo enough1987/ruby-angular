@@ -1,0 +1,484 @@
+
+
+ 
+      <div 
+      
+ng-controller="SigninupCtrl"  
+   
+      class="tabs-container">
+          <div class="tabs-btn-container clearfix">
+              <div 
+  ng-class="step2form == '1' ? 'tab-btn_active' : ''"
+              ng-click="changestep2form(1)"
+              class="tab-btn ">Register</div>
+              <div 
+  ng-class="step2form == '2' ? 'tab-btn_active' : ''" 
+              ng-click="changestep2form(2)"
+              class="tab-btn">Login</div>
+              <div 
+  ng-class="step2form == '3' ? 'tab-btn_active' : 'g-d-none'" 
+              ng-click="changestep2form(3)"
+              class="tab-btn">Forgot </div>
+          </div>
+
+<data-switch >
+            
+<form novalidate id="form-with-angular-classes" 
+  ng-class="step2form == 3 ? 'g-d-block' : 'g-d-none'" >
+          <div class="forgot_password-fields-container">
+        <div class="default-text-field-container">
+           <input 
+  ng-model="userfogot.email"
+  required="required" 
+  ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i" 
+           class="text-field" type="email" id="forgot-login-email">
+           <label 
+           class="text-field-placeholder"
+           for="forgot-login-email">Email <span class="red">*</span></label>
+           <i class="success-icon fa fa-check" aria-hidden="true"></i>
+           <i class="error-icon fa fa-times" aria-hidden="true"></i>
+        </div>
+        <button class="standart-btn">Send Password</button>
+          </div>
+
+</form>
+
+<form novalidate id="form-with-angular-classes"  
+  ng-class="step2form == 2 ? 'g-d-block' : 'g-d-none'" >
+          <div class="login-fields-container">
+            <div class="default-text-field-container">
+               <input 
+  ng-model="userin.email"
+  required="required" 
+  ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i" 
+  if-has-val-dirty-dir
+               class="text-field" type="email" id="login-email" />
+               <label 
+               class="text-field-placeholder"
+               for="login-email">Email <span class="red">*</span></label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div class="default-text-field-container">
+               <input 
+  ng-model="userin.password"
+  required="required" 
+  ng-pattern="/^[a-zA-Z0-9]\w{5,20}$/" 
+               class="text-field" type="text" id="login-password" />
+               <label class="text-field-placeholder" for="login-password">Password <span class="red">*</span></label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>
+            <button 
+  ng-click="formSubmit( userin, '/api/sign_in' )"
+            class="standart-btn">Login</button>
+
+
+
+
+            <span 
+redirect-to-dir="/password/recover"
+            class="little-right-link forgot-password-link">Forgot Password?</span>
+
+
+<!--
+ 
+
+<script src="//ulogin.ru/js/ulogin.js"></script>
+
+<div class="social-login-container clearfix">
+            <span class="social-login-h">or login with</span>
+             <div class="social-items clearfix">
+<div id="uLoginf22119d8" data-ulogin="display=panel;fields=first_name,last_name,email;optional=phone;lang=en;providers=google,linkedin,instagram,facebook;redirect_uri=http%3A%2F%2Fwatchr.42team.ru%2Fapi%2Foauth%3Fsession_oauth%3Drandom;callback=watchr_callback"></div>
+ </div> 
+</div>  
+  
+-->
+
+
+          </div>
+</form>
+
+<form novalidate id="form-with-angular-classes" 
+  ng-class="step2form == 1 ? 'g-d-block' : 'g-d-none'" >
+          <div class="register-fields-container little-underline">
+
+            <div class="default-text-field-container">
+               <input 
+  ng-model="userup.name" 
+  required="required" 
+  if-has-val-dirty-dir
+               class="text-field" type="text" id="reg-name" />
+               <label class="text-field-placeholder" for="reg-name">Name <span class="red">*</span></label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>
+
+            <div class="default-text-field-container">
+               <input 
+  ng-model="userup.last_name"
+  required="required"
+  if-has-val-dirty-dir  
+               class="text-field" type="text" id="reg-last-name" />
+               <label class="text-field-placeholder" for="reg-last-name">Last Name <span class="red">*</span></label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div class="default-text-field-container">
+               <input 
+  ng-model="userup.phone"
+  ng-pattern="/^[0-9]{5,20}$/"
+  required="required"
+               class="text-field" type="text" id="reg-phone" />
+               <label 
+               class="text-field-placeholder"
+               for="reg-phone">Phone<span class="red">*</span></label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div class="default-text-field-container">
+               <input 
+  ng-model="userup.email"
+  required="required"
+  if-has-val-dirty-dir 
+  ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i" 
+               class="text-field" type="email" id="reg-email" />
+               <label 
+               class="text-field-placeholder"
+               for="reg-email">Email <span class="red">*</span></label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div class="default-text-field-container">
+               <input 
+  ng-model="userup.password"
+  required="required"
+  ng-pattern="/^[a-zA-Z0-9]\w{5,20}$/"
+  type="password" 
+               class="text-field" id="reg-password" />
+               <label 
+               class="text-field-placeholder" for="reg-password">Password <span class="red">*</span></label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div class="default-text-field-container">
+               <input 
+  ng-model="userup.password_confirmation"
+  required="required" 
+  ng-pattern="/^[a-zA-Z0-9]\w{5,20}$/" 
+  ng-class="userup.password != userup.password_confirmation ? 'not-confirm' : '' "
+  type="password" 
+               class="text-field" id="reg-re_password" />
+               <label 
+               class="text-field-placeholder" for="reg-re_password">Retype Password <span class="red">*</span></label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>
+</form> 
+
+
+<!-- START -->
+
+
+
+<div ng-class="step2form == 1 || step2form == 2 ? 'g-d-block' : 'g-d-none'"
+class="social-login-container clearfix">
+            <span class="social-login-h">or 
+              {{ step2form == 1 ? 'register' : '' }} 
+              {{ step2form == 2 ? 'login' : '' }}               
+              with </span>
+<!--
+<form novalidate id="form-with-angular-classes" >
+            <div 
+            ng-class="step2form == 1 ? 'g-d-block' : 'g-d-none'"
+            class="default-text-field-container">
+               <input 
+  ng-model="ulogin.phone"
+  id="uloginphone"
+  ng-pattern="/^[0-9]{5,20}$/"
+  required="required"
+               class="text-field" type="text" id="ulogin-phone" />
+               <label 
+               class="text-field-placeholder"
+               for="ulogin-phone">Phone<span class="red">*</span></label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>
+</form>
+            <span 
+            ng-class="step2form == 1 ? 'g-d-block' : 'g-d-none'"
+            class="social-login-h">
+              Please, enter your phone number and continue               
+              </span>
+-->
+          <p style="text-align: left;"
+          class="form-error form-error_seller-step-2-fields" id="ulogin-form-error"> </p>
+             <div          
+             class="social-items clearfix">
+
+
+  <!-- Social Login will be embedded into the following element -->
+<div id="social_login_demo"></div>
+ 
+ 
+<data-js-lazy-load 
+    js-lazy-load  
+    src="js/oneall.js" >    
+</data-js-lazy-load>  
+ 
+ 
+<!--
+<script type="text/javascript">
+
+   // https://docs.oneall.com/api/javascript/library/events/
+   
+   /* Replace the subdomain with your own subdomain from a Site in your OneAll account */   
+  var oneall_subdomain = 'watchr';
+   
+  /* Asynchronously load the library */
+  var oa = document.createElement('script');
+  oa.type = 'text/javascript'; oa.async = true;
+  oa.src = '//' + oneall_subdomain + '.api.oneall.com/socialize/library.js'
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(oa, s)
+    
+/*
+  var oneall_my_on_login = function(args) {
+    console.log(' ALLAH ACBAR ')
+    console.log('on_login_redirect ',  args); 
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "/api/oauth?connection_token=" + args.connection.connection_token ); 
+
+      xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
+      xhr.onreadystatechange = function () {
+         if (xhr.readyState == 4 && xhr.status == 200) {
+            var result = JSON.parse ( xhr.responseText );
+            console.log( 'xhr.responseText ', result );
+            if ( result.status == 500 ) {
+              block-oneall-phone
+            }
+
+         }
+      }
+      xhr.send();
+  }
+*/
+
+  var oneall_my_on_login_redirect = function(args) {
+    return false;
+  }
+  
+    
+
+  /* Initialise the asynchronous queue */
+  var _oneall = _oneall || [];
+    
+  /* Social Login Example */
+  _oneall.push(['social_login', 'set_providers', ['facebook', 'google', 'linkedin']]);
+  _oneall.push(['social_login', 'set_grid_sizes', [2,2]]);
+  _oneall.push(['social_login', 'set_event', 'on_login_end', oneall_my_on_login]);
+  //_oneall.push(['social_login', 'set_callback_uri', 'http://www.oneall.com/callback/']);
+  _oneall.push(['social_login', 'set_event', 'on_login_redirect', oneall_my_on_login_redirect ]);
+  _oneall.push(['social_login', 'do_render_ui', 'social_login_demo']);
+  
+
+</script>    
+-->
+  
+
+<!--
+<div id="uLoginf22119d8" 
+data-ulogin="display=panel;fields=first_name,last_name,email;optional=phone;lang=en;providers=google,linkedin,facebook;redirect_uri=http%3A%2F%2Fwatchr.co.uk%2Fapi%2Foauth%3Fsession_oauth%3Drandom;callback=watchr_callback"></div>
+-->
+
+<!--
+<script>
+  // This is called with the results from from FB.getLoginStatus().
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    } else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into Facebook.';
+    }
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '1830853543812835',
+    cookie     : true,  // enable cookies to allow the server to access 
+                        // the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.2' // use version 2.2
+  });
+
+  // Now that we've initialized the JavaScript SDK, we call 
+  // FB.getLoginStatus().  This function gets the state of the
+  // person visiting this page and can return one of three states to
+  // the callback you provide.  They can be:
+  //
+  // 1. Logged into your app ('connected')
+  // 2. Logged into Facebook, but not your app ('not_authorized')
+  // 3. Not logged into Facebook and can't tell if they are logged into
+  //    your app or not.
+  //
+  // These three cases are handled in the callback function.
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+
+
+
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', { fields: 'id, name, first_name, last_name, age_range, link, gender, picture, locale, timezone, email, verified' }, function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+        console.log(JSON.stringify(response));
+    });
+  }
+</script>
+
+
+  Below we include the Login Button social plugin. This button uses
+  the JavaScript SDK to present a graphical Login button that triggers
+  the FB.login() function when clicked.
+
+
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+
+<div id="status">
+</div>
+-->
+
+<div class="cart-modal-container " 
+ng-class="block_oneall_phone ? 'g-d-block' : 'g-d-none' ">
+  <form class="cart-modal" novalidate id="form-with-angular-classes" >
+    <h2 class="modal-h">Please type your Phone</h2>
+	<div class="default-text-field-container default-text-field-container_sell-fix">
+ <input 
+  ng-model="oneall.phone"
+  id="after-oneall-phone"
+  ng-pattern="/^[0-9]{5,20}$/"
+  required="required"
+               class="text-field" type="text" />
+               <label 
+               class="text-field-placeholder"
+               for="after-oneall-phone">Phone<span class="red">*</span></label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+     </div>
+     <button 
+ng-click="oneall_need_phone()"     
+     id="plassphoneulogin"
+     class="standart-btn  default-text-field-container_sell-fix">Next</button>
+   <p class="form-error" id="after-oneall-phone-form-error"></p> 
+  </form>
+</div>
+
+
+
+ </div> 
+</div>  
+
+<!-- END -->
+
+<form novalidate id="form-with-angular-classes" 
+  ng-class="step2form == 1 ? 'g-d-block' : 'g-d-none'" >
+    <h2 
+ng-class="step ? '' : 'g-d-none' "    
+    class="seller-step-h seller-step-h_2">... and <i class="seller-step-h_brown-text">where</i> we can come and take a look at your watch!
+    </h2>
+    
+    
+    <div 
+ng-class="step ? '' : 'g-d-none' "     
+    class="map-btn-container" id="floating-panel"> 
+            <div class="default-text-field-container default-text-field-container_map-field" id="floating-panel">
+                <input 
+  ng-model="userup.adres"
+  id="googleaddress"
+  placeholder=""
+                  class="text-field" type="textbox" value="" >
+                  <label class="text-field-placeholder" for="googleaddress">
+                  <i class="label-icon fa fa-map-marker" aria-hidden="true"></i>
+     
+                  Type your address
+                  <span 
+                  ng-if="buystep"
+                  class="red">*</span>
+
+                  </label>
+                  <i class="success-icon fa fa-check" aria-hidden="true"></i>
+                  <i class="error-icon fa fa-times" aria-hidden="true"></i>
+              </div>
+      <!--
+      <input class="standart-btn standart-btn_map" id="googlesubmit" type="button" value="Go">
+      -->
+      </div>
+      
+      <div 
+ng-class="step ? '' : 'g-d-none' "      
+      class="map" id="map" style="width: 100%; height: 250px;">      
+      </div>
+
+
+            <button 
+  ng-click="formSubmit( userup, '/api/sign_up', true )"
+            class="standart-btn standart-btn_register">Register</button>
+          </div>
+</form>
+          <p class="form-error form-error_seller-step-2-fields" id="form-error"> </p>
+</data-switch>
+
+
+
+
+         </div>
+
+
+<!--
+    <data-js-lazy-load 
+        js-lazy-load  
+        src="//ulogin.ru/js/ulogin.js" >    
+    </data-js-lazy-load>        
+-->

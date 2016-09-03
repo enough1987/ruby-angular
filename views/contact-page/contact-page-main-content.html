@@ -1,0 +1,103 @@
+<div class="photo-block-container">
+	<div class="container">
+		<h2 class="photo-block-h">24/7 Customer Support</h2>
+		<p class="photo-block-p">We want your experience to be totally stress-free when buying or selling with Beepi. If you have any questions, or just want to meet a friendly member of Team Beepi, you can reach us anytime!</p>
+	</div>
+</div>
+<div class="contacts-block">
+ <div class="container contacts-block_inner-container">
+	<h3 class="contacts-h">We'd love to chat!</h3>
+	<p class="contacts-p">The Beepi support team is available anytime by email, live chat and phone.</p>
+	<div class="contact-links-container clearfix">
+		<a href="" class="contact-link">
+			<span class="contact-circle">
+				<i class="fa fa-comments" aria-hidden="true"></i>
+			</span>
+			<br>
+			<span class="contact-label">Live Chat</span>
+		</a>
+		<a href="" class="contact-link">
+			<span class="contact-circle">
+				<i class="fa fa-phone" aria-hidden="true"></i>
+			</span>
+			<br>
+			<span class="contact-label">911</span>
+		</a>
+		<a href="#contact-form" class="contact-link">
+			<span class="contact-circle">
+				<i class="fa fa-envelope-o" aria-hidden="true"></i>
+			</span>
+			<br>
+			<span class="contact-label">hello@watchr.co.uk</span>
+		</a>
+	</div>
+ </div>
+</div>
+<div class="contact-form-container" id="contact-form">
+	<h3 class="contacts-h">We'd love to chat!</h3>
+	<p class="contacts-p">The Beepi support team is available anytime by email, live chat and phone.</p>
+	<form action="" class="contact-form">
+		<div class="default-text-field-container">
+            <textarea class="default-textarea text-field" type="text" id="comment" placeholder="Message"></textarea>
+            <i class="success-icon fa fa-check" aria-hidden="true"></i>
+            <i class="error-icon fa fa-times" aria-hidden="true"></i>
+        </div>
+        <div class="default-text-field-container">
+           <input class="text-field" type="text" id="reg-name" required="required">
+           <label class="text-field-placeholder" for="reg-name">Name <span class="red">*</span></label>
+           <i class="success-icon fa fa-check" aria-hidden="true"></i>
+           <i class="error-icon fa fa-times" aria-hidden="true"></i>
+        </div>
+        <div class="default-text-field-container">
+           <input class="text-field" type="text" id="reg-last-name" required="required">
+           <label class="text-field-placeholder" for="reg-last-name">Last Name <span class="red">*</span></label>
+           <i class="success-icon fa fa-check" aria-hidden="true"></i>
+           <i class="error-icon fa fa-times" aria-hidden="true"></i>
+        </div>
+        <div class="default-text-field-container">
+           <input class="text-field" type="text" id="reg-phone" placeholder="Phone">
+           <i class="success-icon fa fa-check" aria-hidden="true"></i>
+           <i class="error-icon fa fa-times" aria-hidden="true"></i>
+        </div>
+        <div class="default-text-field-container">
+           <input class="text-field" type="text" id="reg-email" required="required">
+           <label class="text-field-placeholder" for="reg-email">Email <span class="red">*</span></label>
+           <i class="success-icon fa fa-check" aria-hidden="true"></i>
+           <i class="error-icon fa fa-times" aria-hidden="true"></i>
+        </div>
+        <button class="standart-btn">Send</button>
+	</form>
+</div>
+
+<div class="contact-map-block">
+	<h3 class="map-h">We are located at 240 Third Street, Suite 200, Los Altos, CA 94022</h3>
+	<div class="map" > </div>
+	<script>
+function initSimpleMap() {
+  console.log('  initSimpleMap is going ');
+  var myLatLng = {lat: -25.363, lng: 131.044};
+
+  // Create a map object and specify the DOM element for display.
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: myLatLng,
+    scrollwheel: false,
+    zoom: 4
+  });
+
+  // Create a marker and set its position.
+  var marker = new google.maps.Marker({
+    map: map,
+    position: myLatLng,
+    title: 'Hello World!'
+  });
+}
+initSimpleMap();
+	</script>
+</div>
+<div class="photo-block-container">
+	<div class="container">
+		<h2 class="photo-block-h">24/7 Customer Support</h2>
+		<p class="photo-block-p">We want your experience to be totally stress-free when buying or selling with Beepi. If you have any questions, or just want to meet a friendly member of Team Beepi, you can reach us anytime!</p>
+		<a href="/faq-page" class="standart-btn go-to-faq-btn">Go to FAQ</a>
+	</div>
+</div>

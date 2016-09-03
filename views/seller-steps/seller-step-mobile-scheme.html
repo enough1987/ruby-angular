@@ -1,0 +1,24 @@
+<!-- MOBILE STEPS SCHEME START -->
+  <div class="step-container-fluid hidden-on-desktop">
+       <div class="step-container_seller-page step-container container clearfix">
+         <span class="mobile-v-step-count">
+{{ step == '3' ? 'Step 3' : ( step == '2' ? 'Step 2' : 'Step 1') }}
+        </span>
+         <div 
+ng-class="step == '1' || step == '2' || step == '3' ? ( step == '1' ? 'active-step' : 'active-step done' ) : ''"
+          class="step-name">
+           <div class="circle circle_sp"><i class="circle_icon fa fa-check" aria-hidden="true"></i></div>
+         </div>
+         <div 
+ng-class="step == '2' || step == '3'? ( step == '2' ? 'active-step' : 'active-step done' ) : ''"
+         class="step-name step-name_central">
+           <div class="circle circle_sp circle_with-line"><i class="circle_icon fa fa-check" aria-hidden="true"  ></i></div>
+         </div>
+         <div 
+ng-class="step == '3' ? 'active-step' : ''"
+         class="step-name">
+           <div class="circle circle_sp circle_with-line"><i class="circle_icon fa fa-check" aria-hidden="true"  ></i></div>
+         </div>
+       </div>          
+    </div>
+<!-- MOBILE STEPS SCHEME END -->

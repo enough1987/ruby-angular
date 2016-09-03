@@ -1,0 +1,272 @@
+<!-- SELLER STEP 1 START -->
+  <div class="seller-step-1-container container">
+    <div class="seller-step-h-block">
+      <img src="../../img/watch-s.jpg" alt="" class="seller-step-h-img">
+      <h1 class="seller-step-h">Give us some information about <i class="seller-step-h_brown-text">your watch</i></h1>
+    </div>
+    <div class="seller-step-1-fields container">
+      <div class="seller-step-1-fields_block clearfix">
+        <h5 class="seller-step-1-fields_block-h">Details</h5>
+
+<form novalidate  >
+        <div 
+        id="form-with-angular-classes"
+        class="default-text-field-container seller-form-select seller-form-select_marg">
+           <input 
+ng-model="newgoods.brand" 
+name="brand"
+if-has-val-dirty-dir   
+           class="text-field" type="text" id="brand" required="required">
+           <label class="text-field-placeholder" for="brand">
+            Brand 
+            <span class="red">*</span>
+           </label>
+           <i class="success-icon fa fa-check" aria-hidden="true"></i>
+           <i class="error-icon fa fa-times" aria-hidden="true"></i>
+        </div>
+
+        <div 
+        id="form-with-angular-classes"
+        class="default-text-field-container seller-form-select">
+           <input 
+ng-model="newgoods.model"
+name='model'
+if-has-val-dirty-dir  
+           class="text-field" type="text" id="model" required="required">
+           <label class="text-field-placeholder" for="model">
+            Model 
+            <span class="red">*</span>
+           </label>
+           <i class="success-icon fa fa-check" aria-hidden="true"></i>
+           <i class="error-icon fa fa-times" aria-hidden="true"></i>
+        </div>
+
+        <div 
+        id="form-with-angular-classes"
+        class="standart-select-container_hint default-text-field-container seller-form-field_3-in-row">
+           <select
+			ng-model="newgoods.condition" 
+			name='condition'
+			if-has-val-dirty-dir
+		   class="standart-select standart-select_required" id="condition" data-placeholder="Condition" required="required">
+              <option value=""></option>
+              <option value="new">New</option>
+              <option value="used">Used</option>
+            </select>
+
+            <i class="hint-icon label-icon fa fa-question-circle-o" aria-hidden="true">
+              <span class="hint-block">
+                "New" means that the watch has never been worn.
+              </span>
+            </i>
+
+            <i class="success-icon fa fa-check" aria-hidden="true"></i>
+            <i class="error-icon fa fa-times" aria-hidden="true"></i>
+        </div>
+        <div class="default-text-field-container seller-form-field_3-in-row">
+           <input 
+ng-model="newgoods.reference"
+name="reference"
+placeholder="Reference"
+           class="text-field text-field_with-hint" type="text" id="reference " >
+ <!--          <label class="text-field-placeholder text-field-placeholder_with-hint" for="reference ">
+            Reference 
+            <span class="red">*</span></label>   -->
+           </label>
+           <i class="hint-icon label-icon fa fa-question-circle-o" aria-hidden="true">
+              <span class="hint-block">
+                The reference number - also referred to as model number or article number - serves as the identification of a specific watch model. You can find this number in the documents from the manufacturer or on the case of the watch. If you find yourself unable to state the reference number, please continue on with the next step.
+              </span>
+            </i>
+<!--           <i class="success-icon fa fa-check" aria-hidden="true"></i>
+           <i class="error-icon fa fa-times" aria-hidden="true"></i>  -->
+        </div>
+
+        <div 
+        id="form-with-angular-classes"
+        class="default-text-field-container seller-form-field_3-in-row no-right-margin">
+           <input 
+ng-model="newgoods.year"
+ng-pattern="/^[0-9]{1,5}$/" 
+name="year"
+if-has-val-dirty-dir  
+           class="text-field" type="text" id="year" required="required">
+           <label 
+           class="text-field-placeholder"
+           for="year">
+            Year
+            <span class="red">*</span></label>
+           <i class="success-icon fa fa-check" aria-hidden="true"></i>
+           <i class="error-icon fa fa-times" aria-hidden="true"></i>
+        </div>
+</form>
+
+      </div>
+
+
+      <div class="seller-step-1-fields_block">
+        <h5 class="seller-step-1-fields_block-h">Content</h5>
+        <div class="content-block clearfix">
+          <div class="content-item">
+              <input 
+ng-model="newgoods.content" value="Only box available"
+              class="content-radio standart-radio" 
+name="content"  
+          type="radio" id="content_only-box">
+              <label class="content-radio-board sec-radio-label" 
+
+              for="content_only-box">
+                <span class="content-svg-container">
+                  <svg class="content-svg" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 40 40">
+                    <defs>
+                      <style>
+                        .cls-1 {
+                          fill: #d2b356;
+                          fill-rule: evenodd;
+                        }
+                      </style>
+                    </defs>
+                    <path id="BOX.svg" class="content-svg-path cls-1" d="M574.661,829.515l-19.4-6.453a0.564,0.564,0,0,0-.512,0L535.6,829.351a0.916,0.916,0,0,0-.6.848v25.822a0.84,0.84,0,0,0,.6.849L554.5,862.9a1.347,1.347,0,0,0,1,0l18.9-6.033a1.031,1.031,0,0,0,.6-0.849V830.2A0.78,0.78,0,0,0,574.661,829.515ZM555,824.842l16.424,5.267-6.2,1.986-16.185-5.316ZM554,861l-17-6V831.349L554,837v24Zm1-25.625L538.576,830.2l7.737-2.522,16.127,5.316ZM556,861V837l8-2.734V837l2-1v-2.307l7-2.27V855l0.3,0.337Z" transform="translate(-535 -823)"/>
+                  </svg>
+                </span>
+                Only box available
+              </label>
+          </div>
+          <div class="content-item">
+              <input 
+ng-model="newgoods.content" value="Only certificate available"
+              class="content-radio standart-radio" 
+name="content" 
+        type="radio" id="content_only-cert">
+              <label 
+
+              class="content-radio-board checked sec-radio-label" for="content_only-cert">
+                <span class="content-svg-container">
+                  <svg class="content-svg" xmlns="http://www.w3.org/2000/svg" width="36" height="44" viewBox="0 0 26 34">
+                    <defs>
+                      <style>
+                        .cls-1 {
+                          fill: #fff;
+                          fill-rule: evenodd;
+                        }
+                      </style>
+                    </defs>
+                    <path id="FILE.svg" class="content-svg-path cls-1" d="M859.176,826H841.752c-0.025,0-.05,0-0.073.009h0a0.59,0.59,0,0,0-.075.021l-0.013,0a0.585,0.585,0,0,0-.068.03l0,0a0.642,0.642,0,0,0-.065.041l-0.014.01a0.557,0.557,0,0,0-.058.051h0l-6.209,6.22h0a0.68,0.68,0,0,0-.05.059l-0.011.014a0.714,0.714,0,0,0-.041.065,0.011,0.011,0,0,1,0,0,0.488,0.488,0,0,0-.029.066,0.078,0.078,0,0,0,0,.014,0.461,0.461,0,0,0-.021.075v0a0.545,0.545,0,0,0-.009.072,0.127,0.127,0,0,0,0,.02c0,0.007,0,.013,0,0.02v25.369A1.828,1.828,0,0,0,836.824,860h22.352A1.828,1.828,0,0,0,861,858.173V827.827A1.828,1.828,0,0,0,859.176,826ZM841,830v2c0.03-.081-0.133,0,0,0h-2Zm18,28c0,0.364.364,0,0,0H837c-0.364,0,0,.364,0,0V834h4a2.14,2.14,0,0,0,2-2v-4h16c0.364,0,0-.364,0,0v30Zm-18-16h14v2H841v-2Zm0,4h14v2H841v-2Zm0,4h14v2H841v-2Z" transform="translate(-835 -826)"/>
+                  </svg>
+                </span>
+                Only certificate available
+              </label>
+          </div>
+          <div class="content-item">
+              <input 
+ng-model="newgoods.content" value="Box and certificate"
+              class="content-radio standart-radio" 
+name="content"  
+    type="radio" id="content_box+cert">
+              <label 
+
+              class="content-radio-board sec-radio-label" for="content_box+cert">
+                <span class="content-svg-container">
+                  <svg class="content-svg" xmlns="http://www.w3.org/2000/svg" width="56" height="51" viewBox="0 0 46 41">
+                    <defs>
+                      <style>
+                        .cls-1 {
+                          fill: #d2b356;
+                          fill-rule: evenodd;
+                        }
+                      </style>
+                    </defs>
+                    <path id="BOX_FILE.svg" data-name="BOX&amp;FILE.svg" class="content-svg-path cls-1" d="M1174.66,830.515l-19.4-6.453a0.58,0.58,0,0,0-.52,0l-19.15,6.289a0.924,0.924,0,0,0-.59.848v25.822a0.846,0.846,0,0,0,.59.849l18.91,6.033a1.348,1.348,0,0,0,1,0l18.91-6.033a1.043,1.043,0,0,0,.59-0.849V831.2A0.772,0.772,0,0,0,1174.66,830.515ZM1155,825.842l16.42,5.267-6.2,1.986-16.18-5.316ZM1154,862l-17-6V832.349L1154,838v24Zm1-25.625-16.42-5.176,7.73-2.522,16.13,5.316ZM1156,862V838l8-2.735V838l2-1v-2.307l7-2.27V856l0.3,0.337Zm10-16h10v12l-10,4V846Zm14.09,2h-8.71a0.163,0.163,0,0,0-.04,0h0a0.292,0.292,0,0,0-.04.01s0,0-.01,0l-0.03.014h0l-0.03.021c-0.01,0-.01,0-0.01,0l-0.03.025h0l-3.1,3.111h0l-0.03.029s0,0-.01.007a0.066,0.066,0,0,1-.02.033v0c0,0.011-.01.022-0.01,0.033v0.007a0.054,0.054,0,0,0-.01.038h0a0.05,0.05,0,0,0-.01.036v12.7a0.914,0.914,0,0,0,.91.914h11.18a0.914,0.914,0,0,0,.91-0.914V848.914A0.914,0.914,0,0,0,1180.09,848Zm-9.09,2v1c0.02-.041-0.07,0,0,0h-1Zm9,14c0,0.182.18,0,0,0h-11c-0.18,0,0,.182,0,0V852h2a1.072,1.072,0,0,0,1-1v-2h8c0.18,0,0-.182,0,0v15Zm-9-8h7v1h-7v-1Zm0,2h7v1h-7v-1Zm0,2h7v1h-7v-1Z" transform="translate(-1135 -824)"/>
+                  </svg>
+
+                </span>
+                Box and certificate
+              </label>
+          </div>
+          <div class="content-item">
+            <input 
+ng-model="newgoods.content" value="I don’t have any of them"
+            class="content-radio standart-radio" 
+name="content"
+      type="radio" id="content_nothing">
+              <label 
+
+              class="content-radio-board sec-radio-label" for="content_nothing">
+                <span class="content-svg-container">
+                  <svg class="content-svg" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 34 34">
+                    <defs>
+                      <style>
+                        .cls-1 {
+                          fill: #d2b356;
+                          fill-rule: evenodd;
+                        }
+                      </style>
+                    </defs>
+                    <path id="SMILE.svg" class="content-svg-path cls-1" d="M1459.57,838.541a1.96,1.96,0,1,1-1.96-1.958A1.961,1.961,0,0,1,1459.57,838.541Zm-11.27,0a1.96,1.96,0,1,1-1.96-1.958A1.961,1.961,0,0,1,1448.3,838.541Zm-2.96,14.64a0.807,0.807,0,0,1-.81-0.807,6.289,6.289,0,0,1,6.25-6.318h2.72a6.278,6.278,0,0,1,6.25,6.283,0.81,0.81,0,0,1-1.62,0,4.656,4.656,0,0,0-4.63-4.668h-2.72a4.676,4.676,0,0,0-4.64,4.7A0.8,0.8,0,0,1,1445.34,853.181ZM1452,860a17,17,0,1,1,17-17A17.022,17.022,0,0,1,1452,860Zm0-32a15,15,0,1,0,15,15A14.755,14.755,0,0,0,1452,828Z" transform="translate(-1435 -826)"/>
+                  </svg>
+                </span>
+                I don’t have any of them
+              </label>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="seller-step-1-fields_block clearfix">
+
+        <div class="seller-step-1-fields_block_part-1">
+          <h5 class="seller-step-1-fields_block-h">Upload Images</h5>
+          <div class="upload-img-items clearfix">
+
+            <form  action="/api/seller/upload" method="post" enctype="multipart/form-data">
+                  <input type="file" name="attachment"
+                   id="img-loader" multiple="multiple">
+            </form>
+
+
+
+
+          </div>
+        </div>
+
+<form novalidate >
+        <div class="seller-step-1-fields_block_part-2">
+          <h5 class="seller-step-1-fields_block-h">Is there anything we should know?
+          </h5>
+          <div class="default-text-field-container">
+            <textarea 
+ng-model="newgoods.comment"
+name="comment" 
+            class="default-textarea text-field" type="text" id="comment" placeholder="Comment"></textarea>
+            <i class="success-icon fa fa-check" aria-hidden="true"></i>
+            <i class="error-icon fa fa-times" aria-hidden="true"></i>
+          </div>
+        </div>
+</form>
+ 
+
+      </div>
+      
+    </div>
+    
+      <p class="form-error form-error_seller-step-2-fields g-ta-left" id="form-error">
+        <span style="opacity: 0" >!</span> 
+      </p>
+      
+  </div>
+<!-- SELLER STEP 1 END -->
+
+
+
+
+   <data-js-lazy-load js-lazy-load  src="js/libs/jquery.filer.min.js" ></data-js-lazy-load>
+
+    <data-js-lazy-load js-lazy-load  src="js/jquery.filer-init.js" ></data-js-lazy-load>
+
+
+
+
+
+
+
+

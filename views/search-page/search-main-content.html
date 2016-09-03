@@ -1,0 +1,284 @@
+<!-- SEARCH RESULT BLOCK START -->
+  <div class="search-result-block container">
+  <!-- SEARCH SIDEBAR START -->
+  <div class="search-sidebar clearfix">
+    <div class="search-sidebar_mobile-header hidden-on-desktop">
+      <div class="showing-count">
+Showing 
+{{ page['total_count'] < 6 ? 0 : (0 <= (page['current_page']*(+page['per_page']) - 5) ? page['current_page']*(+page['per_page']) - 5 : 0 )}}  
+- 
+{{ page['total_count'] <= ( page['current_page']*(+page['per_page']) ) ? page['total_count'] : page['current_page']*(+page['per_page'])  }}  
+ of 
+ {{ page['total_count'] }}  
+results
+    </div>
+
+      <select class="search-sidebar_mobile-header_select standart-select" name="" id="" data-placeholder="Sort by Latest">
+          <option
+ng-click="newPage( 'sortByName-asc' )" 
+          id="sortByName-asc" data-sort="false"
+          >Name - A-Z</option>
+          <option
+ng-click="newPage( 'sortByName-desc' )" 
+          id="sortByName-desc" data-sort="false"
+          >Name - Z-A</option>
+          <option
+ng-click="newPage( 'sortByPrice-asc' )"
+          id="sortByPrice-asc" data-sort="false"
+          >Price - from Low</option>
+          <option
+ng-click="newPage( 'sortByPrice-desc' )"  
+          id="sortByPrice-desc" data-sort="false"
+          >Price - from High</option>
+      </select>
+      <div class="search-sidebar_mobile-header_btn">
+        <i class="search-sidebar_mobile-header_btn_icon fa fa-filter" aria-hidden="true"></i>
+      </div>
+    </div>
+    <div class="panel-group filter-tabs filter-tabs_hidden-m" id="faq-accordion" role="tablist"  aria-multiselectable="true">
+        <div class="category-panel panel panel-default">
+          <div class="category-h-heading panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+              <span class="search-category-h status-arrows" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Categories
+              </span>
+            </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="category-body panel-body in">
+
+              <div 
+  ng-if="prop['brands'][0]['id']"
+  ng-repeat="item in prop['brands']"
+              class="category-item">
+<!-- prop-search-checkbox need to be edded for js -->
+                <input 
+data-item-id="{{ item['id'] }}"
+checked-dir tax="{{tax}}" sid="{{item['id']}}" 
+all="{{search}}"
+id="open-caseback-{{$index}}"
+                class="prop-search-checkbox standart-checkbox" type="checkbox" >
+                  <label class="prim-checkbox-label fa fa-check" 
+for="open-caseback-{{$index}}"
+></label>
+                  <label class="category-item_label sec-checkbox-label" 
+for="open-caseback-{{$index}}"
+                  >
+{{ item['name'] }}
+</label>
+        <!--          <span class="category-item_varians-count">23</span> -->
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="category-panel panel panel-default">
+          <div class="category-h-heading panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+              <span class="search-category-h status-arrows" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                Price
+              </span>
+            </h4>
+          </div>
+          <div 
+ng-if="prop['price_max'] && page['result']"
+          id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="category-body panel-body in">
+                <div class="price-slider-container">
+                  <div class="price-slider_elements">
+                   	<div 
+  price-slider-dir
+  min="{{prop['price_min']}}" 
+  max="{{prop['price_max']}}"
+  defaultmin="{{defaultmin ? defaultmin : prop['price_min']}}"
+  defaultmax="{{defaultmax ? defaultmax : prop['price_max']}}"            
+  id="slider-price-range">
+    
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="category-panel panel panel-default">
+          <div class="category-h-heading panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+              <span class="search-category-h status-arrows" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTree" aria-expanded="true" aria-controls="collapseTree">
+                Gender
+              </span>
+            </h4>
+          </div>
+          <div id="collapseTree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTree">
+            <div class="category-body panel-body">
+              <div class="category-item">
+                <input 
+ng-if="prop['gender'][0]['id'] " 
+data-item-id="{{ prop['gender'][0]['id'] }}"
+checked-dir tax="{{tax}}" sid="{{prop['gender'][0]['id']}}" 
+all="{{search}}"
+                class="standart-checkbox" type="checkbox" id="gender-man">
+                  <label class="prim-checkbox-label fa fa-check" for="gender-man"></label>
+                  <label class="category-item_label sec-checkbox-label" for="gender-man">Man</label>
+                  <span class="category-item_varians-count">23</span>
+              </div>
+              <div class="category-item">
+                <input 
+ng-if="prop['gender'][1]['id'] "
+data-item-id="{{ prop['gender'][1]['id'] }}"
+checked-dir tax="{{tax}}" sid="{{prop['gender'][1]['id']}}"
+all="{{search}}"
+                class="standart-checkbox" type="checkbox" id="gender-woman">
+                  <label class="prim-checkbox-label fa fa-check" for="gender-woman"></label>
+                  <label class="category-item_label sec-checkbox-label" for="gender-woman">Woman</label>
+                  <span class="category-item_varians-count">23</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button 
+ng-click="searchClick()"
+      class="standart-btn">Search</button>
+  </div>
+  <!-- SEARCH SIDEBAR END -->
+
+
+  <!-- SEARCH ITEMS START -->
+  <div class="search-items-container">
+    <div class="search-items_preferences clearfix hidden-on-mobile">
+      <span class="showing-count">
+Showing 
+{{ page['total_count'] < 6 ? 0 : (0 <= (page['current_page']*(+page['per_page']) - 5) ? page['current_page']*(+page['per_page']) - 5 : 0 )}}  
+- 
+{{ page['total_count'] <= ( page['current_page']*(+page['per_page']) ) ? page['total_count'] : page['current_page']*(+page['per_page'])  }}  
+ of 
+ {{ page['total_count'] }}  
+results
+      </span>
+      <div class="search-items_dropdown dropdown-container">
+        <span class="dropdown-h">Sort by Latest</span>
+        <ul class="dropdown-content">
+          <li 
+ng-click="newPage( 'sortByName-asc' )" 
+          id="sortByName-asc" data-sort="false"
+          class="dropdown-item">Name - A-Z</li>
+          <li 
+ng-click="newPage( 'sortByName-desc' )" 
+          id="sortByName-desc" data-sort="false"
+          class="dropdown-item">Name - Z-A</li>
+          <li 
+ng-click="newPage( 'sortByPrice-asc' )"
+          id="sortByPrice-asc" data-sort="false"
+          class="dropdown-item">Price - from Low</li>
+          <li 
+ng-click="newPage( 'sortByPrice-desc' )"  
+          id="sortByPrice-desc" data-sort="false"
+          class="dropdown-item">Price - from High</li>
+        </ul>
+      </div>
+    </div>
+    
+    <p class="search-items-no-result-text">No Results for your search...</p>
+    <div class="loader-container">
+      <div class="loader">
+        <div class="loader__figure"></div>
+        <p class="loader__label">Loading...</p>
+      </div>
+    </div>
+    <div class="search-items_products clearfix">      
+      <div class="watch-slide_single watch-slide watch-slide_hover-btn">
+          <span class="watch-brend">ROLEX</span>
+          <div class="watch-slide-img-container">
+            <img src="../../img/productMiddle.jpg" alt="" class="watch-image">
+          </div>
+          <span class="watch-name">Oyster Perpetual - Boxed with Papers from 2009</span>
+          <span class="watch-price">£399,99</span>
+          <button class="standart-btn">Buy Now</button>
+      </div>
+      <div class="watch-slide_single watch-slide watch-slide_hover-btn">
+          <span class="watch-brend">ROLEX</span>
+          <div class="watch-slide-img-container">
+            <img src="../../img/productMiddle.jpg" alt="" class="watch-image">
+          </div>
+          <span class="watch-name">Oyster Perpetual - Boxed with Papers from 2009</span>
+          <span class="watch-price">£399,99</span>
+          <button class="standart-btn">Buy Now</button>
+      </div>
+      <div class="watch-slide_single watch-slide watch-slide_hover-btn">
+          <span class="watch-brend">ROLEX</span>
+          <div class="watch-slide-img-container">
+            <img src="../../img/productMiddle.jpg" alt="" class="watch-image">
+          </div>
+          <span class="watch-name">Oyster Perpetual - Boxed with Papers from 2009</span>
+          <span class="watch-price">£399,99</span>
+          <button class="standart-btn">Buy Now</button>
+      </div>
+      <div class="watch-slide_single watch-slide watch-slide_hover-btn">
+          <span class="watch-brend">ROLEX</span>
+          <div class="watch-slide-img-container">
+            <img src="../../img/productMiddle.jpg" alt="" class="watch-image">
+          </div>
+          <span class="watch-name">Oyster Perpetual - Boxed with Papers from 2009</span>
+          <span class="watch-price">£399,99</span>
+          <button class="standart-btn">Buy Now</button>
+      </div>
+      <div class="watch-slide_single watch-slide watch-slide_hover-btn">
+          <span class="watch-brend">ROLEX</span>
+          <div class="watch-slide-img-container">
+            <img src="../../img/productMiddle.jpg" alt="" class="watch-image">
+          </div>
+          <span class="watch-name">Oyster Perpetual - Boxed with Papers from 2009</span>
+          <span class="watch-price">£399,99</span>
+          <button class="standart-btn">Buy Now</button>
+      </div>
+      <div class="watch-slide_single watch-slide watch-slide_hover-btn">
+          <span class="watch-brend">ROLEX</span>
+          <div class="watch-slide-img-container">
+            <img src="../../img/productMiddle.jpg" alt="" class="watch-image">
+          </div>
+          <span class="watch-name">Oyster Perpetual - Boxed with Papers from 2009</span>
+          <span class="watch-price">£399,99</span>
+          <button class="standart-btn">Buy Now</button>
+      </div>
+    </div>
+    <div class="search-items_navigation-container">
+      <div class="search-items_navigation">
+        <span class="search-items_nav-arrow"><</span>
+        <ul class="search-pages-list standart-list">
+          <li class="search-page">1</li>
+          <li class="search-page search-page_active">2</li>
+          <li class="search-page">3</li>
+          <li class="search-page">4</li>
+          <li class="search-page">5</li>
+          <li class="search-page search-page_dots">...</li>
+          <li class="search-page">25</li>
+        </ul>
+        <span class="search-items_nav-arrow">></span>
+      </div>
+    </div>
+  </div>
+  <!-- SEARCH ITEMS END -->
+  </div>
+<!-- SEARCH RESULT BLOCK END-->
+
+<!-- FACTS BLOCK START -->
+<div class="container-fluid search-facts-container hidden-on-mobile">
+  <div class="container">
+    <div class="fact-item fact-item_1">
+      <i class="fact-icon fa fa-check" aria-hidden="true"></i>
+      <span class="fact-h">Inspected</span>
+      <p class="fact-text">All our watch watches have been inspected and authenticated by our certified watch-masters.</p>
+    </div>
+    <div class="fact-item fact-item_2">
+      <i class="fact-icon fa fa-truck" aria-hidden="true"></i>
+      <span class="fact-h">Inspected</span>
+      <p class="fact-text">All our watch watches have been inspected and authenticated by our certified watch-masters.</p>
+    </div>
+    <div class="fact-item fact-item_3">
+      <i class="fact-icon fa fa-thumbs-up" aria-hidden="true"></i>
+      <span class="fact-h">Inspected</span>
+      <p class="fact-text">All our watch watches have been inspected and authenticated by our certified watch-masters.</p>
+    </div>
+  </div>
+</div>
+<!-- FACTS BLOCK END

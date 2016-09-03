@@ -1,0 +1,219 @@
+
+  
+    <div ng-class="page['buy'] ? 'g-d-none' : 'g-d-block' "
+    class="loader-container"  >
+      <div class="loader">
+        <div class="loader__figure"></div>
+        <p class="loader__label">Loading...</p>
+      </div>
+    </div>
+   
+ 
+<data-show ng-class="!page['buy'] ? 'g-d-none' : 'g-d-block' " >
+
+    <div class="container-fluid landing-page-header landing-page-header_new-bg">
+      <div class="container">
+
+        <ng-include src="'views/global/header-elements.html'"></ng-include>
+</div>
+<!--  
+        <ng-include src="'views/landing/lp-header-content.html'"></ng-include>
+-->
+<div class="landing-page-header_triangle">
+  <div class="container">
+<h1 class="main-h">21<sup>st</sup> century watch buying and selling</h1>
+<p class="under-h-text">Hand-inspected, certified, pre-owned watches
+   <br>
+   <i class="video-btn fa fa-play" aria-hidden="true"></i>
+</p>
+<div class="header-info-container clearfix hidden-on-mobile">
+  <div class="header-info-block">
+    <h2 class="info-block-h">Hassle-free watch <i class="grey-text">selling</i></h2>
+    <div class="info-block-details info-block-details_sell">
+      <span class="hidden-info-detail">
+        <i class="hidden-info-detail_icon grey-text fa fa-star-o" aria-hidden="true"></i>
+        Register your watch online
+      </span>
+      <span class="hidden-info-detail">
+        <i class="hidden-info-detail_icon grey-text fa fa-calendar" aria-hidden="true"></i>
+        Schedule a free inspection
+      </span>
+      <span class="hidden-info-detail">
+        <i class="hidden-info-detail_icon grey-text fa fa-shield" aria-hidden="true"></i>
+        Keep your watch until it’s sold
+      </span>
+    </div>
+    <a 
+    href="/seller-landing" 
+    class="standart-btn  standart-btn_dark">Sell your watch</a>
+  </div>
+  <div class="header-info-block header-info-block_buy">
+    <h2 class="info-block-h">Safe watch  <i class="brown-text">buying</i></h2>
+    <div class="info-block-details">
+      <span class="hidden-info-detail">
+        <i class="hidden-info-detail_icon brown-text fa fa-diamond" aria-hidden="true"></i>
+        Hand-inspected
+      </span>
+      <span class="hidden-info-detail">
+        <i class="hidden-info-detail_icon brown-text fa fa-paper-plane-o" aria-hidden="true"></i>
+        Home-delivered
+      </span>
+      <span class="hidden-info-detail">
+        <i class="hidden-info-detail_icon brown-text fa fa-money" aria-hidden="true"></i>
+        Guaranteed 
+      </span>
+    </div>
+    <a 
+    href="/search-page" 
+    class="standart-btn">Buy a Watch</a>
+  </div>
+</div>
+ </div>
+ <div class="cart-modal-container video-modal">
+  <div class="cart-modal video-modal-body">
+    <div class="modal-close-btn"></div>
+    <video class="promo-video" id="modal-video">
+      <source src="../../../video/WatchR_Explainer_video_HD_final.mp4">  
+    </video>
+  </div>
+</div>
+<!--  
+        END <ng-include src="'views/landing/lp-header-content.html'"></ng-include>
+-->
+
+      </div>
+    </div>
+
+    <!--          
+   <ng-include src="'views/landing/lp-main-content.html'"></ng-include>
+    -->
+
+<!-- SLIDER BLOCK START -->
+<div class="container-fluid watches-slider-block">
+  <div class="container">
+    <h3 class="secondary-h">Best Sellers</h3>
+    <div 
+ng-if="page['buy']"
+    class="watches-slides-container" id="watches-slider">
+        
+          <div           
+ng-if="page['buy']"
+ng-repeat="item in page['buy']"
+          class="watch-slide">
+            <span class="watch-brend">
+{{ item['brand'][0] }}            
+            </span>
+            <img 
+src="{{item['master']['images'][0]['product_url']}}" 
+            alt="" class="watch-image">
+            <span class="watch-name">
+    {{ item['name'] }}
+    </span>
+            <span class="watch-price">
+    {{ item['price'] | appcurrency }}
+            </span>
+            <a href="{{'/single-product/'+item['id']}}" class="watch-slide_hover-btn"></a>
+            
+        <button 
+add-to-card-dir="{{item}}"   
+gotocard="true"     
+        class="standart-btn">Buy Now</button>
+        
+          </div>
+          
+    </div>
+  </div>
+</div>
+<!-- SLIDER BLOCK END -->
+
+<!-- FACTS BLOCK START -->
+<div class="container-fluid facts-container">
+  <div class="container">
+    <span class="facts-bg-text">We Care</span>
+    <div class="fact-item fact-item_1">
+      <i class="fact-icon fa fa-check" aria-hidden="true"></i>
+      <span class="fact-h">Inspected</span>
+      <p class="fact-text">All our watches have been inspected and authenticated by our certified watch-masters.</p>
+    </div>
+    <div class="fact-item fact-item_2">
+      <i class="fact-icon fa fa-truck" aria-hidden="true"></i>
+      <span class="fact-h">Delivered</span>
+      <p class="fact-text">We ship your purchases in just a few days with a full insurance coverage.</p>
+    </div>
+    <div class="fact-item fact-item_3">
+      <i class="fact-icon fa fa-thumbs-up" aria-hidden="true"></i>
+      <span class="fact-h">Guaranteed</span>
+      <p class="fact-text">We offer a 10-day, money-back guarantee to all our buyers, according to our terms and conditions.</p>
+    </div>
+  </div>
+</div>
+<!-- FACTS BLOCK END -->
+
+<!-- PARTNERS BLOCK START -->
+<!-- 
+<div class="container-fluid partners-main-container">
+  <div class="container">
+    <div class="partners-block">
+      <a href="" class="partner-link"><img src="../../img/partner-1.png" alt=""></a>
+      <a href="" class="partner-link"><img src="../../img/partner-2.png" alt=""></a>
+      <a href="" class="partner-link"><img src="../../img/partner-3.png" alt=""></a>
+    </div>
+  </div>
+</div>
+-->
+<!-- PARTNERS BLOCK END -->
+
+<!-- CUSTOMERS REVIEW BLOCK START -->
+<div class="container-fluid cust-rev-container">
+  <div class="container relative-for-counter">
+    <h3 class="secondary-h">Our Reviews</h3>
+    <div class="cust-rev-slider slider-little-nav" id="cust-rev-slider">
+      <div class="cust-rev-item">
+        <p class="cust-rev-text">Just sold my watch through WatchR; the process was easy, the valuation was in line with my expectations and my outcome was maximised. It took around 10 days - very quick! Can't wait to buy my next watch!
+        <span class="cust-rev-name">John</span></p>
+        <div class="cust-rev-img hidden-on-mobile"><img src="../../img/lp-rew-pic-1.jpg" alt="Customer Photo"></div>
+      </div>
+      <div class="cust-rev-item">
+        <p class="cust-rev-text">I have never trusted online shopping websites, especially if they sell expensive watches. But WatchR is different. I changed my mind when a friend of mine told me that they inspect their watches before putting them on sale. I trusted WatchR and I bought my first watch online. Great service!
+        <span class="cust-rev-name">Eleonor</span></p>
+        <div class="cust-rev-img hidden-on-mobile"><img src="../../img/lp-rew-pic-2.jpg" alt="Customer Photo"></div>
+      </div>
+      <div class="cust-rev-item">
+        <p class="cust-rev-text">I am totally impressed by the quality of their service! I had been trying to sell my Rolex YachMaster for months before reaching out to WatchR. The main problems I had were: bad offers from dealers and a complicated selling process on classified ads websites. WatchR is incredibly smooth. I really liked the fact that I could keep the watch with me till its sold. Last but not least, they managed to sell the watch in just a couple of weeks and I earned more money than the best dealers' offer I had received.
+		<br>
+		Thanks so much WatchR, I had a blast!
+        <span class="cust-rev-name">Ranya</span></p>
+        <div class="cust-rev-img hidden-on-mobile"><img src="../../img/lp-rew-pic-3.jpg" alt="Customer Photo"></div>
+      </div>
+    </div>
+    <div class="slider-counter">
+      <span class="current-rev currentItem"></span>
+      /
+      <span class="revs-count owlItems"></span>
+    </div>
+  </div>
+</div>
+<!-- CUSTOMERS REVIEW BLOCK END -->
+
+<button
+ redirect-to-dir="/search-page"
+ class="mobile-landing-btn mobile-landing-btn_buy">Buy</button>
+<button
+ redirect-to-dir="/seller-landing"
+ class="mobile-landing-btn mobile-landing-btn_sell">Sell</button>
+
+    <!--          
+   END <ng-include src="'views/landing/lp-main-content.html'"></ng-include>
+    -->
+
+   <ng-include src="'views/global/footer.html'"></ng-include> 
+ 
+ <div class="landing-btns-wrapper"></div>
+
+     
+    <data-js-lazy-load ng-if="page['buy']"
+        js-lazy-load  
+        src="js/main.js" >    
+    </data-js-lazy-load>
+
+</data-show>

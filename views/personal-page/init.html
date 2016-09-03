@@ -1,0 +1,324 @@
+
+
+<data-wrapper >
+	
+	
+    <div class="container-fluid landing-page-header">
+      <div class="container">
+        <ng-include src="'views/global/header-elements.html'"></ng-include>
+      </div>
+	  <ng-include src="'views/global/header-breadcrumbs.html'"></ng-include>
+    </div>
+		
+		
+<data-if ng-if="$root.settings._token == $root.settings.old_token" >
+	    
+    <div class="reglog-page-main">
+	   <ng-include src="'views/global/reg-log-block.html'">
+     </ng-include>
+		 </div>
+</data-if>		
+		
+<data-if ng-if="$root.settings._token != $root.settings.old_token" >
+<!--    
+    START <ng-include src="'personal-page-main-content.html'"></ng-include>
+-->
+
+<div class="personal-page-main-container container clearfix">
+	<div class="pp-blocks-container">
+		<div class="pp-block">
+			<h2 class="pp-block-h">
+				Personal Info
+				<span class="personal-info-edit-btn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+			</h2>
+			<ul class="personal-info-list clearfix">
+				<li class="personal-info-item">
+					<span class="personal-info-item-name">Name</span>
+					<span class="personal-info-item-desc">
+{{ page['user']['name'] }}						
+						</span>
+				</li>
+				<li class="personal-info-item">
+					<span class="personal-info-item-name">Last Name</span>
+					<span class="personal-info-item-desc">
+{{ page['user']['last_name'] }}							
+						</span>
+				</li>
+				<li class="personal-info-item">
+					<span class="personal-info-item-name">Phone</span>
+					<span class="personal-info-item-desc">
+{{ page['user']['phone'] }}							
+						</span>
+				</li>
+				<li class="personal-info-item">
+					<span class="personal-info-item-name">Email</span>
+					<span class="personal-info-item-desc">
+{{ page['user']['email'] }}							
+						</span>
+				</li>
+
+			</ul>
+		</div>
+		<div class="pp-block">
+			<h2 class="pp-block-h">Buy History</h2>
+			<ul class="history-list">
+				
+<p ng-if="buyer.length == 0 " > 
+	No buyer history </p>
+
+
+<data-if ng-if="buyer.length != 0 " >						
+				<li class="history-item history-item_h">
+					<span class="history-item-num">
+Order Number						
+					</span>
+					<span class="history-item-products">
+						
+						Product Name</span>
+					<span class="history-item-status">Created at</span>     
+				</li>
+				<li 
+ng-repeat="item in buyer"				
+				class="history-item">
+					<span class="history-item-num">
+{{ item['number'] }} 						
+					</span>
+					<span class="history-item-products">
+{{ item['line_items'][0]['variant']['name'] }} 
+					</span>
+					<span class="history-item-status">
+{{ item.created_at | created_at }}
+					</span>    
+				</li>
+
+</data-if>				
+				
+			</ul>
+		</div>
+		<div class="pp-block">
+			<h2 class="pp-block-h">Sell History</h2>
+			<ul class="history-list">
+				
+<p ng-if="seller.length == 0" > 
+	No seller history </p>
+
+
+<data-if ng-if="seller.length != 0" >				
+				<li class="history-item history-item_h">
+					<span class="history-item-num">Order Number</span>
+					<span class="history-item-products">Product Name</span>
+					<span class="history-item-status">Created at</span>
+				</li>
+				
+				<li 
+ng-repeat="item in seller"				
+				class="history-item">
+					<span class="history-item-num">
+{{ item.id }}						
+					</span>
+					<span class="history-item-products">
+{{ item.brand + ' - ' + item.model }}						
+					</span>
+					<span class="history-item-status">
+{{ item.created_at | created_at }}								
+						</span>
+				</li>
+</data-if>
+
+			</ul>
+		</div>
+		<div class="pp-block">
+			<h2 class="pp-block-h">Favorites</h2>
+			
+			<p ng-if="favorites.length == 0 " > 
+	No favorites </p>
+	
+<data-if ng-if="favorites.length != 0" >			
+			<ul class="product-list standart-list">
+
+			  <li 
+ng-repeat="item in favorites"			  
+			  class="product-list_item">
+			    <div class="product-photo-container">
+			      <img class="product-small-img" 
+src="{{ item['master']['images'][0]['product_url'] }}" alt="">
+			    </div>
+			    <div class="product-details product-details_little-list">
+			      <span class="product-name">
+{{ item['name'] }}						  
+				  </span>
+			      <span class="product-price">
+{{ item['price'] | appcurrency }}					  
+					  </span>
+			      <br>
+			      <a 
+ng-click="deleteHeart(item.id)"				  
+				   class="delete-from-cart-link">
+			        <i class="fa fa-times" aria-hidden="true"></i>
+			        Delete
+			      </a>
+			    </div>
+			  </li>
+			</ul>
+</data-if>			
+			
+		</div>
+		<button 
+log-out-dir		
+		class="standart-btn log-out-btn">Log Out</button>
+	</div>
+</div>
+
+<!--
+    END <ng-include src="'personal-page-main-content.html'"></ng-include>
+-->
+
+
+   
+   
+<!--  
+   START <ng-include src="'personal-page-modal.html'"></ng-include>
+ -->   
+<form 
+id="form-with-angular-classes" 
+class="cart-modal-container ui-widget">
+  <div class="cart-modal cart-modal_long">
+    <div class="modal-close-btn"></div>
+    <p class="modal-text">Personal info edit</p>
+
+
+    <div class="default-text-field-container">			
+       <input 
+ng-model="new_user['name']"
+if-has-val-dirty-dir			 
+			 class="text-field" type="text" id="reg-name" placeholder="Name">
+       <i class="success-icon fa fa-check" aria-hidden="true"></i>
+       <i class="error-icon fa fa-times" aria-hidden="true"></i>
+    </div>
+    <div class="default-text-field-container">
+       <input 
+ng-model="new_user['last_name']"
+if-has-val-dirty-dir				 
+			 class="text-field" type="text" id="reg-last-name" placeholder="Last Name">
+       <i class="success-icon fa fa-check" aria-hidden="true"></i>
+       <i class="error-icon fa fa-times" aria-hidden="true"></i>
+    </div>
+    <div class="default-text-field-container">
+       <input 
+ng-model="new_user['phone']"
+if-has-val-dirty-dir			 
+			 class="text-field" type="text" id="reg-phone" placeholder="Phone">
+       <i class="success-icon fa fa-check" aria-hidden="true"></i>
+       <i class="error-icon fa fa-times" aria-hidden="true"></i>
+    </div>
+    <div class="default-text-field-container">
+       <input 
+ng-model="new_user['email']"
+if-has-val-dirty-dir			 
+			 class="text-field" type="text" id="reg-email" placeholder="Email">
+       <i class="success-icon fa fa-check" aria-hidden="true"></i>
+       <i class="error-icon fa fa-times" aria-hidden="true"></i>
+    </div>
+    <div class="default-text-field-container">
+       <input 
+ng-model="new_user['password']"
+if-has-val-dirty-dir			 
+			 class="text-field" type="password" id="reg-password" placeholder="Password">
+       <i class="success-icon fa fa-check" aria-hidden="true"></i>
+       <i class="error-icon fa fa-times" aria-hidden="true"></i>
+    </div>
+    <div class="default-text-field-container">
+       <input 
+ng-model="new_user['password_confirmation']"
+if-has-val-dirty-dir			 
+			 class="text-field" type="password" id="reg-re_password" placeholder="Retype Password">
+       <i class="success-icon fa fa-check" aria-hidden="true"></i>
+       <i class="error-icon fa fa-times" aria-hidden="true"></i>
+    </div>
+	
+	<div class="default-text-field-container">
+	   <input 
+ng-model="new_user['adres']"
+if-has-val-dirty-dir		 
+		 class="text-field" type="text" id="ship-address_1" placeholder="Address 1">
+	   <i class="success-icon fa fa-check" aria-hidden="true"></i>
+	   <i class="error-icon fa fa-times" aria-hidden="true"></i>
+	</div>
+	<div class="default-text-field-container">
+	   <input 
+ng-model="new_user['adres2']"
+if-has-val-dirty-dir		 
+		 class="text-field" type="text" id="ship-address_2" placeholder="Address 2">
+	   <i class="success-icon fa fa-check" aria-hidden="true"></i>
+	   <i class="error-icon fa fa-times" aria-hidden="true"></i>
+	</div>
+ <div class="default-text-field-container">
+    <input 
+ng-model="new_user.country" 
+if-has-val-dirty-dir 
+    class="text-field" type="text" id="ship-country"  placeholder="Country" />
+    <i class="success-icon fa fa-check" aria-hidden="true"></i>
+    <i class="error-icon fa fa-times" aria-hidden="true"></i>
+ </div>
+ <div class="default-text-field-container">
+    <input 
+ng-model="new_user.state"  
+if-has-val-dirty-dir 
+    class="text-field" type="text" id="ship-state" placeholder="State" />
+    <i class="success-icon fa fa-check" aria-hidden="true"></i>
+    <i class="error-icon fa fa-times" aria-hidden="true"></i>
+ </div>
+	<div class="default-text-field-container">
+	   <input 
+ng-model="new_user['city']"	
+if-has-val-dirty-dir	 
+		 class="text-field" type="text" id="ship-city" placeholder="Town/City">
+	   <i class="success-icon fa fa-check" aria-hidden="true"></i>
+	   <i class="error-icon fa fa-times" aria-hidden="true"></i>
+	</div>
+	<div class="default-text-field-container">
+	   <input 
+ng-model="new_user['house']"	
+if-has-val-dirty-dir	 
+		 class="text-field" type="text" id="ship-city" placeholder="House Name/Number">
+	   <i class="success-icon fa fa-check" aria-hidden="true"></i>
+	   <i class="error-icon fa fa-times" aria-hidden="true"></i>
+	</div>	
+	<div class="default-text-field-container">
+	   <input 
+ng-model="new_user['postcode']"
+if-has-val-dirty-dir		 
+		 class="text-field" type="text" id="ship-postcode" placeholder="Postcode">
+	   <i class="success-icon fa fa-check" aria-hidden="true"></i>
+	   <i class="error-icon fa fa-times" aria-hidden="true"></i>
+	</div>
+
+
+    <button 
+		id="close-personal-info"
+		class="secondary-btn modal-btn">Cancel</button>
+    <button 
+ng-click="save_user(new_user)"
+id="save-btn"
+		class="standart-btn modal-btn modal-btn_no-right-margin">Save</button>
+		          
+      <p class="form-error form-error_seller-step-2-fields" id="form-error">
+        <span style="opacity: 0" >!</span> 
+      </p>
+	  		
+  </div>
+</form>
+<!--  
+   END <ng-include src="'personal-page-modal.html'"></ng-include>
+ --> 
+ 
+</data-if>
+
+</data-wrapper>
+ 
+    <data-js-lazy-load 
+        js-lazy-load  
+        src="js/main.js" >    
+    </data-js-lazy-load>
+
+<ng-include src="'views/global/footer.html'"></ng-include>

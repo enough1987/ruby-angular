@@ -1,0 +1,1187 @@
+
+<!--  
+<div id="loader" ng-class="page['result']? 'g-d-none' : 'g-d-block' " >
+    
+  <img class="loader-img"
+  src="img/loader3.gif" alt="loader" />
+    
+</div>
+--> 
+    <div ng-class="page['result']? 'g-d-none' : 'g-d-block' "
+    class="loader-container"  >
+      <div class="loader">
+        <div class="loader__figure"></div>
+        <p class="loader__label">Loading...</p>
+      </div>
+    </div>
+
+<data-show ng-class="!page['result'] ? 'g-d-none' : 'g-d-block' " >
+
+    <div class="container-fluid landing-page-header landing-page-header_seller">
+      <div class="container">
+
+        <ng-include src="'views/global/header-elements.html'"></ng-include>
+
+<!-- 
+        <ng-include src="'views/search-page/header-breadcrumbs+search.html'">
+        </ng-include>
+ -->
+
+ <!-- for scroll -->
+<a id="startposition"></a>
+
+
+<!-- 
+        END <ng-include src="'views/search-page/header-breadcrumbs+search.html'">
+        </ng-include>
+ -->
+
+      </div>
+    </div>
+	
+<div class="container-fluid breadcrumbs-container-main breadcrumbs-container-main_search">
+<div class="container">
+<!--
+  <h2 class="bottom-header-part_h bottom-header-part_h_white-on-mobile"> 
+{{ 'Search Results for "'+ (search ? search : 'all')+'"' }}</h2>
+-->
+
+  <ul class="breadcrumbs-container breadcrumbs-container_search-page-padding hidden-on-mobile standart-list">
+   <li class="breadcrumb-li"><a href="/" class="watch-breadcrumb">Home</a></li>
+   <li class="breadcrumb-li"><a href="/search-page" class="watch-breadcrumb">
+     Search Results</a></li>
+   <li ng-if=" filters_search['input'] "
+   class="breadcrumb-li"><a href="" class="watch-breadcrumb">
+     {{ filters_search['input'] }}</a></li>
+  </ul>
+  <div 
+  
+  class="default-text-field-container search-field hidden-on-mobile">
+    <input 
+ng-model="filters_search['input']"
+ng-keyup="input_search()" 
+placeholder="Search:"
+    class="text-field search-field_input" type="text" id="search-field">
+    
+    <i 
+ng-click="input_search()" 
+    class="search-field_icon fa fa-search" aria-hidden="true"></i>
+  </div>
+ </div> 
+</div>
+
+<!--
+  START <ng-include src="'search-main-content-another-view.html'"></ng-include>
+-->
+
+<!-- SEARCH RESULT BLOCK START -->
+  <div class="search-result-block container">
+  <!-- SEARCH SIDEBAR START -->
+  <div 
+ng-class=" search_sidebar_not_available ? 'not-available' : '' "  
+  class="search-sidebar clearfix">
+    <div class="search-sidebar_mobile-header hidden-on-desktop">
+      <div 
+     
+      class="showing-count"> 
+
+      {{  show_info_pagination() }} 
+      
+      </div>
+       <div class="search-items_dropdown dropdown-container dropdown-container_mobile hidden-on-desktop">
+        <span class="dropdown-h">Sort by Latest</span>
+        <ul class="dropdown-content">
+          <li 
+ng-click="change_search_sort('name_asc')" 
+ng-class=" search_sort == 'name_asc' ? 'g-sort-hover' : '' "            
+          class="dropdown-item">Name - A-Z</li>
+          <li 
+ng-click="change_search_sort('name_desc')" 
+ng-class=" search_sort == 'name_desc' ? 'g-sort-hover' : '' "            
+          class="dropdown-item">Name - Z-A</li>
+          <li 
+ng-click="change_search_sort('price_asc')" 
+ng-class=" search_sort == 'price_asc' ? 'g-sort-hover' : '' "           
+          class="dropdown-item">Price - from Low</li>
+          <li 
+ng-click="change_search_sort('price_desc')"
+ng-class=" search_sort = 'price_desc' ? 'g-sort-hover' : '' "           
+          class="dropdown-item">Price - from High</li>
+        </ul>
+      </div>
+      <div class="search-sidebar_mobile-header_btn">
+        <i class="search-sidebar_mobile-header_btn_icon fa fa-filter" aria-hidden="true"></i>
+      </div>
+    </div>
+    <div class="panel-group filter-tabs filter-tabs_hidden-m" id="faq-accordion" role="tablist"  aria-multiselectable="true">
+
+
+<!-- ng-show=" main_search_filters['brand'].exist " -->
+        <div  
+            
+        class="category-panel panel panel-default">
+          <div class="category-h-heading panel-heading" role="tab" 
+          id="heading-brand-{{$index}}">
+            <h4 class="panel-title">
+              <span class="search-category-h status-arrows" role="button" data-toggle="collapse" 
+              data-parent="#accordion-brand-{{$index}}" 
+              href="#collapse-brand-{{$index}}" aria-expanded="true" 
+              aria-controls="collapse-brand-{{$index}}">
+  Brands              
+              </span>
+            </h4>
+          </div>
+          <div id="collapse-brand-{{$index}}" 
+               class="panel-collapse collapse" role="tabpanel" 
+               aria-labelledby="heading-brand-{{$index}}">
+            <div class="category-body panel-body">
+
+
+              <div 
+ng-repeat="(brand_name, brand_count) in main_search_filters['brand']['items']" 
+ng-class=" brand_count ? '' : 'disabled-filter-item' "
+data-count="{{count_brand_items($index)}}"   
+ng-hide=" $index > 4 && !all_brands"                 
+              class="category-item">
+                <input 
+
+ng-click="change_brand_filter( brand_name )"            
+                class="standart-checkbox" type="checkbox" id="open-caseback-brand-{{$index}}">
+                  <label class="prim-checkbox-label fa fa-check" for="open-caseback-brand-{{$index}}"></label>
+                  <label class="category-item_label sec-checkbox-label" for="open-caseback-brand-{{$index}}">
+{{ brand_name | f_upp_low }}             
+                    </label>
+                  <span                  
+                  class="category-item_varians-count">      
+{{ main_search_filters['items'].length == 0  ? 0 : brand_count }}                   
+                    </span>
+
+              </div>
+
+<span ng-if=" brands_length > 4 "
+      ng-hide=" all_brands "
+      ng-click=" all_brands_func() "
+class="category-toggle-btn">Show all</span>
+
+
+            </div>
+          </div>
+        </div>
+
+
+
+        <div
+ng-repeat=" (range_name, range_item) in main_search_filters['range'] " 
+     
+        class="category-panel panel panel-default">
+          <div class="category-h-heading panel-heading" role="tab" 
+          id="heading-range-{{$index}}">
+            <h4 class="panel-title">
+              <span class="search-category-h status-arrows" role="button" data-toggle="collapse" 
+              data-parent="#accordion-range-{{$index}}" 
+              href="#collapse-range-{{$index}}" aria-expanded="true" 
+              aria-controls="collapse-range-{{$index}}"
+ng-click="refreshSlider()"              
+              >              
+{{ range_item.name | f_upp_low }}                 
+              </span>
+            </h4>
+          </div>
+<!--
+    <p>Price 1: {{slider[range_name].minValue }}</p>
+    <p>Price 2: {{slider[range_name].maxValue }}</p>          
+-->
+
+<div id="collapse-range-{{$index}}" 
+          class="panel-collapse collapse in" role="tabpanel" 
+          aria-labelledby="heading-range-{{$index}}">
+     <div class="category-body panel-body in">
+   
+<rz-slider-init-dir 
+          reload="{{ range_item_reload = range_item.min + range_item.max }}"
+          min="{{range_item.min}}" 
+          max="{{range_item.max}}" 
+          id="{{range_name}}" ></rz-slider-init-dir>
+<rzslider rz-slider-model="slider[range_name].minValue"
+          rz-slider-high="slider[range_name].maxValue"
+          rz-slider-options="slider[range_name].options"></rzslider>
+     </div>
+</div>       
+        </div>
+
+<!--
+<data-repeat ng-repeat="box in page['search_filter'] " >
+
+        <div 
+ng-if=" box[0]['type'] == 'checkbox' &&  box[0]['id'] == 'brand' "       
+        class="category-panel panel panel-default">
+          <div class="category-h-heading panel-heading" role="tab" 
+          id="heading-{{$index}}">
+            <h4 class="panel-title">
+              <span class="search-category-h status-arrows" role="button" data-toggle="collapse" 
+              data-parent="#accordion-{{$index}}" 
+              href="#collapse-{{$index}}" aria-expanded="true" 
+              aria-controls="collapse-{{$index}}">
+{{ box[0]['name']  | f_upp_low }}                
+              </span>
+            </h4>
+          </div>
+          <div id="collapse-{{$index}}" 
+               class="panel-collapse collapse in" role="tabpanel" 
+               aria-labelledby="heading-{{$index}}">
+            <div class="category-body panel-body in">
+
+
+              <div 
+ng-repeat="item in box[0]['items']" 
+ng-init=" calc_showed_brand_item(item) "
+ng-if=" item.count != 0 "            
+              class="category-item">
+                <input 
+ng-click="change_brand_arr(item, 'brand')" 
+ng-checked="checked_item(item, 'brand')"             
+                class="standart-checkbox" type="checkbox" id="open-caseback-{{$parent.$index}}-{{$index}}">
+                  <label class="prim-checkbox-label fa fa-check" for="open-caseback-{{$parent.$index}}-{{$index}}"></label>
+                  <label class="category-item_label sec-checkbox-label" for="open-caseback-{{$parent.$index}}-{{$index}}">
+{{ item.name | f_upp_low }}  - {{ $index }}            
+                    </label>
+                  <span                  
+                  class="category-item_varians-count">
+{{ item.count }}                   
+                    </span>
+
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+</data-repeat> 
+-->
+
+
+<!-- ng-show=" checkbox_item.exist " -->
+        <div 
+ng-repeat=" (checkbox_name, checkbox_item) in main_search_filters['checkbox'] "       
+        class="category-panel panel panel-default">
+          <div class="category-h-heading panel-heading" role="tab" 
+          id="heading-checkbox-{{$index}}">
+            <h4 class="panel-title">
+              <span class="search-category-h status-arrows" role="button" data-toggle="collapse" 
+              data-parent="#accordion-checkbox-{{$index}}" 
+              href="#collapse-checkbox-{{$index}}" aria-expanded="true" 
+              aria-controls="collapse-checkbox-{{$index}}">
+{{ checkbox_item.name | f_upp_low }}              
+              </span>
+            </h4>
+          </div>
+          <div id="collapse-checkbox-{{$index}}" 
+               class="panel-collapse collapse in" role="tabpanel" 
+               aria-labelledby="heading-checkbox-{{$index}}">
+            <div class="category-body panel-body in">
+
+              <div  
+ng-repeat=" (item_id, item_body) in checkbox_item.items " 
+ng-class=" item_body.count ? '' : 'disabled-filter-item' "                          
+              class="category-item">
+                <input 
+ng-click="change_checkbox_filter(checkbox_name, item_id)"            
+                class="standart-checkbox" type="checkbox" id="open-caseback-checkbox-{{$parent.$index}}-{{$index}}">
+                  <label class="prim-checkbox-label fa fa-check" for="open-caseback-checkbox-{{$parent.$index}}-{{$index}}"></label>
+                  <label class="category-item_label sec-checkbox-label" for="open-caseback-checkbox-{{$parent.$index}}-{{$index}}">
+{{ item_body.name | f_upp_low }}                    
+                    </label>
+                  <span class="category-item_varians-count">
+{{ main_search_filters['items'].length == 0  ? 0 : item_body.count }}                   
+                    </span>
+              </div>
+
+            </div>
+          </div>
+        </div> 
+
+<!--
+<data-repeat ng-repeat="box in page['search_filter'] " >
+
+        <div 
+ng-if=" box[0]['type'] == 'checkbox' &&  box[0]['id'] != 'brand' "       
+        class="category-panel panel panel-default">
+          <div class="category-h-heading panel-heading" role="tab" 
+          id="heading-brand-{{$index}}">
+            <h4 class="panel-title">
+              <span class="search-category-h status-arrows" role="button" data-toggle="collapse" 
+              data-parent="#accordion-brand-{{$index}}" 
+              href="#collapse-brand-{{$index}}" aria-expanded="true" 
+              aria-controls="collapse-brand-{{$index}}">
+{{ box[0]['name'] | f_upp_low}}              
+              </span>
+            </h4>
+          </div>
+          <div id="collapse-brand-{{$index}}" 
+               class="panel-collapse collapse in" role="tabpanel" 
+               aria-labelledby="heading-brand-{{$index}}">
+            <div class="category-body panel-body in">
+
+
+              <div 
+ng-repeat="item in box[0]['items']"  
+ng-if=" item.count != 0 "            
+              class="category-item">
+                <input 
+ng-click="change_checkbox_arr(item, 'checkbox')" 
+ng-checked="checked_item(item, 'checkbox')"             
+                class="standart-checkbox" type="checkbox" id="open-caseback-brand-{{$parent.$index}}-{{$index}}">
+                  <label class="prim-checkbox-label fa fa-check" for="open-caseback-brand-{{$parent.$index}}-{{$index}}"></label>
+                  <label class="category-item_label sec-checkbox-label" for="open-caseback-brand-{{$parent.$index}}-{{$index}}">
+{{ item.name | f_upp_low }}                    
+                    </label>
+                  <span class="category-item_varians-count">
+{{ item.count }}                   
+                    </span>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <div 
+ng-if=" box[0]['type'] == 'range' "        
+        class="category-panel panel panel-default">
+          <div class="category-h-heading panel-heading" role="tab" 
+          id="heading-range-{{$index}}">
+            <h4 class="panel-title">
+              <span class="search-category-h status-arrows" role="button" data-toggle="collapse" 
+              data-parent="#accordion-range-{{$index}}" 
+              href="#collapse-range-{{$index}}" aria-expanded="true" 
+              aria-controls="collapse-range-{{$index}}"
+ng-click="refreshSlider()"              
+              >              
+{{ box[0]['name'] | f_upp_low }}                 
+              </span>
+            </h4>
+          </div>
+
+<div id="collapse-range-{{$index}}" 
+          class="panel-collapse collapse in" role="tabpanel" 
+          aria-labelledby="heading-range-{{$index}}">
+     <div class="category-body panel-body in">
+    
+<rz-slider-init-dir 
+          min="{{box[0]['items'][0]['value']}}" 
+          max="{{box[0]['items'][1]['value']}}" 
+          id="{{box[0]['id']}}" ></rz-slider-init-dir>
+<rzslider rz-slider-model="slider[box[0]['id']].minValue"
+          rz-slider-high="slider[box[0]['id']].maxValue"
+          rz-slider-options="slider[box[0]['id']].options"></rzslider>
+     </div>
+</div>
+        
+        </div>
+
+
+</data-repeat>
+-->
+
+
+
+<!-- ng-show=" main_search_filters['switch'].exist "  -->
+        <div 
+       
+        class="category-panel panel panel-default">
+          <div class="category-h-heading panel-heading" role="tab" 
+          id="heading-switch-index">
+            <h4 class="panel-title">
+              <span class="search-category-h status-arrows" role="button" data-toggle="collapse" 
+              data-parent="#accordion-switch-index" 
+              href="#collapse-switch-index" aria-expanded="true" 
+              aria-controls="collapse-switch-index">
+Additional Options              
+              </span>
+            </h4>
+          </div>
+          <div id="collapse-switch-index" 
+               class="panel-collapse collapse in" role="tabpanel" 
+               aria-labelledby="heading-switch-index">
+            <div class="category-body panel-body in">
+
+
+              <div 
+ng-repeat=" (switch_name, switch_item ) in main_search_filters['switch'].items "   
+ng-class=" switch_item.count ? '' : 'disabled-filter-item' "                        
+              class="category-item">
+                <input 
+ng-click="change_switch_filter(switch_name)" 
+              
+                class="standart-checkbox" type="checkbox" id="open-caseback-switch-{{$index}}">
+                  <label class="prim-checkbox-label fa fa-check" for="open-caseback-switch-{{$index}}"></label>
+                  <label class="category-item_label sec-checkbox-label" for="open-caseback-switch-{{$index}}">
+{{ switch_item.name | f_upp_low }}                    
+                    </label>
+                  <span class="category-item_varians-count">
+{{ switch_item.count }}                   
+                    </span>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+
+<!--
+
+        <div 
+     
+        class="category-panel panel panel-default">
+          <div class="category-h-heading panel-heading" role="tab" 
+          id="heading-switch-{{$index}}">
+            <h4 class="panel-title">
+              <span class="search-category-h status-arrows" role="button" data-toggle="collapse" 
+              data-parent="#accordion-switch-{{$index}}" 
+              href="#collapse-switch-{{$index}}" aria-expanded="true" 
+              aria-controls="collapse-switch-{{$index}}">
+Additional Options              
+              </span>
+            </h4>
+          </div>
+          <div id="collapse-switch-{{$index}}" 
+               class="panel-collapse collapse in" role="tabpanel" 
+               aria-labelledby="heading-switch-{{$index}}">
+            <div class="category-body panel-body in">
+
+
+              <div 
+ng-repeat="box in page['search_filter'] "              
+ng-if=" box[0]['type'] == 'switch' "             
+              class="category-item">
+                <input 
+ng-click="change_switch_arr(box[0]['id'], box[0]['items'])" 
+ng-checked="checked_item(box[0], 'switch')"                
+                class="standart-checkbox" type="checkbox" id="open-caseback-switch-{{$parent.$index}}-{{$index}}">
+                  <label class="prim-checkbox-label fa fa-check" for="open-caseback-switch-{{$parent.$index}}-{{$index}}"></label>
+                  <label class="category-item_label sec-checkbox-label" for="open-caseback-switch-{{$parent.$index}}-{{$index}}">
+{{ box[0]['name'] | f_upp_low }}                    
+                    </label>
+                  <span class="category-item_varians-count">
+{{ box[0]['items'][0]['count'] }}                   
+                    </span>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+-->        
+
+<!--
+        <div      
+        class="category-panel panel panel-default">
+
+<h1>Name of Category </h1>
+<data-repeat ng-repeat="box in page['search_filter'] " >
+
+
+
+<div ng-if=" box[0]['type'] == 'switch' "  >
+
+  name : {{ box[0]['name'] }}  <br />
+  depth : {{ box[0]['items'][0]['depth'] }}   <br />
+  <input type="checkbox" 
+      name="{{box[0]['name']}}" 
+      value="{{box[0]['name']}}"
+      ng-click="change_switch_arr(box[0]['name'], box[0]['items'])" 
+      ><br />
+
+  <hr />
+</div>
+-->
+
+<!--
+          <div id="collapse-{{$index}}" 
+          class="panel-collapse collapse in" role="tabpanel" 
+          aria-labelledby="heading-{{$index}}">
+            <div class="category-body panel-body">
+              <div class="category-item">
+                <input 
+ng-click="change_switch_arr(box[0]['name'], box[0]['items'], 0)"                
+                class="standart-checkbox" type="checkbox" id="switch-{{$index}}-0">
+                  <label class="prim-checkbox-label fa fa-check" for="switch-{{$index}}-0"></label>
+                  <label class="category-item_label sec-checkbox-label" for="switch-{{$index}}-0">
+{{ box[0]['items'][0]['name'] }}                   
+                   </label>
+                  <span class="category-item_varians-count">
+{{ box[0]['items'][0]['depth'] }}                       
+                  </span>
+              </div>
+              <div class="category-item">
+                <input 
+ng-click="change_switch_arr(box[0]['name'], box[0]['items'], 1)"                
+                class="standart-checkbox" type="checkbox" id="switch-{{$index}}-1">
+                  <label class="prim-checkbox-label fa fa-check" for="switch-{{$index}}-1"></label>
+                  <label class="category-item_label sec-checkbox-label" for="switch-{{$index}}-1">
+{{ box[0]['items'][1]['name'] }}                       
+                  </label>
+                  <span class="category-item_varians-count">
+{{ box[0]['items'][0]['depth'] }}                       
+                  </span>
+              </div>
+            </div>
+          </div>
+-->     
+
+</data-repeat>
+ </div>
+
+
+      </div>
+<!--
+      <div class="default-text-field-container search-field search-field_mobile hidden-on-desktop">
+        <input class="text-field search-field_input" type="text" id="search-field" required="required">
+        <label class="search-field_label text-field-placeholder" for="search-field">Search:</label>
+        <i class="search-field_icon fa fa-search" aria-hidden="true"></i>
+      </div>
+      <button class="standart-btn">Search</button>
+-->
+  <!-- SEARCH SIDEBAR END -->
+
+
+  <!-- SEARCH ITEMS START -->
+  <div class="search-items-container">
+    <div class="search-items_preferences clearfix hidden-on-mobile">
+      <span 
+        
+      class="showing-count">
+
+{{  show_info_pagination() }} 
+
+</span>
+      <div class="search-items_dropdown dropdown-container">
+        <span class="dropdown-h">Sort by </span>
+        <ul class="dropdown-content">
+
+          <li
+ng-click="change_search_sort('price_asc')" 
+ng-class=" search_sort == 'price_asc' ? 'g-sort-hover' : '' "             
+          class="dropdown-item">Price - from Low</li>
+          <li 
+ng-click="change_search_sort('price_desc')"
+ng-class=" search_sort == 'price_desc' ? 'g-sort-hover' : '' "             
+          class="dropdown-item">Price - from High</li>
+          <li
+ng-click="change_search_sort('name_asc')" 
+ng-class=" search_sort == 'name_asc' ? 'g-sort-hover' : '' "          
+          class="dropdown-item">Name - A-Z</li>
+          <li
+ng-click="change_search_sort('name_desc')" 
+ng-class=" search_sort == 'name_desc' ? 'g-sort-hover' : '' "             
+          class="dropdown-item">Name - Z-A</li>
+
+        </ul>
+      </div>
+      <span class="search-items_preferences_wrapper"></span>
+     <div class="grid-dropdown search-items_dropdown dropdown-container">
+        <span class="dropdown-h">View</span>
+        <ul class="dropdown-content">
+          <li 
+ng-click="change_search_view('List')"  
+ng-class=" search_view ? 'g-sort-hover' : '' "           
+          class="dropdown-item">List View</li>
+          <li 
+ng-click="change_search_view('Grid')"
+ng-class=" !search_view ? 'g-sort-hover' : '' "            
+          class="dropdown-item">Grid View</li>
+        </ul>
+      </div>  
+     <div 
+style="margin-right: 35px;"    
+     class="grid-dropdown search-items_dropdown dropdown-container">
+        <span class="dropdown-h">Per Page</span>
+        <ul class="dropdown-content">
+          <li 
+ng-click="change_per_page(6)"  
+ng-class=" filters_search['pagination']['per_page'] == 6 ? 'g-sort-hover' : '' "           
+          class="dropdown-item">6</li>
+          <li 
+ng-click="change_per_page(12)"  
+ng-class=" filters_search['pagination']['per_page'] == 12 ? 'g-sort-hover' : '' "             
+          class="dropdown-item">12</li>
+          <li 
+ng-click="change_per_page(24)"  
+ng-class=" !filters_search['pagination']['per_page'] || filters_search['pagination']['per_page'] == 24 ? 'g-sort-hover' : '' "             
+          class="dropdown-item">24</li>
+          <li 
+ng-click="change_per_page(48)"  
+ng-class=" filters_search['pagination']['per_page'] == 48 ? 'g-sort-hover' : '' "             
+          class="dropdown-item">48</li>
+        </ul>
+      </div>  
+    </div>
+    <div class="search-items_products clearfix"> 
+
+
+<div>
+      <div 
+ng-hide=" search_sidebar_not_available || !search_view || main_search_filters['items'].length == 0 "      
+ng-if="main_search_filters['items']"
+ng-repeat=" item in filters_search['pagination']['paged_items'] "     
+      class="watch-slide_single watch-slide watch-slide_single_gv clearfix">
+          <div class="watch-slide_gv-left-part" >
+            <span class="watch-brend watch-brend_gv">
+{{ item['brand'] }}              
+            </span>
+            <div class="watch-slide-img-container watch-slide-img-container_gv">
+              <img 
+ng-src="{{item['master']['images'][0]['product_url']}}" 
+            alt="" class="watch-image watch-image_gv">
+            </div>
+          </div>
+          <div class="watch-slide_gv-right-part" >
+            <span class="watch-name watch-name_gv">
+{{ item['name'] | f_upp_low }}              
+            </span>
+            <span class="watch-price watch-price_gv">
+{{ item['price'] | appcurrency }}              
+            </span>
+            <span class="watch-desc_gv">
+{{ item['description'] }}              
+             </span>
+            <a 
+cursor-wait-dir             
+ng-href="single-product/{{item['id']}}"  class="watch-slide_hover-btn"></a>
+          </div>
+      </div>
+</div>
+<!--
+<div>
+      <div 
+ng-hide=" search_sidebar_not_available || !search_view || page['result'].length == 0 "      
+ng-if="page['result']"
+ng-repeat="item in page['result']"     
+      class="watch-slide_single watch-slide watch-slide_single_gv clearfix">
+          <div class="watch-slide_gv-left-part" >
+            <span class="watch-brend watch-brend_gv">
+{{ item['brand'] }}              
+            </span>
+            <div class="watch-slide-img-container watch-slide-img-container_gv">
+              <img 
+ng-src="{{item['master']['images'][0]['product_url']}}" 
+            alt="" class="watch-image watch-image_gv">
+            </div>
+          </div>
+          <div class="watch-slide_gv-right-part" >
+            <span class="watch-name watch-name_gv">
+{{ item['name'] | f_upp_low }}              
+            </span>
+            <span class="watch-price watch-price_gv">
+{{ item['price'] | appcurrency }}              
+            </span>
+            <span class="watch-desc_gv">
+{{ item['description'] }}              
+             </span>
+            <a 
+cursor-wait-dir             
+ng-href="single-product/{{item['id']}}"  class="watch-slide_hover-btn"></a>
+          </div>
+      </div>
+</div>
+-->
+
+<div> 
+      <div 
+ng-hide=" search_sidebar_not_available || search_view || main_search_filters['items'].length == 0 "      
+ng-if="main_search_filters['items']"
+ng-repeat=" item in filters_search['pagination']['paged_items'] "  
+      class="watch-slide_single watch-slide">
+          <span class="watch-brend">
+{{ item['brand'] }} 
+          </span>
+          <div class="watch-slide-img-container">
+            <img 
+ng-src="{{item['master']['images'][0]['product_url']}}" 
+            alt="" class="watch-image">
+          </div>
+          <span class="watch-name">
+    {{ item['name'] | f_upp_low }}
+          </span>
+          <span class="watch-price">
+    {{ item['price'] | appcurrency }}
+          </span>
+          <a 
+ cursor-wait-dir 
+ ng-href="single-product/{{item['id']}}"        
+          class="watch-slide_hover-btn"></a>        
+      </div>
+</div>
+
+<!--
+<div> 
+      <div 
+ng-hide=" search_sidebar_not_available || search_view || page['result'].length == 0 "      
+ng-if="page['result']"
+ng-repeat="item in page['result']"  
+      class="watch-slide_single watch-slide">
+          <span class="watch-brend">
+{{ item['brand'] }} 
+          </span>
+          <div class="watch-slide-img-container">
+            <img 
+ng-src="{{item['master']['images'][0]['product_url']}}" 
+            alt="" class="watch-image">
+          </div>
+          <span class="watch-name">
+    {{ item['name'] | f_upp_low }}
+          </span>
+          <span class="watch-price">
+    {{ item['price'] | appcurrency }}
+          </span>
+          <a 
+ cursor-wait-dir 
+ ng-href="single-product/{{item['id']}}"        
+          class="watch-slide_hover-btn"></a>        
+      </div>
+</div>
+
+-->
+
+    <p 
+ng-hide=" search_sidebar_not_available || main_search_filters['items'].length != 0"  
+    class="search-items-no-result-text">No Results for your search...</p>
+
+    <div 
+ng-show=" search_sidebar_not_available "    
+    class="loader-container"  >
+      <div class="loader">
+        <div class="loader__figure"></div>
+        <p class="loader__label">Loading...</p>
+      </div>
+    </div>
+
+
+    </div>
+
+
+    <div 
+ng-if=" filters_search['pagination']['paged_items'].length != 0 "     
+    class="search-items_navigation-container">
+      <div class="search-items_navigation">
+        <span 
+ng-if=" filters_search['pagination']['paged_items'].length != 0 "         
+ng-click="change_search_page_diraction('down')"
+ng-class=" filters_search['pagination']['carrent_page'] == 1 ? 'search-items_nav-arrow_disabled' : '' "        
+        class="search-items_nav-arrow"><</span>
+  
+        <ul      
+        class="search-pages-list standart-list" >
+
+<li ng-repeat="item in create_arr(filters_search['pagination']['number_of_pages']) track by $index"
+ng-if=" $index + 1 >= filters_search['pagination']['carrent_page'] - 5 || $index+1 <= filters_search['pagination']['carrent_page']+5 " 
+ng-click="change_carrent_page($index+1)"
+ng-class=" $index+1 == filters_search['pagination']['carrent_page'] ? 'search-page_active' : '' "
+class="search-page">
+{{ $index+1 }} 
+</li>          
+
+        </ul>
+
+        <span
+ng-if=" filters_search['pagination']['paged_items'].length != 0 "         
+ng-class=" filters_search['pagination']['carrent_page'] == filters_search['pagination']['number_of_pages'] ? 'search-items_nav-arrow_disabled' : '' " 
+ng-click="change_search_page_diraction('up')"         
+        class="search-items_nav-arrow">></span>
+      </div>
+    </div>
+  </div>
+  <!-- SEARCH ITEMS END -->
+  </div>
+<!-- SEARCH RESULT BLOCK END-->
+
+<!-- FACTS BLOCK START -->
+<div class="container-fluid search-facts-container hidden-on-mobile">
+  <div class="container">
+   <div class="fact-item fact-item_1">
+      <i class="fact-icon fa fa-check" aria-hidden="true"></i>
+      <span class="fact-h">Inspected</span>
+      <p class="fact-text">All our watches have been inspected and authenticated by our certified watch-masters.</p>
+    </div>
+    <div class="fact-item fact-item_2">
+      <i class="fact-icon fa fa-truck" aria-hidden="true"></i>
+      <span class="fact-h">Delivered</span>
+      <p class="fact-text">We ship your purchases in just a few days with a full insurance coverage.</p>
+    </div>
+    <div class="fact-item fact-item_3">
+      <i class="fact-icon fa fa-thumbs-up" aria-hidden="true"></i>
+      <span class="fact-h">Guaranteed</span>
+      <p class="fact-text">We offer a 10-day, money-back guarantee to all our buyers, according to our terms and conditions.</p>
+    </div>
+  </div>
+</div>
+<!-- FACTS BLOCK END
+
+<!--
+  END <ng-include src="'search-main-content-another-view.html'"></ng-include>
+-->
+
+<!--     
+    <ng-include src="'views/search-page/search-main-content.html'"></ng-include>
+
+
+
+  <div class="search-result-block container">
+
+  <div class="search-sidebar clearfix">
+    <div class="search-sidebar_mobile-header hidden-on-desktop">
+      <div class="showing-count">
+Showing 
+{{ page['total_count'] < 6 ? 0 : (0 <= (page['current_page']*(+page['per_page']) - 5) ? page['current_page']*(+page['per_page']) - 5 : 0 )}}  
+- 
+{{ page['total_count'] <= ( page['current_page']*(+page['per_page']) ) ? page['total_count'] : page['current_page']*(+page['per_page'])  }}  
+ of 
+ {{ page['total_count'] }}  
+results
+</div>
+       <div class="search-items_dropdown dropdown-container dropdown-container_mobile hidden-on-desktop">
+        <span class="dropdown-h">Sort by </span>
+        <ul class="dropdown-content">
+          <li class="dropdown-item"
+ng-click="newPage( 'name_asc' )" 
+ng-class=" sort == 'name_asc' ? 'g-sort-hover' : '' "  
+          >Name - A-Z</li>
+          <li class="dropdown-item"
+ng-click="newPage( 'name_desc' )" 
+ng-class=" sort == 'name_desc' ? 'g-sort-hover' : '' "
+          >Name - Z-A</li>
+          <li class="dropdown-item"
+ng-click="newPage( 'price_asc' )"
+ng-class=" sort == 'price_asc' ? 'g-sort-hover' : '' "
+          >Price - from Low</li>
+          <li class="dropdown-item"
+ng-click="newPage( 'price_desc' )"
+ng-class=" sort == 'price_desc' ? 'g-sort-hover' : '' "  
+          >Price - from High</li>
+        </ul>
+      </div>
+      <div class="search-sidebar_mobile-header_btn">
+        <i class="search-sidebar_mobile-header_btn_icon fa fa-filter" aria-hidden="true"></i>
+      </div>
+    </div>
+
+
+    <div class="panel-group filter-tabs filter-tabs_hidden-m" id="faq-accordion" role="tablist"  aria-multiselectable="true">
+        <div class="category-panel panel panel-default">
+          <div class="category-h-heading panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+              <span class="search-category-h status-arrows" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Categories
+              </span>
+            </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="category-body panel-body in">
+
+              <div ng-if="prop['brands'][0]['id']"
+              ng-repeat="item in prop['brands']"
+              class="category-item">
+
+                <input 
+data-item-id="{{ item['id'] }}"
+checked-dir tax="{{tax}}" sid="{{item['id']}}" 
+all="{{search}}"
+id="open-caseback-{{$index}}"
+                class="prop-search-checkbox standart-checkbox" type="checkbox" >
+                  <label class="prim-checkbox-label fa fa-check" 
+for="open-caseback-{{$index}}"
+></label>
+                  <label class="category-item_label sec-checkbox-label" 
+for="open-caseback-{{$index}}"
+                  >
+{{ item['name'] }}
+</label>
+
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+        <div class="category-panel panel panel-default">
+          <div class="category-h-heading panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+              <span class="search-category-h status-arrows" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                Price
+              </span>
+            </h4>
+          </div>
+          <div 
+          id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="category-body panel-body in">
+                <div class="price-slider-container">
+                  <div class="price-slider_elements">
+                    <div 
+  min="{{prop['price_min']}}" 
+  max="{{prop['price_max']}}"
+  defaultmin="{{defaultmin ? defaultmin : prop['price_min']}}"
+  defaultmax="{{defaultmax ? defaultmax : prop['price_max']}}"            
+  id="slider-price-range">
+    
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="category-panel panel panel-default">
+          <div class="category-h-heading panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+              <span class="search-category-h status-arrows" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTree" aria-expanded="true" aria-controls="collapseTree">
+                Gender
+              </span>
+            </h4>
+          </div>
+          <div id="collapseTree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTree">
+            <div class="category-body panel-body">
+              <div class="category-item">
+                <input 
+data-item-id="{{ prop['gender'][0]['id'] }}"
+checked-dir tax="{{tax}}" sid="{{prop['gender'][0]['id']}}" 
+all="{{search}}"
+                class="standart-checkbox" type="checkbox" id="gender-man" />
+                  <label class="prim-checkbox-label fa fa-check" for="gender-man"></label>
+                  <label class="category-item_label sec-checkbox-label" for="gender-man">Man</label>
+
+              </div>
+              <div class="category-item">
+                <input 
+data-item-id="{{ prop['gender'][1]['id'] }}"
+checked-dir tax="{{tax}}" sid="{{prop['gender'][1]['id']}}"
+all="{{search}}"
+                class="standart-checkbox" type="checkbox" id="gender-woman" />
+                  <label class="prim-checkbox-label fa fa-check" for="gender-woman"></label>
+                  <label class="category-item_label sec-checkbox-label" for="gender-woman">Woman</label>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="default-text-field-container search-field search-field_mobile hidden-on-desktop">
+        <input 
+ng-model="searchfield"
+ng-keyup="searchonkeyup()"
+        class="text-field search-field_input" type="text" id="search-field2" required="required">
+        <label 
+        class="search-field_label text-field-placeholder" for="search-field">Search:</label>
+        <i 
+ng-click="searchClick()"
+        class="search-field_icon fa fa-search" aria-hidden="true"></i>
+      </div>
+      <button 
+ng-click="searchClick()"
+      class="standart-btn">Search</button>
+
+  </div>
+
+  <div class="search-items-container">
+    <div class="search-items_preferences clearfix hidden-on-mobile">
+      <span class="showing-count">
+Showing 
+{{ page['total_count'] < 6 ? 0 : (0 <= (page['current_page']*(+page['per_page']) - 5) ? page['current_page']*(+page['per_page']) - 5 : 0 )}}  
+- 
+{{ page['total_count'] <= ( page['current_page']*(+page['per_page']) ) ? page['total_count'] : page['current_page']*(+page['per_page'])  }}  
+ of 
+ {{ page['total_count'] }}  
+results
+</span>
+      <div class="search-items_dropdown dropdown-container">
+        <span class="dropdown-h">Sort by </span>
+        <ul class="dropdown-content">
+          <li class="dropdown-item"
+ng-click="newPage( 'name_asc' )" 
+ng-class=" sort == 'name_asc' ? 'g-sort-hover' : '' "  
+          >Name - A-Z</li>
+          <li class="dropdown-item"
+ng-click="newPage( 'name_desc' )" 
+ng-class=" sort == 'name_desc' ? 'g-sort-hover' : '' "
+          >Name - Z-A</li>
+          <li class="dropdown-item"
+ng-click="newPage( 'price_asc' )"
+ng-class=" sort == 'price_asc' ? 'g-sort-hover' : '' "
+          >Price - from Low</li>
+          <li class="dropdown-item"
+ng-click="newPage( 'price_desc' )"
+ng-class=" sort == 'price_desc' ? 'g-sort-hover' : '' "  
+          >Price - from High</li>
+        </ul>
+      </div>
+    </div>
+
+    <p 
+    ng-if="(page['total_count'] == 0) && (!local_loader_is_going)"
+    class="search-items-no-result-text">No Results for your search...</p>
+
+  
+    <div 
+ng-show="local_loader_is_going"    
+    class="loader-container"  >
+      <div class="loader">
+        <div class="loader__figure"></div>
+        <p class="loader__label">Loading...</p>
+      </div>
+    </div>
+
+
+    <div 
+    ng-show="!local_loader_is_going"
+    class="search-items_products clearfix"> 
+
+ 
+      <div 
+ng-if="page['result']"
+ng-repeat="item in page['result']"
+      class="watch-slide_single watch-slide">
+          <span class="watch-brend">
+    {{ item['brand'][0] }}
+          </span>
+          <div class="watch-slide-img-container">
+            <img 
+src="{{item['master']['images'][0]['product_url']}}" 
+            alt="" class="watch-image">
+          </div>
+          <span class="watch-name">
+    {{ item['name'] }}
+          </span>
+          <span class="watch-price">
+    {{ item['price'] | appcurrency }}
+          </span>
+          <a 
+ cursor-wait-dir         
+          href="{{'/single-product/'+item['id']}}" class="watch-slide_hover-btn"></a>
+         
+      </div>
+
+
+
+    </div>
+
+    <div class="search-items_navigation-container">
+      <div class="search-items_navigation">
+
+        <span 
+        ng-click="newSearch( 1, '-' )"
+        class="search-items_nav-arrow"><</span>
+
+        <ul class="search-pages-list standart-list" >
+
+<li
+ng-if=" +page['current_page'] > 4"
+ng-click="newSearch( page['current_page']-4 )"
+class="search-page" > 
+{{ page['pages'] != 0 && +page['current_page'] >= 4 ? page['current_page']-4 : '' }} 
+</li> 
+<li 
+ng-if=" +page['current_page'] > 3 "
+ng-click="newSearch( page['current_page']-3 )"
+class="search-page" > 
+{{ page['pages'] != 0 && +page['current_page'] >= 3 ? page['current_page']-3 : '' }} 
+</li> 
+<li 
+ng-if=" +page['current_page'] > 2 "
+ng-click="newSearch( page['current_page']-2 )"
+class="search-page" > 
+{{ page['pages'] != 0 && +page['current_page'] >= 2 ? page['current_page']-2 : '' }} 
+</li> 
+<li 
+ng-if=" +page['current_page'] > 1 "
+ng-click="newSearch( page['current_page']-1 )"
+class="search-page" > 
+{{ page['pages'] != 0 && +page['current_page'] >= 1 ? page['current_page']-1 : '' }} 
+</li> 
+
+<li class="search-page search-page_active" > 
+{{ page['pages'] == 0 ? 0 : page['current_page'] }} 
+</li> 
+
+<li 
+ng-if=" +page['pages'] >= +page['current_page']+1"
+ng-click="newSearch( page['current_page']+1 )"
+class="search-page" > 
+{{ page['pages'] != 0 && +page['pages'] >= +page['current_page']+1 ? page['current_page']+1 : '' }} 
+</li> 
+<li 
+ng-if=" +page['pages'] >= +page['current_page']+2"
+ng-click="newSearch( page['current_page']+2 )"
+class="search-page" > 
+{{ page['pages'] != 0 && +page['pages'] >= +page['current_page']+2 ? page['current_page']+2 : '' }} 
+</li> 
+<li 
+ng-if=" +page['pages'] >= +page['current_page']+3"
+ng-click="newSearch( page['current_page']+3 )"
+class="search-page" > 
+{{ page['pages'] != 0 && +page['pages'] >= +page['current_page']+3 ? page['current_page']+3 : '' }} 
+</li> 
+<li 
+ng-if=" +page['pages'] >= +page['current_page']+4"
+ng-click="newSearch( page['current_page']+4 )"
+class="search-page" > 
+{{ page['pages'] != 0 && +page['pages'] >= +page['current_page']+4 ? page['current_page']+4 : '' }} 
+</li> 
+
+        </ul>
+
+        <span 
+        ng-click="newSearch( 1, '+' )"
+        class="search-items_nav-arrow">></span>
+
+      </div>
+    </div>
+    
+  </div>
+
+  </div>
+
+<div class="container-fluid search-facts-container hidden-on-mobile">
+  <div class="container">
+    <div class="fact-item fact-item_1">
+      <i class="fact-icon fa fa-check" aria-hidden="true"></i>
+      <span class="fact-h">Inspected</span>
+      <p class="fact-text">All our watch watches have been inspected and authenticated by our certified watch-masters.</p>
+    </div>
+    <div class="fact-item fact-item_2">
+      <i class="fact-icon fa fa-truck" aria-hidden="true"></i>
+      <span class="fact-h">Delivered</span>
+      <p class="fact-text">We ship your purchases in just a few days with a full insurance coverage.</p>
+    </div>
+    <div class="fact-item fact-item_3">
+      <i class="fact-icon fa fa-thumbs-up" aria-hidden="true"></i>
+      <span class="fact-h">Guaranteed</span>
+      <p class="fact-text">We offer a 10-day, no-questions-asked, money-back guarantee to all our buyers.</p>
+    </div>
+  </div>
+</div>
+
+   
+    END <ng-include src="'views/search-page/search-main-content.html'"></ng-include>
+-->
+
+    <ng-include src="'views/global/footer.html'"></ng-include>
+
+
+
+</data-show>
+
+
+<data-scripts  ng-if="page['result']" > 
+    <data-js-lazy-load 
+        js-lazy-load  
+        src="js/main.js" >    
+    </data-js-lazy-load>
+<!--
+    <data-js-lazy-load 
+        js-lazy-load  
+        src="js/price-slider-init.js" >    
+    </data-js-lazy-load>
+</data-scripts>
+-->

@@ -1,0 +1,361 @@
+  
+<data-wrapper>   
+   
+    <div class="main-header shopping-cart-header container-fluid">
+
+      <ng-include src="'views/global/header-elements.html'"></ng-include>
+<!--     <ng-include src="'views/global/header-breadcrumbs.html'"></ng-include> -->
+
+    </div>
+
+    <div class="main shopping-cart-page container-fluid">
+
+        
+<!--       
+       START  <ng-include src="'views/seller-steps/seller-step-header-scheme.html'"></ng-include>
+--> 
+<!-- for scroll -->
+<a id="startposition"></a>
+
+<div class="bottom-header-part steps-scheme-fixed-container hidden-on-mobile">
+<div class="steps-scheme-fixed">
+<div class="container">
+  <h2 class="bottom-header-part_h bottom-header-part_h_white-on-mobile hidden-on-desktop">Watch Information</h2>
+  <div class="step-container-fluid hidden-on-mobile">
+   <div class="step-container_seller-page step-container container clearfix">
+     <div 
+ng-class=" buystep == 1 || buystep == 2 || buystep == 3 ?  ( buystep == 1 ?  'active-step' : 'active-step done' ) : '' "
+     class="step-name">
+       <h3 class="step-name_h hidden-on-mobile">Order Summary</h3>
+       <div class="circle circle_sp"><i class="circle_icon fa fa-check" aria-hidden="true"></i></div>
+     </div>
+     <div 
+ng-class=" buystep == 2 || buystep == 3 ?  ( buystep == 2 ?  'active-step' : 'active-step done' ) : '' "
+     class="step-name step-name_central">
+       <h3 class="step-name_h hidden-on-mobile">Shipping Info</h3>
+       <div class="circle circle_sp circle_with-line"><i class="circle_icon fa fa-check" aria-hidden="true"  ></i></div>
+     </div>
+     <div 
+ng-class=" buystep == 3 ?  'active-step' : '' " 
+     class="step-name">
+       <h3 class="step-name_h hidden-on-mobile">Payment</h3>
+       <div class="circle circle_sp circle_with-line"><i class="circle_icon fa fa-check" aria-hidden="true"  ></i></div>
+     </div>
+   </div>          
+  </div>
+</div>
+</div>
+</div> 
+
+<div class="container-fluid breadcrumbs-container-main">
+	<div class="container">
+		<ul class="breadcrumbs-container breadcrumbs-container_search-page-padding hidden-on-mobile standart-list">
+			<li class="breadcrumb-li"><a href="/" class="watch-breadcrumb">Home</a></li>
+			<li class="breadcrumb-li"><a href="/search-page" class="watch-breadcrumb">
+     Search Results</a></li>
+			<li ng-if=" breadcrumbtext2 "
+   class="breadcrumb-li"><a href="" class="watch-breadcrumb">
+     {{ breadcrumbtext2 }}</a></li>
+		</ul>
+	</div>
+</div>
+   
+<!--       
+       END  <ng-include src="'views/seller-steps/seller-step-header-scheme.html'"></ng-include>
+-->  
+       
+
+
+<!--
+      START <ng-include src="'views/buyer-steps/buyer-steps-scheme.html'">
+      </ng-include>
+
+<div class="step-container-fluid">
+  <div class="step-container container clearfix">
+    <span class="mobile-v-step-count hidden-on-desktop">Step {{ buystep }}</span>
+    <!-- ADD CLASS "active-step" TO CURRENT STEP 
+    <div 
+    ng-class=" buystep == 1 || buystep == 2 || buystep == 3 ?  ( buystep == 1 ?  'active-step' : 'active-step done' ) : '' "
+    class="step-name">
+      <h3 class="step-name_h hidden-on-mobile">Order Summary</h3>
+      <!-- ADD CLASS "done" WHEN TO DONE STEP 
+      <div class="circle"><i class="circle_icon fa fa-check" aria-hidden="true"></i></div>
+    </div>
+    <div 
+    ng-class=" buystep == 2 || buystep == 3 ?  ( buystep == 2 ?  'active-step' : 'active-step done' ) : '' "
+
+    class="step-name step-name_central">
+      <h3 class="step-name_h hidden-on-mobile">Shipping Info</h3>
+      <div class="circle circle_with-line"><i class="circle_icon fa fa-check" aria-hidden="true"  ></i></div>
+    </div>
+    <div 
+    ng-class=" buystep == 3 ?  'active-step' : '' "    
+    class="step-name">
+      <h3 class="step-name_h hidden-on-mobile">Payment</h3>
+      <div class="circle circle_with-line"><i class="circle_icon fa fa-check" aria-hidden="true"  ></i></div>
+    </div>
+  </div>
+</div>
+
+      END <ng-include src="'views/buyer-steps/buyer-steps-scheme.html'">
+      </ng-include>
+-->
+      
+      <div class="container buyer-content-container">
+          
+      <div 
+      ng-if="buystep == 2"
+      class="register-list-container">
+
+<data-show-step2 ng-if="showstep2 == 1" >
+          <ng-include src="'views/global/reg-log-block.html'"></ng-include>
+<!--         
+    <data-js-lazy-load 
+        js-lazy-load  
+        src="js/coolgooglemap.js" >    
+    </data-js-lazy-load>
+-->
+</data-show-step2>   
+<!--    
+     START     <ng-include src="'views/buyer-steps/buyer-shipping-fields.html'"></ng-include>
+-->
+
+<!--
+<data-show-step2 ng-if="showstep2 == 2" >
+-->
+<data-show-step2 >
+<form  id="form-with-angular-classes" 
+ class="shipping-fields-container little-underline ">
+  
+ <span 
+ ng-class=" showstep2 != 1 ? 'information-h_single-ship' : '' "
+ class="information-h">Shipping Information</span>
+
+ <div class="default-text-field-container">
+    <input
+ng-model="new_user.adres" 
+    required="required"
+if-has-val-dirty-dir
+    class="text-field" type="text" id="ship-address_1" />
+    <label class="text-field-placeholder" for="ship-address_1">Address 1 <span class="red">*</span></label>
+    <i class="success-icon fa fa-check" aria-hidden="true"></i>
+    <i class="error-icon fa fa-times" aria-hidden="true"></i>
+ </div>
+ <div class="default-text-field-container">
+    <input 
+ng-model="new_user.adres2"
+if-has-val-dirty-dir     
+    class="text-field" type="text" id="ship-address_2" placeholder="Address 2" />
+    <i class="success-icon fa fa-check" aria-hidden="true"></i>
+    <i class="error-icon fa fa-times" aria-hidden="true"></i>
+ </div>
+ <div class="default-text-field-container">
+    <input 
+ng-model="new_user.country" 
+required="required"
+if-has-val-dirty-dir 
+autocomplete-dir="{{autocompletecountries}}" autocompleteobj="new_user" autocompleteprop="country"   
+    class="text-field" type="text" id="ship-country" />
+    <label class="text-field-placeholder" for="ship-country">Country <span class="red">*</span></label>
+    <i class="success-icon fa fa-check" aria-hidden="true"></i>
+    <i class="error-icon fa fa-times" aria-hidden="true"></i>
+ </div>
+ <div class="default-text-field-container">
+    <input 
+ng-model="new_user.state" 
+required="required" 
+if-has-val-dirty-dir 
+autocomplete-dir="{{autocompletestate}}" autocompleteobj="new_user" autocompleteprop="state" 
+    class="text-field" type="text" id="ship-state" />
+    <label class="text-field-placeholder" for="ship-state">State <span class="red">*</span></label>
+    <i class="success-icon fa fa-check" aria-hidden="true"></i>
+    <i class="error-icon fa fa-times" aria-hidden="true"></i>
+ </div>
+ <div class="default-text-field-container">
+    <input 
+ng-model="new_user.city" 
+required="required" 
+if-has-val-dirty-dir   
+    class="text-field" type="text" id="ship-city" />
+    <label class="text-field-placeholder" for="ship-city">Town/City <span class="red">*</span></label>
+    <i class="success-icon fa fa-check" aria-hidden="true"></i>
+    <i class="error-icon fa fa-times" aria-hidden="true"></i>
+ </div>
+ <div class="default-text-field-container">
+    <input 
+ng-model="new_user.house" 
+required="required" 
+if-has-val-dirty-dir   
+    class="text-field" type="text" id="ship-house" />
+    <label class="text-field-placeholder" for="ship-house">House Name/Number <span class="red">*</span></label>
+    <i class="success-icon fa fa-check" aria-hidden="true"></i>
+    <i class="error-icon fa fa-times" aria-hidden="true"></i>
+ </div>
+ <div class="default-text-field-container">
+    <input 
+ng-model="new_user.postcode" 
+required="required"
+if-has-val-dirty-dir      
+    class="text-field" type="text" id="ship-postcode" />
+    <label class="text-field-placeholder" for="ship-postcode">Postcode <span class="red">*</span></label>
+    <i class="success-icon fa fa-check" aria-hidden="true"></i>
+    <i class="error-icon fa fa-times" aria-hidden="true"></i>
+ </div>
+ 
+</form>
+</data-show-step2>
+
+<!--    
+     END     <ng-include src="'views/buyer-steps/buyer-shipping-fields.html'"></ng-include>
+-->
+
+          <span 
+          ng-click="nextStep('0')"
+          class="go-back-link">Go Back</span>
+          
+      </div>  
+
+      <data-wrapper ng-if="buystep != 2">         
+        <ng-include src="maincontent"></ng-include>       
+      </data-wrapper>
+
+<!--              
+        START <ng-include src="'views/buyer-steps/buyer-summary-list.html'"></ng-include>   
+-->
+   <div class="summary-container" id="summary-affix">
+      <h3>Summary</h3>
+      <ul class="summary-product-list small-list standart-list">
+        
+        <li 
+ng-repeat="item in $root.settings_card"         
+        class="clearfix">
+          <span class="product-name">
+  {{ item['name'] }}             
+          </span>
+          <a 
+show-modal-remove-from-card-dir="{{item}}"         
+          class="delete-from-cart-link">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </a> 
+          <span class="product-price">
+  {{ item['price'] | appcurrency }}             
+            </span>
+        </li>
+        
+      </ul>
+      <ul 
+ng-if="noexist"      
+      class="additional-list small-list standart-list">
+        <li 
+ng-if="noexist"        
+        class="clearfix">
+          <span class="product-name">Subtotal:</span>
+          <span class="product-price">$399,99</span>
+        </li class="clearfix">
+        
+        <li class="clearfix">
+          <span class="product-name">Shipping Cost:</span>
+          <span class="product-price">
+{{ }}                        
+          </span>
+        </li>
+        
+        <li 
+ng-if="noexist"         
+        class="clearfix">
+          <span class="product-name">Shipping Duration:</span>
+          <span class="product-price">$399,99</span>
+        </li>
+        
+      </ul>
+      <div class="total-container small-list">
+        <span class="total-name">Total</span>   
+        <span class="total-price">
+{{ $root.gettotal() }}          
+         </span>
+      </div>
+      <a  ng-if=" !($root.cardpayment && $root.cardpayment.paymentmethod == 'paypal' && buystep == 3 && paypel_url) "
+      ng-click="nextStep()"
+      class="standart-btn cart-next-btn">
+{{ buystep != '3' ? 'Next' : ($root.cardpayment.paymentmethod == 'details' ? 'Get bank details' : 'Confirm order') }} 
+      </a>
+      <a  ng-if=" $root.cardpayment && $root.cardpayment.paymentmethod == 'paypal' && buystep == 3 && paypel_url "     
+      ng-attr-data-method="{{ $root.cardpayment && $root.cardpayment.paymentmethod == 'paypal' && buystep == 3 && paypel_url ? 'post' : 'get' }}"
+      ng-href="{{ $root.cardpayment && $root.cardpayment.paymentmethod == 'paypal' && buystep == 3 && paypel_url ?  paypel_url  : '#' }}"
+      ng-click="nextStep()"
+      class="standart-btn cart-next-btn">
+{{ buystep != '3' ? 'Next' : 'Pay with paypal' }} 
+      </a>
+      
+          
+      <p class="form-error" id="form-error">
+        <span style="opacity: 0" >!</span> 
+      </p>
+      
+    </div>
+  </div>
+<!--              
+        END <ng-include src="'views/buyer-steps/buyer-summary-list.html'"></ng-include>   
+-->
+       
+      </div>
+    </div>
+
+    <ng-include src="'views/global/footer.html'"></ng-include>
+
+
+</data-wrapper>
+  
+    <data-js-lazy-load 
+        js-lazy-load  
+        src="js/main.js" >    
+    </data-js-lazy-load>
+    
+    
+<!--
+    START <ng-include src="'views/buyer-steps/buyer-modal.html'"></ng-include>
+
+<div class="cart-modal-container"  
+ng-class=" $root.modal_remove_if_want ? 'g-d-block' : '' " >
+  <div class="cart-modal">
+    <div 
+hide-modal-remove-from-card-dir    
+    class="modal-close-btn-2"></div>
+    <p class="modal-text">Are you sure you want to remove this item?</p>
+    <button 
+remove-from-card-dir    
+    class="secondary-btn modal-btn">Remove</button>
+    <button 
+hide-modal-remove-from-card-dir    
+    class="standart-btn modal-btn modal-btn_no-right-margin">No, undo!</button>
+  </div>
+</div>
+
+    END <ng-include src="'views/buyer-steps/buyer-modal.html'"></ng-include>
+-->
+
+<!--
+    Start end modal
+-->
+
+<div 
+ng-class=" end_buyer_modal ?  'g-d-block' : '' "
+class="cart-modal-container confirm-modal-container">
+  <div class="cart-modal confirm-modal">
+<!--    <div class="modal-close-btn"></div>  -->
+    <h4 class="confirm-modal-h">Thank you!</h4>
+    <p class="comfirm-modal-p comfirm-modal-p_withot-underline">You have done payment. We will send you an email confirming your payment.</p>
+    <div class="two-buttons-container clearfix">
+        <button 
+redirect-to-dir="/"          
+        class="standart-btn two-buttons_left">Main page</button>
+        <button 
+redirect-to-dir="/search-page"          
+        class="standart-btn two-buttons_right">Shop More</button>
+    </div>
+  </div>
+</div>
+
+<!--
+    End end modal
+-->

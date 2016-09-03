@@ -1,0 +1,25 @@
+<div class="step-container-fluid">
+  <div class="step-container container clearfix">
+    <span class="mobile-v-step-count hidden-on-desktop">Step {{ buystep }}</span>
+    <!-- ADD CLASS "active-step" TO CURRENT STEP -->
+    <div 
+    ng-class=" buystep == 1 || buystep == 2 || buystep == 3 ?  ( buystep == 1 ?  'active-step' : 'active-step done' ) : '' "
+    class="step-name">
+      <h3 class="step-name_h hidden-on-mobile">Order Summary</h3>
+      <!-- ADD CLASS "done" WHEN TO DONE STEP -->
+      <div class="circle"><i class="circle_icon fa fa-check" aria-hidden="true"></i></div>
+    </div>
+    <div 
+    ng-class=" buystep == 2 || buystep == 3 ?  ( buystep == 2 ?  'active-step' : 'active-step done' ) : '' "
+    class="step-name step-name_central">
+      <h3 class="step-name_h hidden-on-mobile">Shipping Info</h3>
+      <div class="circle circle_with-line"><i class="circle_icon fa fa-check" aria-hidden="true"  ></i></div>
+    </div>
+    <div 
+    ng-class=" buystep == 3 ?  'active-step' : '' "    
+    class="step-name">
+      <h3 class="step-name_h hidden-on-mobile">Payment</h3>
+      <div class="circle circle_with-line"><i class="circle_icon fa fa-check" aria-hidden="true"  ></i></div>
+    </div>
+  </div>
+</div>

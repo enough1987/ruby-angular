@@ -1,0 +1,73 @@
+
+<form
+ id="form-with-angular-classes" 
+ class="shipping-fields-container little-underline ui-widget">
+  
+ <span 
+ 
+ class="information-h">Shipping Information</span>
+
+ <div class="default-text-field-container">
+    <input
+ng-model="new_user.adres" 
+    required="required"
+    class="text-field" type="text" id="ship-address_1" />
+    <label class="text-field-placeholder" for="ship-address_1">Address 1 <span class="red">*</span></label>
+    <i class="success-icon fa fa-check" aria-hidden="true"></i>
+    <i class="error-icon fa fa-times" aria-hidden="true"></i>
+ </div>
+ <div class="default-text-field-container">
+    <input 
+ng-model="new_user.adres2"     
+    class="text-field" type="text" id="ship-address_2" placeholder="Address 2" />
+    <i class="success-icon fa fa-check" aria-hidden="true"></i>
+    <i class="error-icon fa fa-times" aria-hidden="true"></i>
+ </div>
+ <div class="default-text-field-container">
+    <input 
+ng-model="new_user.country" 
+required="required" 
+   
+    class="text-field" type="text" id="ship-country" />
+    <label class="text-field-placeholder" for="ship-country">Country <span class="red">*</span></label>
+    <i class="success-icon fa fa-check" aria-hidden="true"></i>
+    <i class="error-icon fa fa-times" aria-hidden="true"></i>
+ </div>
+ <div class="default-text-field-container">
+    <input 
+ng-model="new_user.state" 
+required="required"    
+    class="text-field" type="text" id="ship-state" />
+    <label class="text-field-placeholder" for="ship-state">State <span class="red">*</span></label>
+    <i class="success-icon fa fa-check" aria-hidden="true"></i>
+    <i class="error-icon fa fa-times" aria-hidden="true"></i>
+ </div>
+ <div class="default-text-field-container">
+    <input 
+ng-model="new_user.city" 
+required="required"    
+    class="text-field" type="text" id="ship-city" />
+    <label class="text-field-placeholder" for="ship-city">Town/City <span class="red">*</span></label>
+    <i class="success-icon fa fa-check" aria-hidden="true"></i>
+    <i class="error-icon fa fa-times" aria-hidden="true"></i>
+ </div>
+ <div class="default-text-field-container">
+    <input 
+ng-model="new_user.house" 
+required="required"    
+    class="text-field" type="text" id="ship-house" />
+    <label class="text-field-placeholder" for="ship-house">House Name/Number <span class="red">*</span></label>
+    <i class="success-icon fa fa-check" aria-hidden="true"></i>
+    <i class="error-icon fa fa-times" aria-hidden="true"></i>
+ </div>
+ <div class="default-text-field-container">
+    <input 
+ng-model="new_user.postcode" 
+required="required"      
+    class="text-field" type="text" id="ship-postcode" />
+    <label class="text-field-placeholder" for="ship-postcode">Postcode <span class="red">*</span></label>
+    <i class="success-icon fa fa-check" aria-hidden="true"></i>
+    <i class="error-icon fa fa-times" aria-hidden="true"></i>
+ </div>
+ 
+</form>

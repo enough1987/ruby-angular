@@ -1,0 +1,105 @@
+
+#loader {	
+    width: 100px;
+    height: 100px;  
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top:-50px;
+}
+
+.g-d-none {
+	display: none !important;
+}
+
+.g-d-block {
+	display: block !important;
+} 
+
+.g-d-none-ni {
+	display: none ;
+}
+
+.g-d-block-ni {
+	display: block ;
+}
+
+.g-sort-hover {
+	background-color: #E6B320;
+    color: white;
+}
+
+.g-ta-left {
+    text-align: right;
+    margin-right: 0px;
+}
+
+
+/*
+form .ng-invalid-required.ng-dirty {
+            background-color: lightpink;
+        }
+*/
+#form-with-angular-classes .ng-valid.ng-dirty.ng-not-empty {
+    border-color: #2bbf43;
+}
+#form-with-angular-classes .ng-valid.ng-dirty.ng-not-empty ~ i.success-icon {
+	color: #2bbf43;
+}
+
+#form-with-angular-classes .ng-invalid.ng-dirty.ng-not-empty {
+	border-color: #ea6060;
+}
+#form-with-angular-classes .ng-invalid.ng-dirty.ng-not-empty ~ .error-icon {
+	color: #ea6060;
+} 
+
+
+/* start autocomplete */
+#form-with-angular-classes .ng-dirty.ng-not-empty.autocomplete_is_not_valid {
+	border-color: #ea6060 !important; 
+}
+#form-with-angular-classes .ng-dirty.ng-not-empty.autocomplete_is_not_valid ~ .error-icon {
+	color: #ea6060 !important; 
+} 
+#form-with-angular-classes .ng-dirty.ng-not-empty.autocomplete_is_not_valid ~ i.success-icon {
+	display: none !important;
+} 
+/* end autocomplete */
+
+
+#form-with-angular-classes .not-confirm {
+	border-color: #ea6060 !important;    
+}
+
+#form-with-angular-classes .ng-not-empty + label
+{
+	display: none !important;
+}
+
+
+#form-with-angular-classes .ng-empty + label {
+	display: inline-block;
+}
+
+.margin-top-50vh {
+	margin-top: 50vh;
+}
+
+.ui-helper-hidden-accessible {
+	display: none !important ;
+}
+
+.search-items_nav-arrow_disabled, .disabled-filter-item {
+  pointer-events: none;
+
+  /* for "disabled" effect */
+  opacity: 0.5;
+  
+}
+
+.modal-text {
+  color: #cecece;
+}
+

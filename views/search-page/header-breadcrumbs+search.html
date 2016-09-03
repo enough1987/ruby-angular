@@ -1,0 +1,19 @@
+
+<!-- for scroll -->
+<a id="startposition"></a>
+
+<div class="bottom-header-part">
+  <h2 class="bottom-header-part_h bottom-header-part_h_white-on-mobile"> 
+{{ 'Search Results for "'+ (search ? search : 'all')+'"' }}</h2>
+  <ul class="breadcrumbs-container breadcrumbs-container_search-page-padding hidden-on-mobile standart-list">
+   <li class="breadcrumb-li"><a href="/" class="watch-breadcrumb">Home</a></li>
+   <li class="breadcrumb-li"><a href="" class="watch-breadcrumb">Search Results</a></li>
+  </ul>
+  <div class="default-text-field-container search-field hidden-on-mobile">
+    <input 
+ng-keyup="searchonkeyup()"
+    class="text-field search-field_input" type="text" id="search-field" required="required">
+    <label class="search-field_label text-field-placeholder" for="search-field">Search:</label>
+    <i class="search-field_icon fa fa-search" aria-hidden="true"></i>
+  </div>
+</div>

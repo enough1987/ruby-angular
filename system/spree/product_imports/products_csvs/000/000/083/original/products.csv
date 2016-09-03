@@ -1,0 +1,2 @@
+brand,slug,name,price,cost_price,available_on,shipping_category,tax_category,taxons,option_types,description,images
+111,Prod-slu1g, Product Slug,10.01,10.25, 10/11/2011, shipp_cat, tax_cat," male, gold, tax3","opt1, opt2, opt3",some description here,"http://boombob.ru/img/picture/Oct/12/b8c4dfc5a2330eb3fec6c17e645ab23e/3.jpg, http://in-dee.ru/upload/iblock/102/10204e8846c8da137bde99aa70b18c8f.jpg"

@@ -1,0 +1,208 @@
+
+  
+    <div class="main-header shopping-cart-header container-fluid">
+      <ng-include src="'views/global/header-elements.html'"></ng-include>
+	</div>
+    
+
+<!--
+    START  <ng-include src="'watch-service-main-content.html'"></ng-include> 
+-->
+
+<!-- WATCH SERVICE CONTENT -->
+
+<div class="container-fluid ws-header-block">
+	<div class="container">
+		<h2 class="ws-header-block-h">High quality <i class="seller-step-h_brown-text">watch servicing</i></h2>
+		<p class="ws-header-block-p">We offer a wide range of services for your timepiece. Get in touch for our experts to assist you.</p>
+	</div>
+</div>
+
+
+
+<div class="ws-form-block">
+  <div class="seller-step-1-fields_block container ws-radio-block">
+    <div class="content-block clearfix">
+          <div class="service-desc service-desc_ws_img-1">
+            <h2 class="ws-h">Repair</h2>
+			Be it a defect in the watch mechanism or a scratch on the bezel - your watch will be promptly and professionally repaired.
+          </div>
+          <div class="service-desc service-desc_ws_img-2">
+            <h2 class="ws-h">Revision</h2>
+			Your watch should receive a thorough revision every five to seven years. This is not only important for impeccable functionality, but also for stable value retention.
+          </div>
+          <div class="service-desc service-desc_ws_img-3">
+            <h2 class="ws-h">Polishing</h2>
+			The casing is thoroughly cleaned, scratches are removed, making your watch shine in new light.
+          </div>
+          <div class="service-desc service-desc_ws_img-4">
+            <h2 class="ws-h">Wristband</h2>
+			 We supply a wide selection of quality watch straps in a variety of popular sizes, styles and colours. We do also offer original manufacturer's replacements.
+          </div>
+      </div>
+    </div>
+  </div>
+
+<div class="seller-step-1-fields container">
+  <div class="seller-step-h-block">
+      <img src="../../img/watch-s.jpg" alt="" class="seller-step-h-img">
+      <h1 class="seller-step-h">Give us some information about the <i class="seller-step-h_brown-text">required services</i>
+		<br>
+		We will contact you within 24 hours
+	  </h1>
+  </div>
+  <form class="seller-step-1-fields_block clearfix" novalidate id="form-with-angular-classes" >
+    <div class="default-text-field-container seller-form-field_3-in-row">
+       <input class="text-field" type="text" id="brand" required="required"
+       ng-model="service.brand"  >
+       <label class="text-field-placeholder" for="brand">
+        Brand 
+        <span class="red">*</span>
+       </label>
+       <i class="success-icon fa fa-check" aria-hidden="true"></i>
+       <i class="error-icon fa fa-times" aria-hidden="true"></i>
+    </div>
+    <div class="default-text-field-container seller-form-field_3-in-row">
+       <input class="text-field" type="text" id="model" required="required"
+       ng-model="service.model"  >
+       <label class="text-field-placeholder" for="model">
+        Model 
+        <span class="red">*</span></label>
+       </label>
+       <i class="success-icon fa fa-check" aria-hidden="true"></i>
+       <i class="error-icon fa fa-times" aria-hidden="true"></i>
+    </div>
+    <div class="default-text-field-container seller-form-field_3-in-row no-right-margin">
+       <input class="text-field" type="text" id="reference" required="required"
+       ng-model="service.reference"  >
+       <label class="text-field-placeholder" for="reference">
+        Reference
+        <span class="red">*</span></label>
+       <i class="success-icon fa fa-check" aria-hidden="true"></i>
+       <i class="error-icon fa fa-times" aria-hidden="true"></i>
+    </div>
+</form>
+	
+	<span class="sw-form-little-text">Services needed</span>
+
+	<div class="service-checkboxes">
+     <div class="content-item">
+          <input       
+          class="content-radio standart-radio" name="repair" type="checkbox" id="ws-repair"
+ng-model="service.servicing.repair"             >
+          <label class="content-radio-board sec-radio-label sec-radio-label_ws" for="ws-repair">
+            Repair
+          </label>
+      </div>
+      <div class="content-item">
+          <input      
+          class="content-radio standart-radio" name="revision" type="checkbox" id="ws-revision"
+ng-model="service.servicing.revision"           >
+          <label class="content-radio-board checked sec-radio-label sec-radio-label_ws" for="ws-revision">
+            Revision
+		  </label>
+      </div>
+      <div class="content-item">
+          <input        
+          class="content-radio standart-radio" name="polishing" type="checkbox" id="ws-polishing"
+ng-model="service.servicing.polishing"          >
+          <label class="content-radio-board sec-radio-label sec-radio-label_ws" for="ws-polishing">
+			Polishing
+          </label>
+      </div>
+      <div class="content-item">
+        <input      
+        class="content-radio standart-radio" name="wristband" type="checkbox" id="ws-wristband"
+ng-model="service.servicing.replacement"        >
+          <label class="content-radio-board sec-radio-label sec-radio-label_ws" for="ws-wristband">
+            Wristband Replacement
+		  </label>
+      </div>
+	 </div>
+
+  <form class="seller-step-1-fields_block clearfix" novalidate id="form-with-angular-classes" >
+    <div class="default-text-field-container seller-form-field_3-in-row">
+       <input class="text-field" type="text" id="name" required="required"
+       ng-model="service.name" >
+       <label class="text-field-placeholder" for="name">
+        Name 
+        <span class="red">*</span>
+       </label>
+       <i class="success-icon fa fa-check" aria-hidden="true"></i>
+       <i class="error-icon fa fa-times" aria-hidden="true"></i>
+    </div>
+    <div class="default-text-field-container seller-form-field_3-in-row">
+       <input class="text-field" type="text" id="email" required="required"
+       ng-model="service.email"
+       ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i"  >
+       <label class="text-field-placeholder" for="email">
+        Email 
+        <span class="red">*</span></label>
+       </label>
+       <i class="success-icon fa fa-check" aria-hidden="true"></i>
+       <i class="error-icon fa fa-times" aria-hidden="true"></i>
+    </div>
+    <div class="default-text-field-container seller-form-field_3-in-row no-right-margin">
+       <input class="text-field" type="text" id="phone" required="required"
+       ng-model="service.phone" 
+       ng-pattern="/^[0-9]{5,20}$/" >
+       <label class="text-field-placeholder" for="phone">
+        Phone
+        <span class="red">*</span></label>
+       <i class="success-icon fa fa-check" aria-hidden="true"></i>
+       <i class="error-icon fa fa-times" aria-hidden="true"></i>
+    </div>
+
+	<p class="form-error form-error_seller-step-2-fields" id="form-error"></p>
+
+	<div class="ws-btn-container">
+    	<button 
+      ng-click="send_watch_service()"
+      class="standart-btn ws-send-btn">Send Enquiry</button>
+    </div>
+  </form>
+
+</div>
+</div>
+
+
+  <div class="ws-assist-block container-fluid">
+    <div class="container">
+      <h2 class="ws-assist-block-h">At WatchR, we are always happy to assist you with any questions you may have</h2>
+      <button show-intercom-dir class="standart-btn ws-send-btn">Get in touch</button>
+    </div>
+  </div>
+
+
+
+<!-- WATCH SERVICE CONTENT END -->
+
+<!--
+    END <ng-include src="'watch-service-main-content.html'"></ng-include> 
+-->
+
+    <ng-include src="'views/global/footer.html'"></ng-include>
+
+  <!-- START seller-comfirm-modal.html -->
+<div 
+ng-class=" end_modal ?  'g-d-block' : '' "
+class="cart-modal-container confirm-modal-container">
+  <div class="cart-modal confirm-modal">
+    <div 
+ng-click="end_modal = false"    
+    class="modal-close-btn-2"></div>
+    <h4 class="confirm-modal-h">Thank you!</h4>
+    <p class="comfirm-modal-p comfirm-modal-p_withot-underline">We got your details. We will send you an email.</p>
+    <div class="two-buttons-container clearfix">
+        <button 
+redirect-to-dir="/"        
+        class="standart-btn two-buttons_left">Main page</button>
+        <button 
+redirect-to-dir="/search-page"         
+        class="standart-btn two-buttons_right">Shop More</button>
+    </div>
+  </div>
+</div>
+<!-- END seller-comfirm-modal.html --> 
+
+    <data-js-lazy-load js-lazy-load  src="js/main.js" ></data-js-lazy-load>

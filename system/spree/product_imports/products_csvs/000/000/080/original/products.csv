@@ -1,0 +1,3 @@
+brand,name,slug,price,cost_price,case_size,gemstone,year,preowned,box,papers,available_on,shipping_category,tax_category,taxons,description,meta_title,meta_keywords,meta_description,images
+Prod-slu1g,slug,Product Slug,10.01,10.25,110,1,2500,0,1,1,10/11/2011,shipp_cat,tax_cat," tax1, tax2, tax3",some description here,meta_title,meta_keywords,meta_description,"http://boombob.ru/img/picture/Oct/12/b8c4dfc5a2330eb3fec6c17e645ab23e/3.jpg, http://in-dee.ru/upload/iblock/102/10204e8846c8da137bde99aa70b18c8f.jpg"
+

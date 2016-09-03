@@ -1,0 +1,316 @@
+<!--
+<div id="loader" ng-class="page['product'] ? 'g-d-none' : 'g-d-block' " >
+    
+  <img class="loader-img"
+  src="img/loader3.gif" alt="loader" />
+    
+</div>
+-->
+
+    <div ng-class="page['product'] ? 'g-d-none' : 'g-d-block' "
+    class="loader-container"  >
+      <div class="loader">
+        <div class="loader__figure"></div>
+        <p class="loader__label">Loading...</p>
+      </div>
+    </div>
+
+
+<data-show ng-class="!page['product'] ? 'g-d-none' : 'g-d-block' " >
+
+
+
+    <div class="main-header shopping-cart-header container-fluid">
+
+      <ng-include src="'views/global/header-elements.html'"></ng-include>
+
+
+<!--      
+     START <ng-include src="'views/global/header-breadcrumbs.html'"></ng-include>
+-->
+
+
+
+<div class="breadcrumbs-container-main">
+<div 
+
+class="bottom-header-part container">
+
+   <ul class="breadcrumbs-container hidden-on-mobile standart-list">
+     
+     <li class="breadcrumb-li"><a href="/" class="watch-breadcrumb">Home</a></li>
+   
+<li class="breadcrumb-li"><a href="/search-page" class="watch-breadcrumb">Search Page</a></li>
+<li class="breadcrumb-li"><a href="" class="watch-breadcrumb">{{ breadcrumbtext2 }}</a></li>       
+ 
+     
+   </ul>
+   
+</div>
+</div>      
+<!--      
+     end <ng-include src="'views/global/header-breadcrumbs.html'"></ng-include>
+-->      
+
+    </div>
+
+<!--         
+    <ng-include src="'views/single-product/product-page-main-content.html'"> 
+    </ng-include>
+-->
+
+<!-- SINGLE PRODUCT BLOCK START -->
+  <!-- PRODUCT MAIN INFO BLOCK START -->
+      <div class="product-main-info-block container cleafix">
+        <div class="product-main-info-block_images-block">
+          <h3 class="single-product-h hidden-on-desktop">
+{{ page['product']['name'] }}
+          </h3>
+          <div class="big-product-img-container">
+            <span class="watch-brend">
+{{ page['product']['brand'][0] }}
+            </span>
+            <div class="big-img-container">
+              <img id="image-for-zoom" class="big-product-img" 
+              
+src="{{main_img || page['product']['master']['images'][0]['large_url']}}" 
+alt="">
+            </div>
+            <div class="big-product-img-details clearfix">
+              <i 
+heart-dir="{{page['product']['id']}}"              
+              class="product-favorite-btn fa fa-heart-o" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div ng-if="!(page['product']['master']['images'].length == 1)"
+          class="little-imgs-slider clearfix">
+
+            <div 
+ng-repeat="item in page['product']['master']['images']"
+            class="little-img-item">
+                <img class="smallest-product-img"
+ng-click="change_main_img(item['large_url'])"              
+src="{{item['large_url']}}" 
+                />               
+            </div> 
+          </div>
+        </div>
+        <div class="product-main-info-block_text-block">
+          <h3 class="single-product-h hidden-on-mobile" 
+data-grey-text="{{ page['product']['name'] }}">
+{{ page['product']['name'] }}
+          </h3>
+          <span class="single-product-price">
+{{ page['product']['price'] | appcurrency }}
+          </span>
+          <p class="single-product-description">
+{{ page['product']['description'] }}
+          </p>
+          <button 
+add-to-card-dir="{{page['product']}}"
+          class="standart-btn add-to-cart-fixed">Add to Cart</button>
+          <div class="extras-container clearfix">
+            <span class="extras-item text-al_left"><i class="extras-item_icon fa fa-check" aria-hidden="true"></i>10 Days Return Policy</span>
+            <span class="extras-item text-al_center"><i class="extras-item_icon fa fa-check" aria-hidden="true"></i>100% Original</span>
+            <span class="extras-item text-al_right no-right-margin"><i class="extras-item_icon fa fa-check" aria-hidden="true"></i>Professional Inspected</span>
+          </div>
+        </div>
+      </div>
+
+
+  <!-- PRODUCT MAIN INFO BLOCK END -->
+  <!-- PRODUCT SECONDARY INFO BLOCK START -->
+      <div class="product-secondary-info-block container clearfix">
+        <div class="basic-info-block">
+          <h4 class="basic-info-h">Basic Info</h4>
+          <ul class="basic-info-list standart-list">
+
+            <li 
+  ng-repeat="item in page['product']['basic_info']"
+            class="basic-info-list_item clearfix">
+
+              <span class="info-item-name">
+{{  item[0]['name'] }}
+              </span>
+              <span 
+ng-if=" item[0]['type'] == 'yes_no' "              
+              class="info-item-desc">
+{{  item[0]['items']['name'] }}
+              </span>
+              <span 
+ng-if=" item[0]['type'] == 'year' "              
+              class="info-item-desc">
+{{  item[0]['items']['name'] }} year
+              </span>
+              <span 
+ng-if=" item[0]['type'] == 'mm' "              
+              class="info-item-desc">
+{{  item[0]['items']['name'] }} mm
+              </span>
+              <span 
+ng-if=" item[0]['type'] == 'string' "              
+              class="info-item-desc">
+<data-repeat ng-repeat="it in item[0]['items']">
+    <data-wr ng-if="$index != 0"> , </data-wr>
+    {{  it['name'] }} 
+</data-repeat>
+              </span>
+
+
+
+            </li>
+
+          </ul>
+          <div class="comments-block">
+            <h4 class="basic-info-h">Comments</h4>
+            <span class="comments-item">Rolex Explorer II 904L Stainless steeL- 40mm Stainless Steel Case</span>
+            <a class="comments-item comments-item_link">sales@goldajewelry.com </a>
+            <a class="comments-item comments-item_link">www.goldajewelry.com</a>
+            <span class="comments-item">212 730 50 54</span>
+          </div>
+        </div>
+        <div class="certified-block">
+          <img src="../../img/spec-avatar.jpg" alt="" class="certified-img">
+          <br>
+          <span class="certified-h">This timepiece has been WatchR-certified by</span>
+          <span class="certified-name">Danny Mc’Ulla</span>
+          <span class="sertified-details">
+            <i class="sertified-details_icon fa fa-check" aria-hidden="true"></i>
+            Certified watch-master since 2000
+          </span>
+          <span class="sertified-details">
+            <i class="sertified-details_icon fa fa-comments" aria-hidden="true"></i>
+            A smooth sea never made a skillful sailor
+          </span>
+          <a show-intercom-dir href="" class="standart-btn standart-btn_margin-top">Questions? Ask me!</a>
+        </div>
+      </div>
+  <!-- PRODUCT SECONDARY INFO BLOCK END -->
+<!-- SINGLE PRODUCT BLOCK END -->
+
+<!-- SLIDER BLOCK START -->
+<div class="container-fluid watches-slider-block watches-slider-block_single-p-page">
+  <div class="container">
+    <h3 class="secondary-h">Similar Watches</h3>
+    <div class="watches-slides-container" id="watches-slider">
+
+      <div 
+        ng-if="page['similar']"
+        ng-repeat="item in page['similar']"
+      class="watch-slide">
+        <span class="watch-brend">
+{{ item['brand'][0] }}  
+</span>
+        <img 
+src="{{item['master']['images'][0]['product_url']}}"
+        alt="" class="watch-image">
+        <span class="watch-name">
+{{ item['name'] }}
+        </span>
+        <span class="watch-price">
+          
+    {{ item['price'] | appcurrency }}
+        </span>
+        <a href="{{'/single-product/'+item['id']}}" class="watch-slide_hover-btn"></a>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- SLIDER BLOCK END -->
+
+<!-- FACTS BLOCK START -->
+<div class="container-fluid seller-facts-container hidden-on-mobile">
+  <div class="container">
+   <div class="fact-item fact-item_1">
+      <i class="fact-icon fa fa-check" aria-hidden="true"></i>
+      <span class="fact-h">Inspected</span>
+      <p class="fact-text">All our watches have been inspected and authenticated by our certified watch-masters.</p>
+    </div>
+    <div class="fact-item fact-item_2">
+      <i class="fact-icon fa fa-truck" aria-hidden="true"></i>
+      <span class="fact-h">Delivered</span>
+      <p class="fact-text">We ship your purchases in just a few days with a full insurance coverage.</p>
+    </div>
+    <div class="fact-item fact-item_3">
+      <i class="fact-icon fa fa-thumbs-up" aria-hidden="true"></i>
+      <span class="fact-h">Guaranteed</span>
+      <p class="fact-text">We offer a 10-day, money-back guarantee to all our buyers, according to our terms and conditions.</p>
+    </div>
+  </div>
+</div>
+<!-- FACTS BLOCK END -->
+
+
+<!-- SELLERS REVIEW BLOCK START -->
+<div class="container-fluid cust-rev-container">
+  <div class="container relative-for-counter">
+    <h3 class="secondary-h">Our Customers Reviews</h3>
+    <h4 class="secondary-h_next hidden-on-mobile">Feedback</h4>
+    <div class="sell-rev-slider slider-little-nav" id="sell-rev-slider">
+      <div class="sell-rev-item clearfix">
+        <div class="sell-rev-img hidden-on-mobile"><img src="../../img/spp-rev-pic-1.jpg" alt="Customer Photo"></div>
+        <p class="sell-rev-text">I bought a Rolex Daytona and I have never been so satisfied with an online purchase. I trusted WatchR because of its inspection formula. I highly recommend it to anyone who is looking for a timepiece at a great price without worrying about its authenticity. Also, I felt very relaxed throughout the purchase process as they inspect and guarantee every watch they list on the website.
+		<br>
+        <span class="sell-rev-name">Michael</span></p>
+      </div>
+      <div class="sell-rev-item clearfix">
+        <div class="sell-rev-img hidden-on-mobile"><img src="../../img/spp-rev-pic-2.jpg" alt="Customer Photo"></div>
+        <p class="sell-rev-text">I have never trusted online shopping websites, especially if they sell expensive watches. But WatchR is different. I trusted them as they check and inspect every item they put online and I was happy to receive a 100% authentic Rolex Submariner. Great service.
+		<br>
+        <span class="sell-rev-name">Eleonor</span></p>
+      </div>
+    </div>
+    <div class="slider-counter hidden-on-desktop">
+      <span class="current-rev currentItem"></span>
+      /
+      <span class="revs-count owlItems"></span></span>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT ZOOM POPUP START -->
+  <div class="zoom-popup-bg no-active"></div>
+  <div class="zoom-popup-img-container no-active">
+    <img src="../../img/productMiddle.jpg" alt="" class="zoom-popup-img">
+    <span class="zoom-popup-close-btn modal-close-btn"></span>
+  </div>
+  <!-- PRODUCT ZOOM POPUP START -->
+
+    <!-- ADD TO CART MODAL -->
+  <div 
+ng-class=" $root.product_added_already_modal ? 'g-d-block' : 'g-d-none' " 
+  class="cart-modal-container">
+    <div class="cart-modal">
+<!--      <div class="modal-close-btn"></div> -->
+      <p class="modal-text">You have already added this item</p>
+      <button 
+ng-click="close_product_added_already_modal()"      
+      class="secondary-btn modal-btn">Continue Shopping</button>
+      <button 
+redirect-to-dir="/buyer-step/1"       
+      class="standart-btn modal-btn modal-btn_no-right-margin">Proceed to Checkout</button>
+    </div>
+  </div>
+  <!-- ADD TO CART MODAL END-->
+
+<!--         
+    END <ng-include src="'views/single-product/product-page-main-content.html'"> 
+    </ng-include>
+-->
+
+    <ng-include src="'views/global/footer.html'"></ng-include>
+
+<div class="landing-btns-wrapper"></div>
+
+ 
+    <data-js-lazy-load ng-if="page['product']"
+        js-lazy-load  
+        src="js/main.js" >    
+    </data-js-lazy-load>
+
+
+
+
+</data-show>

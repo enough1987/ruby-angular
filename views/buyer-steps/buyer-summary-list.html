@@ -1,0 +1,51 @@
+    <div class="summary-container" id="summary-box">
+      <h3>Summary</h3>
+      <ul class="summary-product-list small-list standart-list">
+        
+        <li 
+ng-repeat="item in $root.settings_card"         
+        class="clearfix">
+          <span class="product-name">
+  {{ item['name'] }}             
+          </span>
+          <a 
+ show-modal-remove-from-card-dir="{{item}}"
+         
+          class="delete-from-cart-link">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </a> 
+          <span class="product-price">
+  {{ item['price'] | appcurrency }}             
+            </span>
+        </li>
+        
+      </ul>
+      <ul 
+ng-if=" $root.delivery_response "     
+      class="additional-list small-list standart-list">
+        <li class="clearfix">
+          <span class="product-name">Subtotal:</span>
+          <span class="product-price">$399,99</span>
+        </li class="clearfix">
+        <li class="clearfix">
+          <span class="product-name">Shipping Cost:</span>
+          <span class="product-price">
+            {{ $root.delivery_response.ship_total }}
+          </span>
+        </li>
+<!--        <li class="clearfix">
+          <span class="product-name">Shipping Duration:</span>
+          <span class="product-price">$399,99</span>
+        </li>  -->
+      </ul>
+      <div class="total-container small-list">
+        <span class="total-name">Total</span>   
+        <span class="total-price">
+{{ $root.delivery_response.total || $root.gettotal() }}          
+         </span>
+      </div>
+      <a 
+      ng-click="nextStep()"
+      class="standart-btn cart-next-btn">Next</a>
+    </div>
+  </div>

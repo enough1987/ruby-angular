@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="watchApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Watches cart</title>
+
+    <!-- Bootstrap -->
+    <link href="../../css/libs/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/libs/font-awesome.min.css" rel="stylesheet">
+    <link href="../../css/libs/jquery.formstyler.css" rel="stylesheet">
+    <link href="../../css/libs/owl.carousel.css" rel="stylesheet">
+    <link href="../../css/libs/owl.theme.css" rel="stylesheet">
+    <link href="../../css/main.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-controller="AppCtrl" class="watchr-body">
+    <div class="container-fluid landing-page-header">
+      <div class="container">
+        <ng-include src="'../global/header-elements.html'"></ng-include>
+      </div>
+	  <ng-include src="'../global/header-breadcrumbs.html'"></ng-include>
+    </div>
+    
+    <div class="reglog-page-main">
+      <ng-include src="'../global/reg-log-block.html'"></ng-include>
+    </div>
+
+   <ng-include src="'../global/footer.html'"></ng-include>
+    
+    <script src="../../js/libs/jquery-2.2.4.min.js"></script>
+    <script src="../../js/libs/bootstrap.min.js"></script>
+    <script src="../../js/libs/angular.min.js"></script>
+    <script src="../../js/app.js"></script>
+    <data-js-lazy-load js-lazy-load  src="../../js/libs/jquery.formstyler.min.js" ></data-js-lazy-load>
+    <data-js-lazy-load js-lazy-load  src="../../js/libs/owl.carousel.min.js" ></data-js-lazy-load>
+    <data-js-lazy-load js-lazy-load  src="../../js/main.js" ></data-js-lazy-load>
+  </body>
+</html>

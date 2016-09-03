@@ -1,0 +1,122 @@
+
+  
+    <div class="main-header shopping-cart-header container-fluid">
+      <ng-include src="'views/global/header-elements.html'"></ng-include>
+<!--      <ng-include src="'views/global/header-breadcrumbs.html'"></ng-include>    -->
+    </div>
+<div id="startposition" ></div>
+<!--   
+    START <ng-include src="'contact-page-main-content.html'"></ng-include>
+-->
+
+<div class="photo-block-container contact-page_top">
+	<div class="container">
+		<h2 class="photo-block-h">24/7 Customer Support</h2>
+		<p class="photo-block-p">We want your experience to be totally stress-free when buying or selling with WatchR. If you have any questions, or just want to meet a friendly member of Team WatchR, you can reach us anytime!</p>
+	</div>
+</div>
+<div class="contacts-block">
+ <div class="container contacts-block_inner-container">
+	<h3 class="contacts-h">We'd love to chat!</h3>
+	<p class="contacts-p">The WatchR support team is available anytime by email, live chat and phone.</p>
+	<div class="contact-links-container clearfix">
+		<a show-intercom-dir href="" class="contact-link">
+			<span class="contact-circle">
+				<i class="fa fa-comments" aria-hidden="true"></i>
+			</span>
+			<br>
+			<span class="contact-label">Live Chat</span>
+		</a>
+		<a href="callto:+44(0)7437760954" class="contact-link">
+			<span class="contact-circle">
+				<i class="fa fa-phone" aria-hidden="true"></i>
+			</span>
+			<br>
+			<span class="contact-label">+44 (0) 7437 760 954</span>
+		</a>
+		<a href="#contact-form" class="contact-link">
+			<span class="contact-circle">
+				<i class="fa fa-envelope-o" aria-hidden="true"></i>
+			</span>
+			<br>
+			<span class="contact-label">hello@watchr.co.uk</span>
+		</a>
+	</div>
+ </div>
+</div>
+<div class="contact-form-container" id="contact-form">
+	<h3 class="contacts-h">Send us a Message</h3>
+	<p class="contacts-p">Please tell us how we can help.</p>
+	<form class="contact-form" novalidate  >
+		<div class="default-text-field-container">
+            <textarea 
+ng-model="chat.message"              
+            class="default-textarea text-field" type="text" id="comment" placeholder="Message"></textarea>
+            <i class="success-icon fa fa-check" aria-hidden="true"></i>
+            <i class="error-icon fa fa-times" aria-hidden="true"></i>
+        </div>
+        <div id="form-with-angular-classes"
+        class="default-text-field-container">
+           <input 
+ng-model="chat.name"           
+required="required"           
+           class="text-field" type="text" id="reg-name" >
+           <label class="text-field-placeholder" for="reg-name">Name <span class="red">*</span></label>
+           <i class="success-icon fa fa-check" aria-hidden="true"></i>
+           <i class="error-icon fa fa-times" aria-hidden="true"></i>
+        </div>
+        <div id="form-with-angular-classes"
+        class="default-text-field-container">
+           <input 
+ng-model="chat.last_name" 
+required="required"           
+           class="text-field" type="text" id="reg-last-name" >
+           <label class="text-field-placeholder" for="reg-last-name">Last Name <span class="red">*</span></label>
+           <i class="success-icon fa fa-check" aria-hidden="true"></i>
+           <i class="error-icon fa fa-times" aria-hidden="true"></i>
+        </div>
+        <div class="default-text-field-container">
+           <input 
+ng-model="chat.phone"            
+ng-pattern="/^[0-9]{5,20}$/"         
+           class="text-field" type="text" id="reg-phone" placeholder="Phone">
+           <i class="success-icon fa fa-check" aria-hidden="true"></i>
+           <i class="error-icon fa fa-times" aria-hidden="true"></i>
+        </div>
+        <div id="form-with-angular-classes"
+        class="default-text-field-container">
+           <input 
+ng-model="chat.email"   
+required="required" 
+ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i"           
+           class="text-field" type="text" id="reg-email" >
+           <label class="text-field-placeholder" for="reg-email">Email <span class="red">*</span></label>
+           <i class="success-icon fa fa-check" aria-hidden="true"></i>
+           <i class="error-icon fa fa-times" aria-hidden="true"></i>
+        </div>
+        <button 
+post-to-api-send-message-dir        
+        class="standart-btn">Send</button>
+<p class="form-error" id="form-error" > </p>
+	</form>
+</div>
+<div class="photo-block-container contact-page_bottom">
+	<div class="container">
+		<h2 class="photo-block-h">Don't feel like talking to anyone?</h2>
+		<p class="photo-block-p">You can find answers to most questions on our FAQ page.</p>
+		<a href="/faq-page"  class="standart-btn go-to-faq-btn">Go to FAQ</a>
+	</div>
+</div>
+
+<!--   
+    END <ng-include src="'contact-page-main-content.html'"></ng-include>
+-->
+
+
+
+    <ng-include src="'views/global/footer.html'"></ng-include>
+
+
+    <data-js-lazy-load js-lazy-load  src="js/main.js" ></data-js-lazy-load>
+
+    <data-scroll scroll-dir ></data-scroll>

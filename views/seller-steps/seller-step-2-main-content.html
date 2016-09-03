@@ -1,0 +1,298 @@
+<!-- SELLER STEP 2 START 
+  <div 
+  class="seller-step-2-container container">
+    <div class="seller-step-h-block">
+      <img src="../../img/person.jpg" alt="" class="seller-step-h-img">
+      <h1 class="seller-step-h">Tell us <i class="seller-step-h_brown-text">who</i> you are</h1>
+    </div>
+    <div class="seller-step-2-fields">
+      
+      
+     <ng-include src="'views/global/reg-log-block-sell.html'">
+     </ng-include>
+    <data-js-lazy-load 
+        js-lazy-load  
+        src="js/coolgooglemap.js" >    
+    </data-js-lazy-load>
+    
+         </div>
+  </div>
+
+
+
+ SELLER STEP 2 END -->
+
+
+   
+<!-- SELLER STEP 2 START -->
+<data-wrap 
+    ng-controller="SigninupCtrl" >
+  <div class="seller-step-2-container">
+    <div class="seller-step-h-block">
+      <img src="../../img/person.jpg" alt="" class="seller-step-h-img">
+
+      <h1 ng-hide="$root.social_login_new.token"        
+      class="seller-step-h">Tell us <i class="seller-step-h_brown-text">who</i> you are</h1>
+
+      <h1 ng-hide="!$root.social_login_new.token"        
+      class="seller-step-h">Hi {{ $root.social_login_new.user.name | f_upp_low }} <br />
+                        Welcome back! </h1>
+
+    </div>
+    <div class="seller-step-2-fields">
+      <div class="tabs-container">
+          <div class="tabs-btn-container clearfix">
+              <div 
+  ng-class="$root.step2form == '1' ? 'tab-btn_active' : ''"
+  ng-click="changestep2form(1)"              
+              class="tab-btn">Register</div>
+              <div 
+  ng-class="$root.step2form == '2' ? 'tab-btn_active' : ''" 
+  ng-click="changestep2form(2)"              
+              class="tab-btn">Login</div>
+          </div>
+          <div class="register-fields-container">
+
+          <form class="reg-fields" novalidate id="form-with-angular-classes" 
+ng-class="$root.step2form == 1 ? 'g-d-block' : 'g-d-none'"          
+          >
+		  <div class="clearfix">
+            <div class="default-text-field-container seller-form-field_2-in-row">
+               <input class="text-field text-field_with-icon" type="text" id="seller-f-name"
+  ng-model="$root.userup.name" 
+  required="required" 
+  if-has-val-dirty-dir               
+               >
+               <label class="text-field-placeholder" for="seller-f-name">
+                <i class="label-icon fa fa-user" aria-hidden="true"></i>
+                First Name
+                <span class="red">*</span> 
+               </label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div class="default-text-field-container seller-form-field_2-in-row no-right-margin">
+               <input class="text-field text-field_with-icon" type="text" id="seller-l-name" 
+  ng-model="$root.userup.last_name"
+  required="required"
+  if-has-val-dirty-dir                
+               >
+               <label class="text-field-placeholder" for="seller-l-name">
+                <i class="label-icon fa fa-user" aria-hidden="true"></i>
+                Last Name
+                <span class="red">*</span>
+               </label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>
+		   </div>
+            <div class="default-text-field-container">
+               <input class="text-field text-field_with-icon" type="text" id="email" 
+  ng-model="$root.userup.email"
+  required="required"
+  if-has-val-dirty-dir 
+  ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i"                
+               >
+               <label class="text-field-placeholder" for="email">
+                <i class="label-icon fa fa-envelope" aria-hidden="true"></i>
+                Email
+                <span class="red">*</span>
+               </label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div class="default-text-field-container">
+               <input class="text-field text-field_with-icon" type="text" id="phone" 
+  ng-model="$root.userup.phone"
+  ng-pattern="/^[0-9]{5,20}$/"
+  required="required"               
+               >
+               <label class="text-field-placeholder" for="phone">
+                <i class="label-icon fa fa-phone" aria-hidden="true"></i>
+                Phone Number
+                <span class="red">*</span>
+               </label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>            
+            <div 
+ng-if="!$root.social_block_hide"             
+            class="default-text-field-container seller-form-field_2-in-row">
+               <input class="text-field text-field_with-icon" id="reg-password" 
+  ng-model="$root.userup.password"
+  required="required"
+  ng-pattern="/^[a-zA-Z0-9]\w{5,20}$/"
+  type="password"                
+               >
+               <label class="text-field-placeholder" for="reg-password">
+                <i class="label-icon fa fa-lock" aria-hidden="true"></i>  
+                Password 
+                <span class="red">*</span>
+               </label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div 
+ng-if="!$root.social_block_hide"           
+            class="default-text-field-container seller-form-field_2-in-row no-right-margin">
+               <input class="text-field text-field_with-icon" type="password" id="reg-re_password" 
+  ng-model="$root.userup.password_confirmation"
+  required="required" 
+  ng-pattern="/^[a-zA-Z0-9]\w{5,20}$/" 
+  ng-class="$root.userup.password != $root.userup.password_confirmation ? 'not-confirm' : '' "
+  type="password"                
+               >
+               <label class="text-field-placeholder" for="reg-re_password">
+                <i class="label-icon fa fa-lock" aria-hidden="true"></i>
+                Retype Password 
+                <span class="red">*</span>
+               </label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>
+            </form>
+
+
+            <form class="login-fields-container" novalidate id="form-with-angular-classes" 
+  ng-class="$root.step2form == 2 ? 'g-d-block' : 'g-d-none'"   
+  ng-hide="$root.social_login_new.token"           
+            >
+              <div class="default-text-field-container seller-form-field_2-in-row">
+                 <input class="text-field" type="text" id="login-email" 
+  ng-model="$root.userin.email"
+  required="required" 
+  ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i" 
+  if-has-val-dirty-dir                 
+                 >
+                 <label class="text-field-placeholder" for="login-email">Email <span class="red">*</span></label>
+                 <i class="success-icon fa fa-check" aria-hidden="true"></i>
+                 <i class="error-icon fa fa-times" aria-hidden="true"></i>
+              </div>
+              <div class="default-text-field-container seller-form-field_2-in-row no-right-margin">
+                 <input class="text-field" type="password" id="login-password" 
+  ng-model="$root.userin.password"
+  required="required" 
+  ng-pattern="/^[a-zA-Z0-9]\w{5,20}$/"                  
+                 >
+                 <label class="text-field-placeholder" for="login-password">Password <span class="red">*</span></label>
+                 <i class="success-icon fa fa-check" aria-hidden="true"></i>
+                 <i class="error-icon fa fa-times" aria-hidden="true"></i>
+              </div>
+              <span 
+redirect-to-dir="/password/recover"              
+              class="little-right-link forgot-password-link">Forgot Password?</span>
+          </form>
+
+
+          <form id="form-with-angular-classes" 
+ng-class="$root.step2form == 3 ? 'g-d-block' : 'g-d-none'"   
+ng-hide="$root.social_login_new.token"         
+          >
+            <div class="default-text-field-container">
+              <input class="text-field" type="text" id="forgot-login-email" 
+  ng-model="userfogot.email"
+  required="required" 
+  ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i"               
+              >
+              <label class="text-field-placeholder" for="forgot-login-email">Email <span class="red">*</span></label>
+              <i class="success-icon fa fa-check" aria-hidden="true"></i>
+              <i class="error-icon fa fa-times" aria-hidden="true"></i>
+            </div>
+            <button class="standart-btn">Send Password</button>
+          </form>
+
+
+<p class="form-error form-error_seller-step-2-fields" id="form-error"></p>
+
+          <div 
+ng-hide="$root.social_block_hide || $root.social_login_new.token "          
+          class="social-login-container clearfix">
+            <span class="social-login-h">or 
+              {{ $root.step2form == 1 ? 'register' : '' }} 
+              {{ $root.step2form == 2 ? 'login' : '' }}               
+              with</span>
+  <!-- Social Login will be embedded into the following element -->
+<div id="social_login_demo"></div>
+ 
+ 
+<data-js-lazy-load 
+    js-lazy-load  
+    src="js/oneall.js" >    
+</data-js-lazy-load>  
+            </div> 
+          </div>
+          <h2       
+          class="seller-step-h seller-step-h_2">... and <i class="seller-step-h_brown-text">where</i> 
+          we can come and take a look at your watch!</h2>
+          <h2       
+
+     <div id="map-wrap" >     
+           <form        
+           class="map-btn-container map-btn-container-id" id="form-with-angular-classes" > 
+            <div class="default-text-field-container default-text-field-container_map-field" id="floating-panel">
+
+                 <input class="text-field text-field_with-icon" type="textbox" value="" 
+  ng-model="$root.seller_full_adress"
+  id="googleaddress"
+  placeholder="" 
+  if-has-val-dirty-dir           
+                > 
+               
+
+                  <label class="text-field-placeholder" for="map-adress">
+                  <i class="label-icon fa fa-map-marker" aria-hidden="true"></i>
+                  Type your address
+                  <span class="red">*</span>
+                  </label>
+                  <i class="success-icon fa fa-check" aria-hidden="true"></i>
+                  <i class="error-icon fa fa-times" aria-hidden="true"></i>
+              </div>
+            </form>  
+      <div>         
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+       <div 
+ng-class="step ? '' : 'g-d-none' "      
+      class="map" id="map" style="width: 100%; height: 350px;">      
+      </div>
+<!--
+  <p class="form-error form-error_seller-step-2-fields" id="form-error"></p>
+-->
+
+<div class="cart-modal-container " 
+ng-class="block_oneall_phone ? 'g-d-block' : 'g-d-none' ">
+  <form class="cart-modal" novalidate id="form-with-angular-classes" >
+    <h2 class="modal-h">Please type your Phone</h2>
+	<div class="default-text-field-container default-text-field-container_sell-fix">
+ <input 
+  ng-model="oneall.phone"
+  id="after-oneall-phone"
+  ng-pattern="/^[0-9]{5,20}$/"
+  required="required"
+               class="text-field" type="text" />
+               <label 
+               class="text-field-placeholder"
+               for="after-oneall-phone">Phone<span class="red">*</span></label>
+               <i class="success-icon fa fa-check" aria-hidden="true"></i>
+               <i class="error-icon fa fa-times" aria-hidden="true"></i>
+     </div>
+     <button 
+ng-click="oneall_need_phone()"     
+     id="plassphoneulogin"
+     class="standart-btn  default-text-field-container_sell-fix">Next</button>
+   <p class="form-error" id="after-oneall-phone-form-error"></p> 
+  </form>
+</div>
+
+
+</data-wrap>
+<!-- SELLER STEP 2 END -->
+  
+    <data-js-lazy-load 
+        js-lazy-load  
+        src="js/coolgooglemap.js" >    
+    </data-js-lazy-load>
+

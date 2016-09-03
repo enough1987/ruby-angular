@@ -1,0 +1,146 @@
+<div class="payment-cart-list-container">
+<div>
+ 
+<!--    checked="checked" -->   
+
+   
+ <div class="paypal-payment payment-radio">
+<!--
+  ng-change="paypal_first()" 
+  to input
+-->
+   <input
+   ng-change="paypal_first()" 
+  
+   ng-model="$root.cardpayment.paymentmethod" 
+   value="paypal"
+   name="payment-method" 
+   class="standart-radio" type="radio" id="paypal-pay">
+    <label class="prim-radio-label" for="paypal-pay"></label>
+    <label class="sec-radio-label payment-label" for="paypal-pay">PayPal</label>
+    <img src="../../img/paypal.jpg" alt="" class="payment-img">
+  </div>
+  <div class="cr-card-payment payment-radio">
+    <input 
+    ng-model="$root.cardpayment.paymentmethod" 
+    value="card"
+    name="payment-method" 
+    class="standart-radio" type="radio" id="card-pay">
+    <label class="prim-radio-label" for="card-pay"></label>
+    <label class="sec-radio-label payment-label" for="card-pay">Credit Card/Debit Card</label>
+    <img src="../../img/card-icons.jpg" alt="" class="payment-img">
+  </div>
+
+
+  
+  <div class="card-fields-container clearfix">
+    
+    <form 
+ng-if=" $root.cardpayment.paymentmethod == 'card' "    
+    novalidate  >
+   
+    <div class="default-text-field-container">
+       <input 
+  ng-model="$root.cardpayment.name" 
+  placeholder="Cardholder's Name"       
+       class="text-field" type="text" id="cardholder-name">
+<!--  <label class="text-field-placeholder" for="cardholder-name">Cardholder's Name <span class="red">*</span></label> -->
+       <i class="success-icon fa fa-check" aria-hidden="true"></i>
+       <i class="error-icon fa fa-times" aria-hidden="true"></i>
+    </div>
+   
+    <div id="form-with-angular-classes"
+    class="default-text-field-container">
+       <input 
+  ng-model="$root.cardpayment.card_number"
+  required="required" 
+  ng-pattern="/^[0-9]{12,20}$/" 
+  if-has-val-dirty-dir     
+       class="text-field" type="text" id="card-number">
+       <label class="text-field-placeholder" for="card-number">Card Number<span class="red">*</span></label>
+       <i class="success-icon fa fa-check" aria-hidden="true"></i>
+       <i class="error-icon fa fa-times" aria-hidden="true"></i>
+    </div>
+
+    <div id="form-with-angular-classes"
+    class="default-text-field-container cvv-field">
+       <input 
+  ng-model="$root.cardpayment.cvv"
+  required="required" 
+  ng-pattern="/^[0-9]{3,4}$/" 
+  if-has-val-dirty-dir
+  placeholder="CVV / Security Code"        
+       class="text-field" type="text" id="cvv">
+      <label class="text-field-placeholder" for="cvv">CVV / Security Code <span class="red">*</span></label> 
+       <i class="special-field-icon hint-icon_right hint-icon fa fa-question-circle-o" aria-hidden="true">
+         <span class="hint-block">
+                
+This number is printed on your MasterCard & Visa cards on back of the card. (last 3 digits AFTER the credit card number.) You can find your four-digit card verification number on the front of your American Express credit card above the credit card number on either the right or the left side of your credit card.
+          </span>
+       </i>
+<!--
+       <i class="success-icon fa fa-check" aria-hidden="true"></i>
+       <i class="error-icon fa fa-times" aria-hidden="true"></i>
+-->
+    </div>
+
+    <div id="form-with-angular-classes"
+    class="default-text-field-container exp-date-field">
+
+       <input 
+  
+  jqdatepicker
+  ng-model="$root.cardpayment.ed"  
+  placeholder="Expiry Date"
+  required="required" 
+  ng-pattern="/^[0-9]{1,2}[/]{1}[0-9]{4}$/"
+  if-has-val-dirty-dir
+       class="text-field" type="text" id="expdate">
+      <label class="text-field-placeholder" for="expdate">Expiry Date <span class="red">*</span></label> 
+       <i class="special-field-icon fa fa-calendar" aria-hidden="true"></i>
+<!--
+       <i class="success-icon fa fa-check" aria-hidden="true"></i>
+       <i class="error-icon fa fa-times" aria-hidden="true"></i>
+-->
+    </div>
+
+    </form>
+	
+  <div class="cr-card-payment payment-radio">
+    <input 
+    ng-model="$root.cardpayment.paymentmethod" 
+    value="details"
+    name="payment-method" 
+    class="standart-radio" type="radio" id="details-pay">
+    <label class="prim-radio-label" for="details-pay"></label>
+    <label class="sec-radio-label payment-label" for="details-pay">Bank Transfer</label>
+  </div>
+
+    <div ng-if=" $root.cardpayment.paymentmethod == 'details' " >
+
+
+       By confirming your order, you will receive
+       an email with WatchR bank details and
+       detailed instruction to process the payment.
+<!--
+Sort 20-47-34 
+<br>
+Acc numb 23222608 
+<br>
+Iban GB07 BARC 2047 3423 2226 08
+<br>
+Swift BARCGB22
+-->
+
+    </div>
+    
+  </div>
+</div>
+
+<a>
+<span 
+ng-click="nextStep(1)"
+class="go-back-link">Go Back</span>
+</a>
+
+</div>

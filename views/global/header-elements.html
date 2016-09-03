@@ -1,0 +1,178 @@
+<div class="header-line-wrapper"> 
+  <div class="header-elements">
+    <div class="container">
+  <a 
+redirect-to-dir="/" cursor-wait-dir
+  class="text-logo">Watch<i class="text-logo_r">R</i></a>
+  
+  <div 
+ng-controller="BuyerPartCtrl" 
+  class="cart-icon-container hidden-on-mobile">
+    <button 
+ng-hide="$root.hide_cart()"    
+ng-class=" $root.settings_card.length != 0 ? 'cart-btn_with-numbers' : '' "    
+    class="cart-btn" 
+data-products-in-cart="{{$root.settings_card.length}}">
+      <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+    </button>
+    <div class="active-cart-list-container">
+      <ul class="product-list standart-list">
+        
+        <li 
+ng-repeat="item in $root.settings_card"      
+        class="product-list_item">
+          <div class="product-photo-container">
+            <img class="product-small-img" 
+src="{{item['master']['images'][0]['product_url']}}" alt="">
+          </div>
+          <div class="product-details product-details_little-list">
+            <span class="product-name">
+    {{ item['name'] }}              
+              </span>
+<!-- remove-from-card-dir="{{item}}" -->
+            <a 
+show-modal-remove-from-card-dir="{{item}}"             
+            class="delete-from-cart-link">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </a>                  
+            <span class="product-price">
+    {{ item['price'] | appcurrency }}              
+              </span>
+          </div>
+        </li>
+        
+      </ul>
+      <div class="total-container">
+        <span class="total-name">Total</span>
+        <span class="items-count">{{$root.settings_card.length}} items</span>
+        <span class="total-price">{{ $root.gettotal() }}</span>
+      </div>
+      
+    <a redirect-to-dir="/buyer-step/1" cursor-wait-dir
+  
+    >
+      <button        
+      class="standart-btn go-to-cart-btn">Proceed to checkout</button>
+    </a>
+    </div>
+    
+  </div>
+  
+  
+  <a 
+  redirect-to-dir="/personal-page" cursor-wait-dir
+  ng-class=" $root.settings._token != $root.settings.old_token ? 'user-link_active' : '' "
+  title="{{ $root.settings._token != $root.settings.old_token ? 'Personal Page' : 'SingIn/LogIn' }}"
+  class="user-link hidden-on-mobile" 
+  >
+  <i class="user-link-icon fa fa-user" aria-hidden="true"></i></a>
+  
+  <button class="secondary-btn secondary-btn_transparent header-btn header-btn_two-lines support-btn">24/7 support</button>
+  
+    <a redirect-to-dir="/buyer-step/1" class="mobile-cart-icon hidden-on-desktop"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+
+<a redirect-to-dir="/watch-service" cursor-wait-dir
+  <button class="secondary-btn secondary-btn_transparent  hidden-on-mobile header-btn header-btn_two-lines">Watch Service</button>
+</a>
+<a redirect-to-dir="/seller-landing" cursor-wait-dir
+>
+  <button   
+  class="secondary-btn secondary-btn_transparent  hidden-on-mobile header-btn">Sell</button>
+</a>
+
+<a redirect-to-dir="/search-page" cursor-wait-dir
+>
+  <button  
+  class="secondary-btn secondary-btn_transparent  hidden-on-mobile header-btn">Buy</button>
+</a>
+<a href="callto:+44(0)7437760954" class="phone-num hidden-on-mobile">+44 (0) 7437 760 954</a>
+
+
+  <div class="mobile-menu-btn hidden-on-desktop">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+  </div>
+</div>
+</div>
+</div>
+
+
+<div class="contacts-block_header-part contacts-block">
+  <button class="secondary-btn secondary-btn_transparent header-btn header-btn_two-lines support-btn hidden-on-desktop">24/7 support</button>
+ <div class="container contacts-block_inner-container">
+  <h3 class="contacts-h">We'd love to chat!</h3>
+  <p class="contacts-p">The WatchR support team is available anytime by email, live chat and phone.</p>
+  <div class="contact-links-container clearfix">
+    <a href="" class="contact-link">
+      <span 
+show-intercom-dir      
+      class="contact-circle">
+        <i class="fa fa-comments" aria-hidden="true"></i>
+      </span>
+      <br>
+      <span 
+      class="contact-label">Live Chat</span>
+    </a>
+    <a href="callto:+44(0)7437760954" class="contact-link">
+      <span class="contact-circle">
+        <i class="fa fa-phone" aria-hidden="true"></i>
+      </span>
+      <br>
+      <span class="contact-label">+44 (0) 7437 760 954</span>
+    </a>
+    <a href="mailto:hello@watchr.co.uk" class="contact-link">
+      <span class="contact-circle">
+        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+      </span>
+      <br>
+      <span class="contact-label">hello@watchr.co.uk</span>
+    </a>
+  </div>
+ </div>
+</div>
+
+
+<div class="support-popup-bg"></div>
+
+
+<div class="mobile-menu-content hidden-on-desktop mobile-menu-content_hidden">
+    <div class="mobile-menu-btn mobile-menu-btn_inside hidden-on-desktop">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+    </div>
+    <ul class="standart-list mobile-menu-list">
+      <li class="mobile-menu-item"><a redirect-to-dir="/search-page" class="mobile-menu-link">Buy a watch</a></li>
+      <li class="mobile-menu-item"><a redirect-to-dir="/seller-landing" class="mobile-menu-link">Sell a watch</a></li>
+	  <li class="mobile-menu-item"><a redirect-to-dir="/buyer-step/1" class="mobile-menu-link">Cart</a></li>
+      <li class="mobile-menu-item"><a redirect-to-dir="/personal-page" class="mobile-menu-link">My account</a></li>
+      <!--<li class="mobile-menu-item"><a redirect-to-dir="/career-page" class="mobile-menu-link">Careers</a></li>-->
+      <li class="mobile-menu-item"><a redirect-to-dir="/faq-page" class="mobile-menu-link">FAQ</a></li>
+      <li class="mobile-menu-item"><a redirect-to-dir="/contact-page" class="mobile-menu-link">Contact</a></li>
+      <li class="mobile-menu-item"><a redirect-to-dir="/add-privacy" class="mobile-menu-link">Privacy Policy</a></li>
+    </ul>
+</div>
+
+
+<!--
+    START <ng-include src="'views/buyer-steps/buyer-modal.html'"></ng-include>
+-->
+<div class="cart-modal-container"  
+ng-class=" $root.modal_remove_if_want ? 'g-d-block' : '' " >
+  <div class="cart-modal">
+    <div 
+hide-modal-remove-from-card-dir    
+    class="modal-close-btn-2"></div>
+    <p class="modal-text">Are you sure you want to remove this item?</p>
+    <button 
+remove-from-card-dir    
+    class="secondary-btn modal-btn">Remove</button>
+    <button 
+hide-modal-remove-from-card-dir    
+    class="standart-btn modal-btn modal-btn_no-right-margin">No, undo!</button>
+  </div>
+</div>
+<!--
+    END <ng-include src="'views/buyer-steps/buyer-modal.html'"></ng-include>
+-->
+
+
+
+

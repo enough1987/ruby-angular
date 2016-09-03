@@ -1,0 +1,41 @@
+<div class="products-list-container products-list-container_big-list">
+  <div class="header-title">
+    <span>Product</span>
+    <span class="products-list_price-h" class="hidden-on-mobile">Price</span>
+  </div>
+  <ul class="product-list standart-list">
+    
+    <li 
+ng-repeat="item in $root.settings_card"      
+    class="product-list_item">
+      <div class="product-photo-container product-photo-container-middle">
+        <img class="product-small-img" 
+src="{{item['master']['images'][0]['product_url']}}" alt="">
+      </div>
+      <div class="product-details product-details_big-list">
+        <span class="product-name">
+  {{ item['name'] }}           
+         </span>
+        <span class="product-price">
+  {{ item['price'] | appcurrency }}             
+         </span>
+        <br>
+        <a 
+show-modal-remove-from-card-dir="{{item}}"         
+         class="delete-from-cart-link">
+          <i class="fa fa-times" aria-hidden="true"></i>
+          Delete
+        </a>
+      </div>
+    </li>
+    
+    <p ng-if="!$root.settings_card.length"
+    style="text-align: center; margin-top: 80px;"
+    >  
+      You have 0 item in your card <br />
+      <a redirect-to-dir="/search-page" > Keep Shopping </a>    
+    </p>
+    
+    
+  </ul>
+</div>

@@ -1,0 +1,96 @@
+<!-- SELLER STEP 3 START -->
+  <div class="seller-step-3-container container">
+    <div class="seller-step-h-block">
+      <img src="../../img/time.jpg" alt="" class="seller-step-h-img">
+      <h1 class="seller-step-h">Select 4 suitable slots for your <i class="seller-step-h_brown-text">inspection</i></h1>
+      <p class="seller-step-p">Our certified WatchR inspectors will come at a time and location convenient for you. It will take less than 30 minutes for them to check the watch, box and papers and take a few professional pictures.</p>
+    </div>
+    <div class="seller-step-3-fields clearfix">
+      <div class="day-period-container">
+				
+        <div 
+ng-repeat="item in caldays"	
+calendar-seller-index={{$index}}		
+ng-class="showcal($index)"
+				class="calendar-seller day-period-row-container clearfix">
+        	<div class="dates-circles-item">
+        	  <span class="week-day">
+{{ caldays[$index]['name'] }}
+						</span>
+        	  <span class="date">
+{{ caldays[$index]['day'] }}
+</span>
+        	</div>
+        	<div class="day-period-row clearfix">
+                  <div class="day-period-item">
+                    <input 
+ng-model="caldays[$index]['time']" 
+value="Early Morning"
+clean-appointment-dir="" index="{{$index}}"
+										class="day-period-radio" name="day-{{$index}}" type="radio" id="day-em-{{$index}}">
+                      <label class="day-period-radio-prim-label" for="day-em-{{$index}}">
+                        <i class="day-period-radio-icon fa fa-check" aria-hidden="true"></i>
+                      </label>
+                      <label class="day-period-radio-sec-label" for="day-em-{{$index}}">Early Morning</label>
+                  </div>
+                  <div class="day-period-item">
+                    <input 
+ng-model="caldays[$index]['time']"
+value="Late Morning" 
+clean-appointment-dir="" index="{{$index}}"						
+										class="day-period-radio" name="day-{{$index}}" type="radio" id="day-lm-{{$index}}">
+                      <label class="day-period-radio-prim-label" for="day-lm-{{$index}}">
+                        <i class="day-period-radio-icon fa fa-check" aria-hidden="true"></i>
+                      </label>
+                      <label class="day-period-radio-sec-label" for="day-lm-{{$index}}">Late Morning</label>
+                  </div>
+                  <div class="day-period-item">
+                    <input 
+ng-model="caldays[$index]['time']" 
+value="Early Afternoon"	
+clean-appointment-dir="" index="{{$index}}"								
+										class="day-period-radio" name="day-{{$index}}" type="radio" id="day-ea-{{$index}}">
+                      <label class="day-period-radio-prim-label" for="day-ea-{{$index}}">
+                        <i class="day-period-radio-icon fa fa-check" aria-hidden="true"></i>
+                      </label>
+                      <label class="day-period-radio-sec-label" for="day-ea-{{$index}}">Early Afternoon</label>
+                  </div>
+                  <div class="day-period-item">
+                    <input 
+ng-model="caldays[$index]['time']" 
+value="Late Afternoon"
+clean-appointment-dir="" index="{{$index}}"										
+										class="day-period-radio" name="day-{{$index}}" type="radio" id="day-la-{{$index}}">
+                      <label class="day-period-radio-prim-label" for="day-la-{{$index}}">
+                        <i class="day-period-radio-icon fa fa-check" aria-hidden="true"></i>
+                      </label>
+                      <label class="day-period-radio-sec-label" for="day-la-{{$index}}">Late Afternoon</label>
+                  </div>
+                  <div class="day-period-item">
+                    <input 
+ng-model="caldays[$index]['time']" 
+value="Evening"	
+clean-appointment-dir="" index="{{$index}}"									
+										class="day-period-radio" name="day-{{$index}}" type="radio" id="day-e-{{$index}}">
+                      <label class="day-period-radio-prim-label" for="day-e-{{$index}}">
+                        <i class="day-period-radio-icon fa fa-check" aria-hidden="true"></i>
+                      </label>
+                      <label class="day-period-radio-sec-label" for="day-e-{{$index}}">Evening</label>
+                  </div>
+                </div>
+        </div>
+				
+        <div class="dates-circles-nav">
+          <span 
+ng-click="prevcal()"          
+          class="dates-circles-nav-item dates-circles-nav-item_prev"></span>
+          <span 
+ng-click="nextcal()"
+          class="dates-circles-nav-item dates-circles-nav-item_next"></span>
+        </div>
+				
+      </div>
+			
+    </div>
+  </div>
+<!-- SELLER STEP 3 END -->

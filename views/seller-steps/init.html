@@ -1,0 +1,103 @@
+
+    <div class="container-fluid landing-page-header landing-page-header_seller">
+      <div class="container">
+        <ng-include src="'views/global/header-elements.html'"></ng-include>
+        
+<!--       
+       START  <ng-include src="'views/seller-steps/seller-step-header-scheme.html'"></ng-include>
+--> 
+
+<!-- for scroll -->
+<a id="startposition"></a>
+
+<div class="bottom-header-part steps-scheme-fixed-container">
+<div class="steps-scheme-fixed">
+<div class="container">
+  <h2 class="bottom-header-part_h bottom-header-part_h_white-on-mobile hidden-on-desktop">Watch Information</h2>
+  <div class="step-container-fluid hidden-on-mobile">
+   <div class="step-container_seller-page step-container container clearfix">
+     <div 
+ng-class="step == '1' || step == '2' || step == '3' ? ( step == '1' ? 'active-step' : 'active-step done' ) : ''"
+     class="step-name">
+       <h3 class="step-name_h hidden-on-mobile">Watch information</h3>
+       <div class="circle circle_sp"><i class="circle_icon fa fa-check" aria-hidden="true"></i></div>
+     </div>
+     <div 
+ng-class="step == '2' || step == '3'? ( step == '2' ? 'active-step' : 'active-step done' ) : ''"
+     class="step-name step-name_central">
+       <h3 class="step-name_h hidden-on-mobile">Personal details</h3>
+       <div class="circle circle_sp circle_with-line"><i class="circle_icon fa fa-check" aria-hidden="true"  ></i></div>
+     </div>
+     <div 
+ng-class="step == '3' ? 'active-step' : ''"
+     class="step-name">
+       <h3 class="step-name_h hidden-on-mobile">Book your inspection</h3>
+       <div class="circle circle_sp circle_with-line"><i class="circle_icon fa fa-check" aria-hidden="true"  ></i></div>
+     </div>
+   </div>          
+  </div>
+</div>
+</div>
+</div>
+
+
+
+      
+<!--       
+       END  <ng-include src="'views/seller-steps/seller-step-header-scheme.html'"></ng-include>
+-->  
+        
+      </div>
+    </div>
+<div class="container-fluid breadcrumbs-container-main hidden-on-mobile">
+	<div class="container">
+		<ul class="breadcrumbs-container breadcrumbs-container_search-page-padding hidden-on-mobile standart-list">
+
+   <li class="breadcrumb-li"><a href='/' class="watch-breadcrumb">Home</a></li>
+   <li class="breadcrumb-li"><a href='/seller-landing' class="watch-breadcrumb">
+     Seller</a></li>
+   <li ng-if=" breadcrumbtext2 "
+   class="breadcrumb-li"><a href="" class="watch-breadcrumb">
+     {{ breadcrumbtext2 }}</a></li>
+     
+		</ul>
+	</div>
+</div>
+
+    <ng-include src="'views/seller-steps/seller-step-mobile-scheme.html'"></ng-include>
+
+    <ng-include src="maincontent"></ng-include>  
+
+    <ng-include src="'views/seller-steps/seller-step-nav.html'"></ng-include>
+
+
+    <ng-include src="'views/global/footer.html'"></ng-include>
+
+<!-- START seller-comfirm-modal.html -->
+<div 
+ng-class=" end_modal ?  'g-d-block' : '' "
+class="cart-modal-container confirm-modal-container">
+  <div class="cart-modal confirm-modal">
+    <div 
+ng-click="end_modal = false"    
+    class="modal-close-btn-2"></div>
+    <h4 class="confirm-modal-h">Thank you!</h4>
+    <p class="comfirm-modal-p comfirm-modal-p_withot-underline">We got your details. We will send you an email confirming your inspection shortly.</p>
+    <div class="two-buttons-container clearfix">
+        <button 
+redirect-to-dir="/seller-step/1"        
+        class="standart-btn two-buttons_left">Sell a Watch</button>
+        <button 
+redirect-to-dir="/search-page"         
+        class="standart-btn two-buttons_right">Shop More</button>
+    </div>
+  </div>
+</div>
+<!-- END seller-comfirm-modal.html --> 
+  
+    <data-js-lazy-load 
+        js-lazy-load  
+        src="js/main.js" >    
+    </data-js-lazy-load>
+
+

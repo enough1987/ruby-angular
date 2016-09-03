@@ -1,0 +1,122 @@
+ 
+  
+    <div class="main-header shopping-cart-header container-fluid">
+
+ <!-- for scroll -->
+<a id="startposition"></a>
+
+
+      <ng-include src="'views/global/header-elements.html'"></ng-include>
+
+
+
+<!--
+     START <ng-include src="'../global/header-breadcrumbs.html'"></ng-include>
+-->
+<div class="breadcrumbs-container-main">
+<div 
+class="bottom-header-part container">
+
+   <ul class="breadcrumbs-container hidden-on-mobile standart-list">
+     
+     <li class="breadcrumb-li"><a href="/" class="watch-breadcrumb">Home</a></li>
+   
+     <li ng-click="hide_single_career()" class="breadcrumb-li"><a href="/career-page" class="watch-breadcrumb">Career Page</a></li>     
+
+<li ng-if="single_career" class="breadcrumb-li"><a href="" class="watch-breadcrumb">{{ 'Position' }}</a></li>     
+
+
+   </ul>
+   
+</div>
+</div>
+<!--
+      END <ng-include src="'../global/header-breadcrumbs.html'"></ng-include>
+-->
+
+
+
+    </div>
+
+<!--  
+    START <ng-include src="'views/career-page/career-page-main-content.html'"></ng-include>
+-->
+<data-wrapper ng-if="!single_career">
+
+<div class="photo-block-container">
+	<div class="container">
+		<h2 class="photo-block-h">Open Positions</h2>
+	</div>
+</div>
+
+<div class="positions-list-container container">
+	<h2 class="positions-h">Open Positions</h2>
+	<ul class="standart-list">
+		<li
+ng-click="single_career_fnc(id)"    
+    ><a class="position-link">
+			Engineer, Quality Assurance
+		</a></li>
+		<li
+ng-click="single_career_fnc(id)"      
+    ><a class="position-link">
+			Engineer, Quality Assurance
+		</a></li>
+		<li
+ng-click="single_career_fnc(id)"      
+    ><a class="position-link">
+			Engineer, Quality Assurance
+		</a></li>
+	</ul>
+</div>
+
+</data-wrapper>
+<!--
+    END  <ng-include src="'views/career-page/career-page-main-content.html'"></ng-include>
+-->
+
+
+
+<!--
+    START     <ng-include src="'career-position-page-main-content.html'"></ng-include>
+-->
+<data-wrapper ng-if="single_career">
+
+<div class="position-page-header-container">
+	<div class="position-page-header container" id="position-header">
+		<div class="container">
+			<h2 class="position-page-h">Engineer, Quality Assurance</h2>
+			<a href="" class="position-page-breadcrumb">Open Positions</a>
+		</div>
+	</div>
+</div>
+
+<div class="position-desc-block container">
+	<p class="position-text">Beepi is the fastest growing marketplace to buy and sell cars 100% online. Gone are the days of haggling with the used car salesman on the lot. Instead, Beepi makes the process simple, trustworthy and even fun! We combine a rigorous vehicle certification process, an industry-leading pricing algorithm, and the world's best car-buying process to delight all our customers. Thanks to our great team, we’re changing the auto industry from the ground up.
+	At Beepi, our developers move fast and take corners aggressively. That's why we need a talented Quality Assurance team to keep all four wheels on the track and perform tune-ups on the fly. This is a challenging environment, and your skills will be put to the test, but you'll grow immensely during the process. If you're passionate about working with crack programmers to create precision innovation, we'd love to speak with you!</p>
+	<p class="position-text">Beepi is the fastest growing marketplace to buy and sell cars 100% online. Gone are the days of haggling with the used car salesman on the lot. Instead, Beepi makes the process simple, trustworthy and even fun! We combine a rigorous vehicle certification process, an industry-leading pricing algorithm, and the world's best car-buying process to delight all our customers. Thanks to our great team, we’re changing the auto industry from the ground up.
+	At Beepi, our developers move fast and take corners aggressively. That's why we need a talented Quality Assurance team to keep all four wheels on the track and perform tune-ups on the fly. This is a challenging environment, and your skills will be put to the test, but you'll grow immensely during the process. If you're passionate about working with crack programmers to create precision innovation, we'd love to speak with you!</p>
+	<p class="position-text">Beepi is the fastest growing marketplace to buy and sell cars 100% online. Gone are the days of haggling with the used car salesman on the lot. Instead, Beepi makes the process simple, trustworthy and even fun! We combine a rigorous vehicle certification process, an industry-leading pricing algorithm, and the world's best car-buying process to delight all our customers. Thanks to our great team, we’re changing the auto industry from the ground up.
+	At Beepi, our developers move fast and take corners aggressively. That's why we need a talented Quality Assurance team to keep all four wheels on the track and perform tune-ups on the fly. This is a challenging environment, and your skills will be put to the test, but you'll grow immensely during the process. If you're passionate about working with crack programmers to create precision innovation, we'd love to speak with you!</p>
+	<p class="position-text">Beepi is the fastest growing marketplace to buy and sell cars 100% online. Gone are the days of haggling with the used car salesman on the lot. Instead, Beepi makes the process simple, trustworthy and even fun! We combine a rigorous vehicle certification process, an industry-leading pricing algorithm, and the world's best car-buying process to delight all our customers. Thanks to our great team, we’re changing the auto industry from the ground up.
+	At Beepi, our developers move fast and take corners aggressively. That's why we need a talented Quality Assurance team to keep all four wheels on the track and perform tune-ups on the fly. This is a challenging environment, and your skills will be put to the test, but you'll grow immensely during the process. If you're passionate about working with crack programmers to create precision innovation, we'd love to speak with you!</p>
+	<p class="position-text">Beepi is the fastest growing marketplace to buy and sell cars 100% online. Gone are the days of haggling with the used car salesman on the lot. Instead, Beepi makes the process simple, trustworthy and even fun! We combine a rigorous vehicle certification process, an industry-leading pricing algorithm, and the world's best car-buying process to delight all our customers. Thanks to our great team, we’re changing the auto industry from the ground up.
+	At Beepi, our developers move fast and take corners aggressively. That's why we need a talented Quality Assurance team to keep all four wheels on the track and perform tune-ups on the fly. This is a challenging environment, and your skills will be put to the test, but you'll grow immensely during the process. If you're passionate about working with crack programmers to create precision innovation, we'd love to speak with you!</p>
+	<p class="position-text">Beepi is the fastest growing marketplace to buy and sell cars 100% online. Gone are the days of haggling with the used car salesman on the lot. Instead, Beepi makes the process simple, trustworthy and even fun! We combine a rigorous vehicle certification process, an industry-leading pricing algorithm, and the world's best car-buying process to delight all our customers. Thanks to our great team, we’re changing the auto industry from the ground up.
+	At Beepi, our developers move fast and take corners aggressively. That's why we need a talented Quality Assurance team to keep all four wheels on the track and perform tune-ups on the fly. This is a challenging environment, and your skills will be put to the test, but you'll grow immensely during the process. If you're passionate about working with crack programmers to create precision innovation, we'd love to speak with you!</p>
+	<p class="position-text">Beepi is the fastest growing marketplace to buy and sell cars 100% online. Gone are the days of haggling with the used car salesman on the lot. Instead, Beepi makes the process simple, trustworthy and even fun! We combine a rigorous vehicle certification process, an industry-leading pricing algorithm, and the world's best car-buying process to delight all our customers. Thanks to our great team, we’re changing the auto industry from the ground up.
+	At Beepi, our developers move fast and take corners aggressively. That's why we need a talented Quality Assurance team to keep all four wheels on the track and perform tune-ups on the fly. This is a challenging environment, and your skills will be put to the test, but you'll grow immensely during the process. If you're passionate about working with crack programmers to create precision innovation, we'd love to speak with you!</p>
+	<p class="position-text">Beepi is the fastest growing marketplace to buy and sell cars 100% online. Gone are the days of haggling with the used car salesman on the lot. Instead, Beepi makes the process simple, trustworthy and even fun! We combine a rigorous vehicle certification process, an industry-leading pricing algorithm, and the world's best car-buying process to delight all our customers. Thanks to our great team, we’re changing the auto industry from the ground up.
+	At Beepi, our developers move fast and take corners aggressively. That's why we need a talented Quality Assurance team to keep all four wheels on the track and perform tune-ups on the fly. This is a challenging environment, and your skills will be put to the test, but you'll grow immensely during the process. If you're passionate about working with crack programmers to create precision innovation, we'd love to speak with you!</p>
+</div>
+
+</data-wrapper>
+<!--
+    END   <ng-include src="'career-position-page-main-content.html'"></ng-include>
+<!--
+
+
+    <ng-include src="'views/global/footer.html'"></ng-include>
+
+
+    <data-js-lazy-load js-lazy-load  src="js/main.js" ></data-js-lazy-load>
